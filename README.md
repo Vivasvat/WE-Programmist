@@ -1,1 +1,3 @@
 # WE-Programmist
+YES YES YES
+SCIBIDI DOP DOP
