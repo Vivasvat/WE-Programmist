@@ -642,4 +642,16 @@ body, p {
   color: var(--color-light);
 }
 
+.header__text {
+  color: red;
+}
+
+.header__text:after {
+  content: "";
+  background-image: url(/images/404/1920.png);
+  display: inline-block;
+  width: 44.7916666667vw;
+  height: 34.21875vw;
+}
+
 /*# sourceMappingURL=main.css.map */
