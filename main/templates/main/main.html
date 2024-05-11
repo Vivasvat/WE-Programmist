@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WE-Programmist</title>
+</head>
+<body>
+    <form method="POST" action="{% url "main:create" %}">
+        {% csrf_token %}
+        <p>
+            <label>Введите Название Категории</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите Название Подкатегории</label><br>
+            <input type="text" name="name_two" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+    {% if cate.count > 0 %}
+    <h2>Список категорий</h2>
+    <table>
+        <thead><th>Id</th><th>Категория</th><th>Подкатегория</th><th></th></thead>
+        {% for category in cate %}
+        <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.name_two }}</td>
+            <td><a 
+                href="{% url "main:edit" category.id %}">Изменить
+            </a> | <a 
+                href="{% url "main:delete" category.id %}">Удалить
+            </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

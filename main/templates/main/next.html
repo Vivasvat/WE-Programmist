@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WE-Programmist</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите Имя</label><br>
+            <input type="text" name="name" value="{{cate.name}}" />
+        </p>
+        <p>
+            <label>Введите Фамилию</label><br>
+            <input type="text" name="name_two" value="{{cate.name_two}}" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>
