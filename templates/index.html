@@ -1,17 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static "main.css" %}">
-    <!--href="{% static "main.css" %}"-->
-</head>
-<body>
-    <p class="header__text">
-        Приветствуем вас на вашем сайте!
+{% block index %}
+    <p>
+        Вводите товары в ваш список:
     </p>
     <form method="POST" action="{% url "main:create" %}">
         {% csrf_token %}
@@ -54,8 +46,9 @@
         {% endfor %}
     </table>
     {% endif %}
-    <p class="header__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate accusamus minus iste illum 
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate accusamus minus iste illum 
         eos inventore labore pariatur quo debitis saepe fugit velit laboriosam unde, suscipit veniam, earum 
-        perferendis corporis.</p>
-</body>
-</html>
+        perferendis corporis.
+    </p>
+{% endblock %}

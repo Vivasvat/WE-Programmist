@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url "main:index" %}" method="POST">
+        <p>
+            Введите ваши данные:
+        </p>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Войти</button>
+    </form>
+    <form action="{% url "main:index_auth" %}" method="POST">
+        {% csrf_token %}
+        <button>Назад</button>
+    </form>
+    
+</body>
+</html>

@@ -14,6 +14,13 @@ from main.models import Categories, Products
 # 'next_page_url' : next_page_url,
 # }
 # return render(request, "main/main.html", context)
+
+def index_auth(request):
+    context={
+        'None':None
+    }
+    return render(request, "index_auth.html", context)
+
 def index(request):
     cate = Categories.objects.all()
     prod = Products.objects.all()

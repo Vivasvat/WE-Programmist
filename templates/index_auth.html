@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block index_auth %}
+    <p>
+        Приветствуем вас на нашем сайте!
+    </p>
+    <form method="POST" action="{% url "users:login" %}">
+        {% csrf_token %}
+        <button>Войти</button>
+    </form>
+{% endblock %}
