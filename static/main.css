@@ -654,4 +654,9 @@ body, p {
   height: 34.21875vw;
 }
 
+.positioned {
+  position: static;
+  background: yellow;
+}
+
 /*# sourceMappingURL=main.css.map */

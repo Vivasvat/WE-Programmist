@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 
-from main.models import Categories
+from main.models import Categories, Products
 
 # def index(request):
 # person=Person.objects.all()
@@ -15,14 +15,13 @@ from main.models import Categories
 # }
 # return render(request, "main/main.html", context)
 def index(request):
-    try:
-        cate = Categories.objects.all()
-        return render(request, "main/main.html", {"cate": cate})
-    except cate.DoesNotExist:
-        context={
-            "message_error": "<h2>Not found page :(</h2>",
-        }
-        return render(request, "404.html", context)
+    cate = Categories.objects.all()
+    prod = Products.objects.all()
+    context={
+        'prod':prod,
+        'cate':cate,
+    }
+    return render(request, "index.html", context)
 
 def create(request):
     if request.method=="POST":

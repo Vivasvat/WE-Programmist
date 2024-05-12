@@ -1,13 +1,60 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="{% static "main.css" %}">
+    <!--href="{% static "main.css" %}"-->
 </head>
 <body>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate accusamus minus iste illum 
+    <p class="header__text">
+        Приветствуем вас на вашем сайте!
+    </p>
+    <form method="POST" action="{% url "main:create" %}">
+        {% csrf_token %}
+        <p>
+            <label>Введите Название Категории</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите Название Подкатегории</label><br>
+            <input type="text" name="name_two" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+    {% if cate.count > 0 %}
+    <h2>Список категорий</h2>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Категория</th>
+            <th>Подкатегория</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Картинка</th>
+            <th>Цена</th>
+            <th>Скидка</th>
+            <th>Количество в наличии</th>
+            <th></th>
+        </thead>
+        {% for category in cate %}
+        <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.name_two }}</td>
+            <td><a 
+                href="{% url "main:edit" category.id %}">Изменить
+            </a> | <a 
+                href="{% url "main:delete" category.id %}">Удалить
+            </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <p class="header__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate accusamus minus iste illum 
         eos inventore labore pariatur quo debitis saepe fugit velit laboriosam unde, suscipit veniam, earum 
         perferendis corporis.</p>
 </body>
