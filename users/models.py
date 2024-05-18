@@ -1,13 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 
-class User(AbstractUser):
-    image = models.ImageField(upload_to="users_images", blank=True, null=True, verbose_name='Аватар')
+from django.contrib.auth.models import User
 
-    class Meta:
-        db_table='user'
-        verbose_name='Пользователи'
-        verbose_name_plural='Пользователи'
-
-    def __str__(self):
-        return self.username
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=15)
+    birth_date = models.DateField(null=True, blank=True)

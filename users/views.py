@@ -1,10 +1,11 @@
 from django.contrib import auth
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.shortcuts import redirect
 
-from forms import ProfileForm, UserLoginForm, UserRegustrationForm
+from forms import UserLoginForm, UserRegistrationForm
+# ProfileForm, UserLoginForm, 
+from users.models import Profile
 
 def login(request):
     if request.method == 'POST':
@@ -28,42 +29,39 @@ def login(request):
 
 def registration(request):
     if request.method == 'POST':
-        form = UserRegustrationForm(data=request.POST)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            user=form.instance
+            user = form.save()
+            # сохранение номера
+            Profile.objects.create(user=user, phone_number=form.cleaned_data.get('phone_number'))
+            raw_password = form.cleaned_data.get('password1')
+            user = auth.authenticate(username=user.username, password=raw_password)
             auth.login(request, user)
-            return HttpResponseRedirect(reverse('main:index'))
-            
+            return redirect('/index/')
     else:
-        form = UserRegustrationForm()
+        form = UserRegistrationForm()
+    return render(request, 'users/registration.html', {'form': form})
 
-    context = {
-        'title': 'Home - Регистрация',
-        'form': form
-    }
-    return render(request, 'users/registration.html', context) 
+# def profile(request):
 
-def profile(request):
+#     if request.method == 'POST':
+#         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+#         if form.is_valid():
+#             form.save()
 
-    if request.method == 'POST':
-        form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
-        if form.is_valid():
-            form.save()
-
-            return HttpResponseRedirect(reverse('user:profile'))
+#             return HttpResponseRedirect(reverse('user:profile'))
             
-    else:
-        form = ProfileForm(instance=request.user)
-    context = {
-        'title': 'Home - Кабинет',
-        'form': form
-    }
-    return render(request, 'users/profile.html', context) 
+#     else:
+#         form = ProfileForm(instance=request.user)
+#     context = {
+#         'title': 'Home - Кабинет',
+#         'form': form
+#     }
+#     return render(request, 'users/profile.html', context) 
 
 def logout(request):
     auth.logout(request)
-    return redirect(reverse('main:index'))
+    return redirect(reverse('main:index_auth'))
 
-# Create your views here.
+#Create your views here.
 

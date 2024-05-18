@@ -1,10 +1,9 @@
 @import 
 'styles/normalize', 
 'styles/fonts', 
-'styles/media', 
 'styles/mixins', 
-'styles/utils', 
-'styles/variables',
-'styles/globals';
+'styles/variables';
 
-@import '404/404.scss';
+@import 
+'styles/blocks/404.scss',
+'styles/blocks/header.scss';

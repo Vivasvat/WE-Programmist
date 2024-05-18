@@ -9,4 +9,8 @@
         {% csrf_token %}
         <button>Войти</button>
     </form>
+    <form method="POST" action="{% url "users:registration" %}">
+        {% csrf_token %}
+        <button>Зарегистрироваться</button>
+    </form>
 {% endblock %}

@@ -41,7 +41,9 @@ INSTALLED_APPS = [
 
     'main',
     'users',
+    #'sass_processor',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,6 +72,12 @@ TEMPLATES = [
         },
     },
 ]
+
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     'sass_processor.finders.CssFinder',
+# ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
@@ -125,9 +133,11 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
 ]
 
+#SASS_PROCESSOR_ROOT=STATIC_ROOT
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.User'
+#AUTH_USER_MODEL = 'users.User'

@@ -1,21 +1,12 @@
-"""
-    Файл, для создания форм.
-"""
-
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
-
-from users.models import User
-
-# AuthenticationForm
-# forms.ModelForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
 
 class UserLoginForm(AuthenticationForm):
 
     username = forms.CharField()
     password = forms.CharField()
 
-    #
     username = forms.CharField(
         label = 'Имя', 
         widget=forms.TextInput(attrs={"autofocus": True,
@@ -28,67 +19,22 @@ class UserLoginForm(AuthenticationForm):
                                           'class': 'form-control',
                                           'placeholder': 'Введите ваш пароль'})
     )
-    #
     class Meta:
         model=User
         fields = ['username', 'password']
 
+class UserRegistrationForm(UserCreationForm):
+    phone_number = forms.CharField(
+        max_length=15,
+        help_text='Номер телефона. Формат +7910...', label='test'
+    )
+    password1 = forms.CharField(
+        label='Password',
+        strip=False,
+        widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
+        help_text='Одна большая буква и т.д.',
+    )
 
-class UserRegustrationForm(UserCreationForm):
     class Meta:
-        model=User
-        fields = (
-            'first_name',
-            'last_name',
-            'username',
-            'email',
-            'password1',
-            'password2'
-        )
-
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    username = forms.CharField()
-    email = forms.CharField()
-    password1 = forms.CharField()
-    password2 = forms.CharField()
-
-class ProfileForm(UserChangeForm):
-    class Meta:
-        model=User
-        fields = (
-            'first_name',
-            'last_name',
-            'username',
-            'email',
-        )
-
-    image = forms.ImageField(required=False)
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    username = forms.CharField()
-    email = forms.CharField()
-
-    #
-    image=forms.ImageField(
-        widget=forms.FileInput(attrs={"class": "form-control mt-3"}), required=False
-    )
-
-    first_name=forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control",
-                "placeholder": "Введите ваше имя",
-            }
-        )
-    )
-
-    last_name=forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control",
-                "placeholder": "Введите вашу фамилию",
-            }
-        )
-    )
-    #
+        model = User
+        fields = ('username', 'email', 'phone_number', 'password1', 'password2', )

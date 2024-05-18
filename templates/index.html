@@ -1,54 +1,49 @@
-{% extends "base.html" %}
 {% load static %}
 
-{% block index %}
-    <p>
-        Вводите товары в ваш список:
-    </p>
-    <form method="POST" action="{% url "main:create" %}">
-        {% csrf_token %}
-        <p>
-            <label>Введите Название Категории</label><br>
-            <input type="text" name="name" />
-        </p>
-        <p>
-            <label>Введите Название Подкатегории</label><br>
-            <input type="text" name="name_two" />
-        </p>
-        <input type="submit" value="Сохранить" >
-    </form>
-    {% if cate.count > 0 %}
-    <h2>Список категорий</h2>
-    <table>
-        <thead>
-            <th>Id</th>
-            <th>Категория</th>
-            <th>Подкатегория</th>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Картинка</th>
-            <th>Цена</th>
-            <th>Скидка</th>
-            <th>Количество в наличии</th>
-            <th></th>
-        </thead>
-        {% for category in cate %}
-        <tr>
-            <td>{{ category.id }}</td>
-            <td>{{ category.name }}</td>
-            <td>{{ category.name_two }}</td>
-            <td><a 
-                href="{% url "main:edit" category.id %}">Изменить
-            </a> | <a 
-                href="{% url "main:delete" category.id %}">Удалить
-            </a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate accusamus minus iste illum 
-        eos inventore labore pariatur quo debitis saepe fugit velit laboriosam unde, suscipit veniam, earum 
-        perferendis corporis.
-    </p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <header class="header">
+        <ul class="header__menu">
+            <li class="header__menu-item">
+                <img src="{% static 'images/header/Logo.svg' %}" alt="" 
+            class="header__menu-logo"
+            width="" height=""
+            loading="lazy">
+            </li>
+            <li class="header__menu-item">
+                Главная
+            </li>
+            <li class="header__menu-item">
+                О проекте
+            </li>
+            <li class="header__menu-item">
+                Возможности
+            </li>
+            <li class="header__menu-item">
+                Карточки
+            </li>
+            <li class="header__menu-item">
+                Статистика
+            </li>
+            <li class="header__menu-item">
+                FAQ
+            </li>
+            <li class="header__menu-item">
+                Войти
+            </li>
+            <li class="header__menu-item">
+                Регистрация
+            </li>
+        </ul>
+        
+
+    </header>
+</body>
+</html>
