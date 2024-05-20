@@ -1,18 +1,16 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error404</title>
-    <link rel="stylesheet" href="{% static "main.css" %}">
+    <link rel="stylesheet" href="../static/main.css">
 </head>
 <body class="body-404">
-    <img class="header-404__Vec1" src="{% static "images/404/Vector1.svg" %}" alt="">
-    <img class="header-404__Vec2" src="{% static "images/404/Vector2.svg" %}" alt="">
-    <img class="header-404__Vec3" src="{% static "images/404/Vector3.svg" %}" alt="">
-    <img class="header-404__Vec4" src="{% static "images/404/Vector4.svg" %}" alt="">
+    <img class="header-404__Vec1" src="../static/images/404/Vector1.svg" alt="">
+    <img class="header-404__Vec2" src="../static/images/404/Vector2.svg" alt="">
+    <img class="header-404__Vec3" src="../static/images/404/Vector3.svg" alt="">
+    <img class="header-404__Vec4" src="../static/images/404/Vector4.svg" alt="">
     
     <div class="header-404__circle1"></div>
     <div class="header-404__circle2"></div>
@@ -25,7 +23,7 @@
         <h2 class="header-404__text-small">
             Ошибка
         </h2>
-        <a href="{% url "index.html" %}" class="header-404-main-link">
+        <a href="index.html" class="header-404-main-link">
             Перейти на главную страницу
         </a>
     </div>

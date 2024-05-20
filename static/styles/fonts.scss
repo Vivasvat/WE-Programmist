@@ -1,0 +1,33 @@
+@import url('variables.scss');
+
+@font-face {
+    font-family: "Raleway-Bold";
+    src: url("fonts/Raleway-Bold.woff2") format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Raleway-Regular";
+    src: url("fonts/Raleway-Regular.woff2") format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Raleway-SemiBold";
+    src: url("fonts/Raleway-SemiBold.woff2") format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Raleway-Thin";
+    src: url("fonts/Raleway-Thin.woff2") format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}

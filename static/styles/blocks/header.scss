@@ -1,0 +1,114 @@
+@import url('variables.scss');
+@import url('fonts.scss');
+@import url('mixins.scss');
+
+$block-width: 1920;
+
+body{
+    background-color: var(--color-blue);
+    height: 1000px;
+}
+
+.header__menu{
+    font-family: "Raleway-Regular";
+    font-size: 18px;
+    line-height: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.header__menu-burger{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__menu-link{
+    text-decoration: none;
+    color: var(--color-light);
+}
+
+#header__nav-1300{
+    visibility: hidden;
+}
+
+.header__menu-item a{
+    margin-right: 100px;
+}
+
+
+@media screen and (max-width: 1300px) {
+
+    .header__nav-label::before{
+        content: '';
+        visibility: visible;
+        background-image: url("../static/images/header/sword.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: -25px;
+        z-index: 1;
+    }
+
+    .header__nav-label{
+        visibility: visible;
+        background-image: url("../static/images/header/mouse.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 25px;
+        right: 70px;
+        z-index: 1;
+    }
+
+    .header__nav-label::after{
+        content: '';
+        visibility: visible;
+        background-image: url("../static/images/header/rifle.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 25px;
+        z-index: 1;
+    }
+    
+
+    .header__menu-burger{
+        width: 0%;
+        order: 100;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        background-color: #4B4856;
+        white-space: nowrap;
+        transition: 1s;
+    }
+
+    .header__menu-burger-item{
+        padding-bottom: 40px;
+        padding-left: 40px;
+    }
+
+
+    #header__nav-1300:checked ~ ul{
+        transition: 1s;
+        width: 30%;
+    }
+}
