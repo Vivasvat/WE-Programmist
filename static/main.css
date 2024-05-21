@@ -1192,44 +1192,34 @@ body {
 }
 
 @media screen and (max-width: 1300px) {
-  .header__nav-label::before {
-    content: "";
-    visibility: visible;
-    background-image: url("../static/images/header/sword.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    top: -25px;
-    z-index: 1;
-  }
   .header__nav-label {
     visibility: visible;
-    background-image: url("../static/images/header/mouse.svg");
+    background-color: #fff;
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 5px;
     position: absolute;
-    top: 25px;
+    top: 45px;
     right: 70px;
     z-index: 1;
+    transform: none;
+    transition-duration: 1s;
   }
   .header__nav-label::after {
     content: "";
     visibility: visible;
-    background-image: url("../static/images/header/rifle.svg");
+    background-color: #fff;
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 5px;
     position: absolute;
-    top: 25px;
+    top: 10px;
     z-index: 1;
+    transition: 1s;
   }
   .header__menu-burger {
     width: 0%;
@@ -1251,6 +1241,18 @@ body {
   #header__nav-1300:checked ~ ul {
     transition: 1s;
     width: 30%;
+  }
+  #header__nav-1300:checked ~ label .header__nav-label {
+    top: 55px;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    transition-duration: 1s;
+  }
+  #header__nav-1300:checked ~ label .header__nav-label::after {
+    transform-origin: 25px -2.5px;
+    transform: rotate(90deg);
+    transition-duration: 1s;
+    top: 10px;
   }
 }
 
