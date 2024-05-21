@@ -16,7 +16,7 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                return HttpResponseRedirect(reverse('main:index'))
+                return HttpResponseRedirect(reverse('main:main'))
             
     else:
         form = UserLoginForm()

@@ -5,6 +5,7 @@
     <p>
         Приветствуем вас на нашем сайте!
     </p>
+    <img src="{% static 'Rose.jpeg' %}" alt="Роза">
     <form method="POST" action="{% url "users:login" %}">
         {% csrf_token %}
         <button>Войти</button>
