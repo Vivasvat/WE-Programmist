@@ -1,17 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сайтик</title>
-    <link rel="stylesheet" href="../static/main.css">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
     <header class="header">
         <nav class="header__nav">
             <ul class="header__menu">
                 <li class="header__menu-item">
-                    <img src="../static/images/header/Logo.svg" alt="" 
+                    <img src="{% static 'images/header/Logo.svg' %}" alt="" 
                 class="header__menu-logo"
                 width="" height=""
                 loading="lazy">
@@ -41,8 +43,8 @@
                     </li>
                 </ul>
                 <li class="header__menu-item">
-                    <a href="#" class="header__menu-link">Войти</a>
-                    <a href="#" class="header__menu-link">Регистрация</a>
+                    <a href="{% url "users:login" %}" class="header__menu-link">Войти</a>
+                    <a href="{% url "users:registration" %}" class="header__menu-link">Регистрация</a>
                 </li>
             </ul>
         </nav>

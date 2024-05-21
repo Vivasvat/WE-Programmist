@@ -15,20 +15,17 @@ from main.models import Categories, Products
 # }
 # return render(request, "main/main.html", context)
 
-def index_auth(request):
-    context={
-        'None':None
-    }
-    return render(request, "index_auth.html", context)
-
 def index(request):
+    return render(request, "main/index.html", {'None' : None})
+
+def main(request):
     cate = Categories.objects.all()
     prod = Products.objects.all()
     context={
         'prod':prod,
         'cate':cate,
     }
-    return render(request, "index.html", context)
+    return render(request, "main/main.html", context)
 
 def create(request):
     if request.method=="POST":
@@ -37,7 +34,7 @@ def create(request):
         cate.name_two=request.POST.get("name_two")
         cate.save()
     #return render(request, "main/main.html")
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect("/main/")
 
 def edit(request, id):
     try:
@@ -46,7 +43,7 @@ def edit(request, id):
             cate.name=request.POST.get("name")
             cate.name_two=request.POST.get("name_two")
             cate.save()
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/main/")
         else:
             return render(request, "main/next.html", {"cate" : cate})
 
@@ -57,7 +54,7 @@ def delete(request, id):
     try:
         cate=Categories.objects.get(id=id)
         cate.delete()
-        return HttpResponseRedirect("/")
+        return HttpResponseRedirect("/main/")
     except cate.DoesNotExist:
         return HttpResponseRedirect("<h2>Not found page 😦 </h2>")
 
