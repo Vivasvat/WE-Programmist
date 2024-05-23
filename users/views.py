@@ -3,7 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from forms import UserLoginForm, UserRegistrationForm
+# from social_django.utils import load_social_backends
+
+from users.forms import UserLoginForm, UserRegistrationForm
 # ProfileForm, UserLoginForm, 
 from users.models import Profile
 
@@ -20,10 +22,9 @@ def login(request):
             
     else:
         form = UserLoginForm()
-
     context = {
         'title': 'Home - Авторизация',
-        'form': form
+        'form': form,
     }
     return render(request, 'users/login.html', context) 
 
@@ -41,23 +42,6 @@ def registration(request):
     else:
         form = UserRegistrationForm()
     return render(request, 'users/registration.html', {'form': form})
-
-# def profile(request):
-
-#     if request.method == 'POST':
-#         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
-#         if form.is_valid():
-#             form.save()
-
-#             return HttpResponseRedirect(reverse('user:profile'))
-            
-#     else:
-#         form = ProfileForm(instance=request.user)
-#     context = {
-#         'title': 'Home - Кабинет',
-#         'form': form
-#     }
-#     return render(request, 'users/profile.html', context) 
 
 def logout(request):
     auth.logout(request)

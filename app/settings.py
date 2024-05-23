@@ -39,8 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'main',
-    'users',
+    'main.apps.MainConfig',
+    'users.apps.UsersConfig',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount.providers.vk',
+    # 'social_django',
     #'sass_processor',
 ]
 
@@ -52,7 +57,21 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Add the account middleware:
+    "allauth.account.middleware.AccountMiddleware",
 ]
+
+# social-auth-app-django:
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.vk.VKOAuth2',          # бекенд авторизации через ВКонтакте
+#     'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
+# )
+
+# SOCIAL_AUTH_VK_OAUTH2_KEY = '51929475' # ID приложения
+# SOCIAL_AUTH_VK_OAUTH2_SECRET = 'b1689565b1689565b16895654eb270f4e6bb168b1689565d727ad20bc5dd71eb568ea7e' # Защищённый ключ
+
+# SOCIAL_AUTH_VK_APP_USER_MODE = 2
 
 ROOT_URLCONF = 'app.urls'
 
@@ -67,9 +86,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request', # django-allauth
+                # 'social_django.context_processors.backends', # social-auth-app-django
+                # 'social_django.context_processors.login_redirect', # social-auth-app-django
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 # STATICFILES_FINDERS = [

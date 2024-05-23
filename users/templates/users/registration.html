@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Регистрация</h2>
-    <form method="POST" action="{% url "main:main" %}">
+    <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Отправить</button>
