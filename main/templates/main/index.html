@@ -13,10 +13,12 @@
         <nav class="header__nav">
             <ul class="header__menu">
                 <li class="header__menu-item">
-                    <img src="{% static 'images/header/Logo.svg' %}" alt="" 
-                class="header__menu-logo"
-                width="" height=""
-                loading="lazy">
+                    <a href="" class="header__menu-link header__menu-link-logo">
+                        <img src="{% static 'images/header/Logo.svg' %}" alt="" 
+                        class="header__menu-logo"
+                        width="" height=""
+                        loading="lazy">
+                    </a>
                 </li>
                 <input id="header__nav-1300" type="checkbox">
                 <label for="header__nav-1300">
@@ -24,28 +26,29 @@
                 </label>
                 <ul class="header__menu-burger">
                     <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link">Главная</a>
+                        <a href="#" class="header__menu-link header__menu-hover-color">Главная</a>
                     </li>
                     <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link">О проекте</a>
+                        <a href="#" class="header__menu-link header__menu-hover-color">Возможности</a>
                     </li>
                     <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link">Возможности</a>
+                        <a href="#" class="header__menu-link header__menu-hover-color">Поддержка</a>
                     </li>
-                    <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link">Карточки</a>
+                    <li class="header__menu-burger-item header__menu-burger-item-hidden">
+                        <a href="{% url "users:login" %}" class="header__menu-link header__menu-hover-color">Войти</a>
                     </li>
-                    <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link">Статистика</a>
-                    </li>
-                    <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link">FAQ</a>
+                    <li class="header__menu-burger-item header__menu-burger-item-hidden">
+                        <a href="{% url "users:registration" %}" class="header__menu-link header__menu-hover-color">Регистрация</a>
                     </li>
                 </ul>
-                <li class="header__menu-item">
-                    <a href="{% url "users:login" %}" class="header__menu-link">Войти</a>
-                    <a href="{% url "users:registration" %}" class="header__menu-link">Регистрация</a>
-                </li>
+                <ul class="header__menu-login">
+                    <li class="header__menu-login-item">
+                        <a href="{% url "users:login" %}" class="header__menu-link header__menu-hover-color">Войти</a>
+                    </li>
+                    <li class="header__menu-login-item">
+                        <a href="{% url "users:registration" %}" class="header__menu-link header__menu-button-text">Регистрация</a>
+                    </li>
+                </ul>
             </ul>
         </nav>
     </header>

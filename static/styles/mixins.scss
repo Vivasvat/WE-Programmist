@@ -35,4 +35,15 @@
     opacity: $opacity;
 }
 
+@mixin button ($width, $height){
+    display: flex;
+    width: $width;
+    height: $height;
+    background-color: var(--color-red);
+    border-radius: var(--border-radius);
+    justify-content: center;
+    align-items: center;
+}
+
+
 
