@@ -24,6 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', include('users.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('social/', include('social_django.urls', namespace='social')),
+    # path('login_VK/', include('social_django.urls'), name="login_VK"),
 ] 
 
 #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

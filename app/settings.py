@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-eq&h!wvvc9+d#f8+05u3k5vuuxmq*s8$q+)fc-h1$0$8=^8x&*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*','localhost', '127.0.0.1'] # '*', 
 
 
 # Application definition
@@ -38,11 +38,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
-    'main',
-    'users',
+    'main.apps.MainConfig',
+    'users.apps.UsersConfig',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.vk',
+    
+    # 'django_extensions',
+    'social_django',
     #'sass_processor',
 ]
+# django-allauth
+SITE_ID=1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +63,34 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Add the account middleware:
+    "allauth.account.middleware.AccountMiddleware",
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'vk': {
+        'APP': {
+            'client_id': 'your-vk-client-id',
+            'secret': 'your-vk-client-secret',
+            'key': ''
+        },
+        'SCOPE': ['email'],
+        'AUTH_PARAMS': {'v': '5.131'},
+        'METHOD': 'oauth2',
+    }
+}
+
+# social-auth-app-django:
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',          # бекенд авторизации через ВКонтакте
+    'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
+)
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '51929475' # ID приложения
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'GXRCWyLuA6ni2MeL1qNR' # Защищённый ключ
+
+# SOCIAL_AUTH_VK_APP_USER_MODE = 2
 
 ROOT_URLCONF = 'app.urls'
 
@@ -67,10 +105,21 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # 'django.template.context_processors.request', # django-allauth
+
+                'social_django.context_processors.backends', # social-auth-app-django
+                'social_django.context_processors.login_redirect', # social-auth-app-django
             ],
         },
     },
 ]
+
+# AUTHENTICATION_BACKENDS = [
+##     Needed to login by username in Django admin, regardless of `allauth`
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# ]
 
 # STATICFILES_FINDERS = [
 #     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -114,7 +163,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru-RU' #en-us
+LANGUAGE_CODE = 'en-us' #en-us
 
 TIME_ZONE = 'UTC'
 
