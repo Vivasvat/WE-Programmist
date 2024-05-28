@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
+
     <header class="header">
         <nav class="header__nav">
             <ul class="header__menu">
@@ -27,6 +28,9 @@
                 <ul class="header__menu-burger">
                     <li class="header__menu-burger-item">
                         <a href="#" class="header__menu-link header__menu-hover-color">Главная</a>
+                    </li>
+                    <li class="header__menu-burger-item">
+                        <a href="#" class="header__menu-link header__menu-hover-color">О платформе</a>
                     </li>
                     <li class="header__menu-burger-item">
                         <a href="#" class="header__menu-link header__menu-hover-color">Возможности</a>
@@ -52,6 +56,29 @@
             </ul>
         </nav>
     </header>
+
+    <section class="play-with-us">
+        <h1 class="play-with-us__header">
+            Играй и выигрывай <br>
+            вместе с нами
+        </h1>
+        <ul class="play-with-us__menu">
+            <li class="play-with-us__item">Принимай участие в организации турниров</li>
+            <li class="play-with-us__item">Находи друзей и создавай команду</li>
+            <li class="play-with-us__item">Развивайся и заберись на вершину</li>
+        </ul>
+        <a href="#" class="play-with-us__link-red">
+            Присоединиться
+        </a>
+        <a href="#" class="play-with-us__link-white">
+            О платформе
+        </a>
+        <img src="/static/images/play-with-us/main.png" alt=""
+            class="play-with-us__picture" 
+            width="940" height="845"
+            loading="lazy">
+        </img>
+    </section>
     <script src="/static/scripts/main.js"></script>
 </body>
 </html>
