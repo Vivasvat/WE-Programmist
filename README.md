@@ -1,2 +1,2 @@
 Для подключения библеотек ввести команду в командную строку 
-pip freeze > requirments.txt
+pip freeze > requirements.txt
