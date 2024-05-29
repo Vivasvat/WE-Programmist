@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('users.urls')),
     path('accounts/', include('allauth.urls')),
     path('social/', include('social_django.urls', namespace='social')),
+    path('', include('acc.urls')),
     # path('login_VK/', include('social_django.urls'), name="login_VK"),
 ] 
 
