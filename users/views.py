@@ -61,7 +61,7 @@ def registration(request):
             raw_password = form.cleaned_data.get('password1')
             user = auth.authenticate(username=user.username, password=raw_password)
             auth.login(request, user)
-            return redirect('/index/')
+            return redirect('/main/')
     else:
         form = UserRegistrationForm()
     return render(request, 'users/registration.html', {'form': form})
