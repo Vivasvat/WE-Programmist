@@ -61,14 +61,9 @@ INSTALLED_APPS = [
 
     'django.contrib.sites',
 
-<<<<<<< HEAD
-    "main.apps.MainConfig",
-    "users.apps.UsersConfig",
-=======
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
     'acc.apps.AccountConfig',
->>>>>>> 109519d4fc5ae4a7d56d4f004155bb07cb2b871c
 
     'allauth',
 
