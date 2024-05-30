@@ -78,6 +78,10 @@ body{
 
 @media screen and (max-width: 1300px) {
 
+    .header__menu{
+        padding-bottom: 80px;
+    }
+
     .header__menu-burger-item-hidden{
         visibility: hidden;
         position: absolute;
