@@ -3,7 +3,6 @@ from django.contrib import auth
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
-
 # from social_django.utils import load_social_backends
 
 from users.forms import UserLoginForm, UserRegistrationForm
@@ -19,7 +18,8 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                return render(request, 'main/main.html')
+                return HttpResponseRedirect("/acc/")
+                # return render(request, 'acc/account.html')
                 # return HttpResponseRedirect(reverse('main:main'))
     else:
         form = UserLoginForm()
@@ -39,7 +39,11 @@ def registration(request):
             raw_password = form.cleaned_data.get('password1')
             user = auth.authenticate(username=user.username, password=raw_password)
             auth.login(request, user)
+<<<<<<< HEAD
             return redirect('/main/')
+=======
+            return render(request, 'acc/account.html')
+>>>>>>> 109519d4fc5ae4a7d56d4f004155bb07cb2b871c
     else:
         form = UserRegistrationForm()
     return render(request, 'users/registration.html', {'form': form})

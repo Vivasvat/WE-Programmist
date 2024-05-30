@@ -25,6 +25,12 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('users.urls')),
     path('accounts/', include('allauth.urls')),
+<<<<<<< HEAD
+=======
+    path('social/', include('social_django.urls', namespace='social')),
+    path('', include('acc.urls')),
+    # path('login_VK/', include('social_django.urls'), name="login_VK"),
+>>>>>>> 109519d4fc5ae4a7d56d4f004155bb07cb2b871c
 ] 
 
 #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
