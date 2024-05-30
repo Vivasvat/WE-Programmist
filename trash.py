@@ -83,3 +83,5 @@ https://habr.com/ru/articles/697620/
     #               f"&redirect_uri={host}"
     #               f"&client_id=533408095131-0bgva6qeub7ff7gmsp3kqenjqvo9qb7d.apps.googleusercontent.com"
     #         )
+
+# play-with-us/main.png
