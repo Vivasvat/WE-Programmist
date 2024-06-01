@@ -6,6 +6,84 @@
     <title>Аккаунт</title>
 </head>
 <body>
-    Вы вошли в ваш профиль!
+    <form>
+        {% csrf_token %}
+        <div>
+            <label>Никнейм</label>
+            <input 
+            type = "text" 
+            name = "username" 
+            placeholder = "Введите ваш username"
+            value = "{{ form.username.value }}">
+        </div>
+        <div>
+            <label>Имя</label>
+            <input 
+            type = "text" 
+            name = "name" 
+            placeholder = "Введите Имя"
+            value = "{{ form.name.value }}">
+        </div>
+        <div>
+            <label>Фамилия</label>
+            <input 
+            type = "text" 
+            name = "username" 
+            placeholder = "Введите Фамилия"
+            value = "{{ form.surname.value }}">
+        </div>
+        <div>
+            <label>Отчество</label>
+            <input 
+            type = "text" 
+            name = "lastname" 
+            placeholder = "Введите Отчество"
+            value = "{{ form.lastname.value }}">
+        </div>
+        <div>
+            <label>Электронная почта</label>
+            <input 
+            type = "email" 
+            name = "email" 
+            placeholder = "Введите вашу электронную почту"
+            value = "{{ form.email.value }}">
+        </div>
+        <div>
+            <label>Телефон</label>
+            <input 
+            type = "text" 
+            name = "phone_number" 
+            placeholder = "Введите телефон"
+            value = "{{ form.phone_number.value }}">
+        </div>
+        <div>
+            <label>Google</label>
+            <input 
+            type = "text" 
+            name = "google" 
+            placeholder = "Введите Gmail"
+            value = "{{ form.google.value }}">
+        </div>
+        <div>
+            <label>Yandex</label>
+            <input 
+            type = "text" 
+            name = "Yandex" 
+            placeholder = "Введите Ymail"
+            value = "{{ form.yandex.value }}">
+        </div>
+        <div>
+            <label>Github</label>
+            <input 
+            type = "text" 
+            name = "github" 
+            placeholder = "Введите Github"
+            value = "{{ form.github.value }}">
+        </div>
+    </form>
+    <form method="POST" action="{% url 'acc:del_acc' %}">
+        {% csrf_token %}
+        <button type="submit">Удалить Аккаунт</button>
+    </form>
 </body>
 </html>
