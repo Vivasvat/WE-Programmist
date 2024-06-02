@@ -147,6 +147,7 @@ a[class^="play-with-us__link"]{
     }
 
     .play-with-us__picture{
+        top: 20%;
         left: 50%;
         width: calc(940 / $block-width * 100vw);
         height: calc(845 / $block-width * 100vw);
