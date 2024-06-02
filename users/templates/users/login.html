@@ -1,4 +1,6 @@
-{% load account socialaccount %}
+{% load static %}
+{% load socialaccount %}
+{% get_providers as socialaccount_providers %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,16 +10,32 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Вход</h3>
-    <form method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Login</button>
-    </form>
-    <form method="POST" action="{{string}}">
-      {% csrf_token %}
-      <button type="submit">VK</button>
-    </form>
-    <p><a href="{% url 'users:logout' %}">Выход</a></p>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+  </form>
+  <p>OR</p>
+  {% for provider in socialaccount_providers %}
+  <!-- {% if provider.id == "openid" %}
+  {% for brand in provider.get_brands %}
+  <li>
+    <a title="{{brand.name}}"
+   class="socialaccount_provider {{provider.id}} {{brand.id}}"
+   href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">{{brand.name}}</a>
+  </li>
+  {% endfor %}
+  {% endif %} -->
+  <!-- provider_login_url provider.id scope=scope process=process auth_params=auth_params -->
+  <li>
+    <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
+      href="{% provider_login_url provider.id  %}">
+      {{provider.name}}
+    </a>
+  </li>
+  {% endfor %}
+  <p>
+    <a href="{% url 'users:logout' %}">Выход</a>
+  </p>
 </body>
 </html>

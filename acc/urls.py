@@ -5,5 +5,6 @@ app_name = 'acc'
 
 urlpatterns = [
     # path('', views.index_auth, name = 'index_auth'),
-    path('acc/', views.index, name = 'acc'),
+    path('acc/', views.profile, name = 'acc'),
+    path('del_acc/', views.profile_delete_view, name='del_acc')
 ]

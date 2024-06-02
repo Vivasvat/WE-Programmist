@@ -76,7 +76,9 @@
         </a>
         <picture>
             <source srcset="/static/images/play-with-us/main-640.png" alt=""
-                media="(max-width: 640px)">
+                media="(max-width: 640px)"
+                width="940" height="845"
+                loading="lazy">
             <img src="/static/images/play-with-us/main.png" alt=""
                 class="play-with-us__picture" 
                 width="940" height="845"
@@ -85,6 +87,6 @@
         </picture>
         
     </section>
-    <script src="/static/scripts/main.js"></script>
+    <script src="{% static "script/main.js" %}"></script>
 </body>
 </html>
