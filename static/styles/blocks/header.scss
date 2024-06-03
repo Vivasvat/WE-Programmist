@@ -4,6 +4,10 @@
 
 $block-width: 1920;
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: var(--color-blue);
     height: 1000px;

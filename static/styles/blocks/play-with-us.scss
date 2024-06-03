@@ -4,7 +4,7 @@
 
 $block-width: 1920;
 
-.play-with-us{
+#play-with-us{
     padding-top: 300px;
     padding-left: 10%;
 }
@@ -90,7 +90,7 @@ a[class^="play-with-us__link"]{
 
 @media screen and (min-width: 1921px) {
 
-    .play-with-us{
+    #play-with-us{
         padding-left: 15%;
     }
 
@@ -108,7 +108,7 @@ a[class^="play-with-us__link"]{
 
 @media screen and (max-width: 1920px){
 
-    .play-with-us{
+    #play-with-us{
         padding-left: 15%;
     }
 
@@ -124,7 +124,7 @@ a[class^="play-with-us__link"]{
 
     $block-width: 1700;
 
-    .play-with-us{
+    #play-with-us{
         padding-left: 5%;
     }
 
@@ -142,7 +142,7 @@ a[class^="play-with-us__link"]{
 
     $block-width: 1800;
 
-    .play-with-us{
+    #play-with-us{
         padding-left: 5%;
     }
 
@@ -160,7 +160,7 @@ a[class^="play-with-us__link"]{
 
     $block-width: 1700;
 
-    .play-with-us{
+    #play-with-us{
         padding-top: 200px;
     }
 
@@ -183,7 +183,7 @@ a[class^="play-with-us__link"]{
 
     $block-width: 1600;
 
-    .play-with-us{
+    #play-with-us{
         padding-top: 200px;
     }
 
@@ -221,7 +221,7 @@ a[class^="play-with-us__link"]{
 
     $block-width: 730;
 
-    .play-with-us{
+    #play-with-us{
         padding-top: 150px;
         padding-left: 5%;
     }
@@ -293,7 +293,7 @@ a[class^="play-with-us__link"]{
 
     $block-width: 690;
 
-    .play-with-us{
+    #play-with-us{
         padding-top: 150px;
     }
 
