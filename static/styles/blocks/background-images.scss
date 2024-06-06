@@ -1,0 +1,309 @@
+@import url('variables.scss');
+@import url('fonts.scss');
+@import url('mixins.scss');
+
+
+$block-width: 1920;
+
+.background-images__circle1{
+    width: 413px;
+    aspect-ratio: 1;
+    @include circle-blur(200px, 40%);
+    position: fixed;
+    top: calc(-450 / $block-width * 100vw);
+    left: calc(-600 /$block-width * 100vw);
+    z-index: -1;
+}
+
+.background-images__circle2{
+    width: 413px;
+    aspect-ratio: 1;
+    @include circle-blur(200px, 50%);
+    position: fixed;
+    left: calc(500 / $block-width * 100vw);
+}
+
+.background-images__circle3{
+    width: 413px;
+    aspect-ratio: 1;
+    @include circle-blur(200px, 50%);
+    position: fixed;
+    top: calc(450 / $block-width * 100vw);
+    left: calc(1500 / $block-width * 100vw);
+}
+
+.background-images__Vec1{
+    position: fixed;
+    width: calc(70 / $block-width * 100vw);
+    height: calc(75 / $block-width * 100vw);
+    top: calc(150 / $block-width * 100vw);
+    left: calc(160 / $block-width * 100vw);
+    z-index: -1;
+}
+
+.background-images__Vec2{
+    position: fixed;
+    width: calc(45 / $block-width * 100vw);
+    height: calc(50 / $block-width * 100vw);
+    top: calc(500 / $block-width * 100vw);
+    left: calc(810 / $block-width * 100vw);
+    z-index: -1;
+}
+
+.background-images__Vec3{
+    position: fixed;
+    width: calc(50 / $block-width * 100vw);
+    height: calc(55 / $block-width * 100vw);
+    top: calc(120 / $block-width * 100vw);
+    left: calc(1300 / $block-width * 100vw);
+    z-index: -1;
+}
+
+.background-images__Vec4{
+    position: fixed;
+    width: calc(50 / $block-width * 100vw);
+    height: calc(70 / $block-width * 100vw);
+    top: calc(550 / $block-width * 100vw);
+    left: calc(190 / $block-width * 100vw);
+    z-index: -1;
+}
+
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media screen and (min-width: 1601px) {
+
+    .background-images__circle1{
+        top: calc(-50 / $block-width * 100vw);
+        left: calc(-50 /$block-width * 100vw);
+    }
+    
+    .background-images__circle2{
+        top: calc(250 / $block-width * 100vw);
+        left: calc(700 / $block-width * 100vw);
+    }
+    
+    .background-images__circle3{
+        top: calc(450 / $block-width * 100vw);
+        left: calc(1400 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec1{
+        top: calc(150 / $block-width * 100vw);
+        left: calc(160 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec2{
+        top: calc(600 / $block-width * 100vw);
+        left: calc(900 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec3{
+        top: calc(200 / $block-width * 100vw);
+        left: calc(1800 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec4{
+        top: calc(700 / $block-width * 100vw);
+        left: calc(200 / $block-width * 100vw);
+    }
+}
+
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1600px) {
+
+    $block-width: 1600;
+
+    .background-images__circle1{
+        top: calc(-50 / $block-width * 100vw);
+        left: calc(-50 /$block-width * 100vw);
+    }
+    
+    .background-images__circle2{
+        top: calc(250 / $block-width * 100vw);
+        left: calc(500 / $block-width * 100vw);
+    }
+    
+    .background-images__circle3{
+        top: calc(450 / $block-width * 100vw);
+        left: calc(1200 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec1{
+        top: calc(150 / $block-width * 100vw);
+        left: calc(160 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec2{
+        top: calc(600 / $block-width * 100vw);
+        left: calc(700 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec3{
+        top: calc(200 / $block-width * 100vw);
+        left: calc(1400 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec4{
+        top: calc(700 / $block-width * 100vw);
+        left: calc(200 / $block-width * 100vw);
+    }
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1300px) {
+    $block-width: 1300;
+
+    .background-images__circle1{
+        top: calc(-250 / $block-width * 100vw);
+        left: calc(-250 /$block-width * 100vw);
+    }
+    
+    .background-images__circle2{
+        top: calc(150 / $block-width * 100vw);
+        left: calc(400 / $block-width * 100vw);
+    }
+    
+    .background-images__circle3{
+        top: calc(500 / $block-width * 100vw);
+        left: calc(1000 / $block-width * 100vw);
+    }
+
+    .background-images__Vec1{
+        top: calc(180 / $block-width * 100vw);
+    }
+
+    .background-images__Vec2{
+        top: calc(600 / $block-width * 100vw);
+        left: calc(700 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec3{
+        top: calc(200 / $block-width * 100vw);
+        left: calc(1100 / $block-width * 100vw);
+    }
+    
+    .background-images__Vec4{
+        top: calc(700 / $block-width * 100vw);
+        left: calc(200 / $block-width * 100vw);
+    }
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1100px) {
+    $block-width: 1100;
+
+    .background-images__circle1{
+        top: calc(-250 / $block-width * 100vw);
+        left: calc(-250 /$block-width * 100vw);
+    }
+    
+    .background-images__circle2{
+        top: calc(150 / $block-width * 100vw);
+        left: calc(300 / $block-width * 100vw);
+    }
+    
+    .background-images__circle3{
+        top: calc(400 / $block-width * 100vw);
+        left: calc(1000 / $block-width * 100vw);
+    }
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 640px) {
+    $block-width: 640;
+
+    .background-images__circle1{
+        @include circle-blur(100px, 30%);
+        top: calc(-250 / $block-width * 100vw);
+        left: calc(-250 /$block-width * 100vw);
+    }
+    
+    .background-images__circle2{
+        @include circle-blur(100px, 30%);
+        top: calc(150 / $block-width * 100vw);
+        left: calc(400 / $block-width * 100vw);
+    }
+
+    .background-images__Vec1{
+        top: calc(250 / $block-width * 100vw);
+    }
+
+    .background-images__Vec2{
+        visibility: hidden;
+    }
+    
+    .background-images__Vec3{
+        visibility: hidden;
+    }
+    
+    .background-images__Vec4{
+        top: calc(500 / $block-width * 100vw);
+        left: calc(400 / $block-width * 100vw);
+    }
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 470px) {
+    $block-width: 100;
+
+    .background-images__Vec1{
+        top: calc(100 / $block-width * 100vw);
+    }
+
+    .background-images__Vec2{
+        visibility: hidden;
+    }
+    
+    .background-images__Vec3{
+        visibility: hidden;
+    }
+    
+    .background-images__Vec4{
+        visibility: hidden;
+    }
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 360px) {
+    $block-width: 400;
+
+    .background-images__circle1{
+        @include circle-blur(50px, 30%);
+        top: calc(-250 / $block-width * 100vw);
+        left: calc(-250 /$block-width * 100vw);
+    }
+    
+    .background-images__circle2{
+        @include circle-blur(50px, 30%);
+        top: calc(200 / $block-width * 100vw);
+        left: calc(200 / $block-width * 100vw);
+    }
+
+    .background-images__circle3{
+        visibility: hidden;
+    }
+
+    .background-images__Vec1{
+        visibility: hidden;
+    }
+
+    .background-images__Vec2{
+        visibility: hidden;
+    }
+    
+    .background-images__Vec3{
+        visibility: hidden;
+    }
+    
+    .background-images__Vec4{
+        visibility: hidden;
+    }
+}

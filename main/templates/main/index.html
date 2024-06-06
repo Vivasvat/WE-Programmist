@@ -13,6 +13,7 @@
     <header class="header">
         <nav class="header__nav">
             <ul class="header__menu">
+                <div class="background-images__circle1"></div>
                 <li class="header__menu-item">
                     <a href="" class="header__menu-link header__menu-link-logo">
                         <img src="{% static 'images/header/Logo.svg' %}" alt="" 
@@ -27,10 +28,10 @@
                 </label>
                 <ul class="header__menu-burger">
                     <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link header__menu-hover-color">Главная</a>
+                        <a href="#play-with-us" class="header__menu-link header__menu-hover-color">Главная</a>
                     </li>
                     <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link header__menu-hover-color">О платформе</a>
+                        <a href="#about-platform" class="header__menu-link header__menu-hover-color">О платформе</a>
                     </li>
                     <li class="header__menu-burger-item">
                         <a href="#" class="header__menu-link header__menu-hover-color">Возможности</a>
@@ -57,7 +58,20 @@
         </nav>
     </header>
 
-    <section class="play-with-us">
+    <div class="background-images">
+        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+        
+        <div class="background-images__circle1"></div>
+        <div class="background-images__circle2"></div>
+        <div class="background-images__circle3"></div>
+    </div>
+    
+
+    <section id="play-with-us">
+        
         <h1 class="play-with-us__header">
             Играй и выигрывай <br>
             вместе с нами
@@ -74,11 +88,11 @@
             О платформе
         </a>
         <picture>
-            <source srcset="{% static "images/play-with-us/main-640.png" %}" alt=""
+            <source srcset="/static/images/play-with-us/main-640.png" alt=""
                 media="(max-width: 640px)"
                 width="940" height="845"
                 loading="lazy">
-            <img src="{% static "images/play-with-us/main.png" %}" alt=""
+            <img src="/static/images/play-with-us/main.png" alt=""
                 class="play-with-us__picture" 
                 width="940" height="845"
                 loading="lazy">
@@ -86,6 +100,33 @@
         </picture>
         
     </section>
+
+    <section id="about-platform">
+        <img src="/static/images/about-platfom/img.png" alt="" 
+            class="about-platfom__image"
+            width="1300" height="730"
+            loading="lazy">
+
+        <div class="about-platform__content">
+            <h2 class="about-platform__header">
+                О платформе
+            </h2>
+
+            <p class="about-platform__text">
+                Игроки и тренеры, комментаторы и аналитики, <br>
+                команды и клубы, арены и организаторы — здесь <br>
+                каждый может раскрыть свой потенциал, <br>
+                зарабатывать в любимой игре и просто весело <br>
+                проводить время с друзьями.
+            </p>
+
+            <a href="#" class="about-platform__link">
+                Вступить
+            </a>
+        </div>
+        
+    </section>
+
     <script src="{% static "script/main.js" %}"></script>
 </body>
 </html>
