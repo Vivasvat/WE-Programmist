@@ -7,6 +7,9 @@ class MyAccount(models.Model):
 
     # desc=models.TextField(null=True, blank=True)
 
+    # id = models.CharField(max_length=15, null=True, blank=True)
+    username = models.CharField(max_length=15, null=True, blank=True)
+
     avatar = models.ImageField(null=True, blank=True, upload_to="images/profile/")
 
     name = models.CharField(max_length=15, null=True, blank=True)

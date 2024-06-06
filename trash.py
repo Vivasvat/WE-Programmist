@@ -85,3 +85,36 @@ https://habr.com/ru/articles/697620/
     #         )
 
 # play-with-us/main.png
+
+# def profile(request):
+#     if request.method == 'POST':
+#         form = ProfileForm(data=request.POST, instance=request.user) # files=request.FILES
+#         if form.is_valid():
+#             # user = form.save()
+#             return HttpResponseRedirect(reverse('acc:profile'))
+#     else:
+#         social_account = SocialAccount.objects.get(user=request.user, provider="steam")
+#         user_steam = social_account.extra_data
+#     context = {
+#         'user_steam' : user_steam,
+#         'title': 'Home - Кабинет',
+#         # 'form': form,
+#     }
+#     # acc = MyAccount.objects.get("")
+#     return render(request, 'acc/account.html', context) 
+
+        # <!-- <p>{{ user_steam.get('communityvisibilitystate') }}</p>
+        # <p>{{ user_steam.get('profilestate') }}</p>
+        # <p>{{ user_steam.get('personaname') }}</p>
+        # <p>{{ user_steam.get('profileurl') }}</p>
+        # <img src="{{ user_steam.get('avatar') }}" alt="avatar">
+        # <img src="{{ user_steam.get('avatarmedium') }}" alt="avatarmedium">
+        # <img src="{{ user_steam.get('avatarfull') }}" alt="avatarfull">
+        # <img src="{{ user_steam.get('avatarhash') }}" alt="avatarhash">
+        # <p>{{ user_steam.get('lastlogoff') }}</p>
+        # <p>{{ user_steam.get('personastate') }}</p>
+        # <p>{{ user_steam.get('realname') }}</p>
+        # <p>{{ user_steam.get('primaryclanid') }}</p>
+        # <p>{{ user_steam.get('timecreated') }}</p>
+        # <p>{{ user_steam.get('personastateflags') }}</p>
+        # <p>{{ user_steam.get('loccountrycode') }}</p> -->

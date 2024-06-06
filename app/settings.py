@@ -45,9 +45,20 @@ AUTHENTICATION_BACKENDS = [
 
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
-]
 
-LOGIN_REDIRECT_URL= '/main/'
+    # 'social_core.backends.steam.SteamOpenId',
+]
+# Steam login
+SOCIAL_AUTH_STEAM_EXTRA_DATA = ['player']
+# Steam web-key
+SOCIAL_AUTH_STEAM_API_KEY = '32F3511A43799D68278EE99A1F138508'
+
+LOGIN_REDIRECT_URL= '/acc/'
+
+# Для "удаления" промежуточных страниц в django-allauth
+# Не рекомендовано по соображениям безопастности
+# Лучше использовать POST запрос в формах
+SOCIALACCOUNT_LOGIN_ON_GET = True
 
 # Application definition
 
@@ -74,6 +85,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.vk',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.yandex',
+    'allauth.socialaccount.providers.steam',
+    'allauth.socialaccount.providers.openid',
 ]
 
 MIDDLEWARE = [

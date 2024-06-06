@@ -27,15 +27,19 @@
   {% endfor %}
   {% endif %} -->
   <!-- provider_login_url provider.id scope=scope process=process auth_params=auth_params -->
-  <li>
+  <form action="{% provider_login_url provider.id  %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">{{provider.id}}</button>
+  </form>
+  <!-- <li>
     <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
       href="{% provider_login_url provider.id  %}">
       {{provider.name}}
     </a>
-  </li>
+  </li> -->
   {% endfor %}
-  <p>
+  <!-- <p>
     <a href="{% url 'users:logout' %}">Выход</a>
-  </p>
+  </p> -->
 </body>
 </html>

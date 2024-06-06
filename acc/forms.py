@@ -7,6 +7,12 @@ class ProfileForm(UserChangeForm):
 
     avatar  = forms.ImageField(required=False)
 
+    steamid  = forms.CharField(
+        max_length=15,
+        # help_text='Используйте',
+        label='Никнейм'
+    )
+
     username = forms.CharField(
         max_length=15,
         # help_text='Используйте',
