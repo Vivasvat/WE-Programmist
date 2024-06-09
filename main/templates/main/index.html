@@ -34,7 +34,7 @@
                         <a href="#about-platform" class="header__menu-link header__menu-hover-color">О платформе</a>
                     </li>
                     <li class="header__menu-burger-item">
-                        <a href="#" class="header__menu-link header__menu-hover-color">Возможности</a>
+                        <a href="#roles" class="header__menu-link header__menu-hover-color">Возможности</a>
                     </li>
                     <li class="header__menu-burger-item">
                         <a href="#" class="header__menu-link header__menu-hover-color">Поддержка</a>
@@ -72,10 +72,12 @@
 
     <section id="play-with-us">
         
-        <h1 class="play-with-us__header">
-            Играй и выигрывай <br>
-            вместе с нами
-        </h1>
+        <header class="play-with-us__header">
+            <h1>
+                Играй и выигрывай <br>
+                вместе с нами
+            </h1>
+        </header>
         <ul class="play-with-us__menu">
             <li class="play-with-us__item">Принимай участие в организации турниров</li>
             <li class="play-with-us__item">Находи друзей и создавай команду</li>
@@ -108,9 +110,11 @@
             loading="lazy">
 
         <div class="about-platform__content">
-            <h2 class="about-platform__header">
-                О платформе
-            </h2>
+            <header class="about-platform__header">
+                <h2>
+                    О платформе
+                </h2>
+            </header>
 
             <p class="about-platform__text">
                 Игроки и тренеры, комментаторы и аналитики, <br>
@@ -124,6 +128,49 @@
                 Вступить
             </a>
         </div>
+    </section>
+
+    <section id="roles">
+        <header class="roles__header">
+            <h2>
+                Выберите, кем хотите стать
+            </h2>
+        </header>
+
+        <ul class="roles__menu">
+            <li class="roles__item">
+                <input id="roles__input-player" type="radio" name="radiobutton">
+                <label for="roles__input-player" class="roles__label-player"></label>
+                <p class="roles__text-player">
+                    Выступает на турнирах, участвует в матчах и вступает в команды. 
+                    У игроков есть уровень навыка и рейтинг, рассчитанный на основе статистики. 
+                    Также они могут заключать контракты с командами и клубами.
+                </p>
+            </li>
+            <li class="roles__item">
+                <input id="roles__input-coach" type="radio" name="radiobutton">
+                <label for="roles__input-coach" class="roles__label-coach"></label>
+                <p class="roles__text-coach">
+                    Занимается развитием игроков, клубов и команд. Его рейтинг растет вместе с показателями 
+                    команды, к примеру, с получением подопечными трофеев и наград.
+                </p>
+            </li>
+            <li class="roles__item">
+
+            </li>
+            <li class="roles__item">
+
+            </li>
+            <li class="roles__item">
+
+            </li>
+            <li class="roles__item">
+
+            </li>
+            <li class="roles__item">
+
+            </li>
+        </ul>
         
     </section>
 

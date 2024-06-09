@@ -1,0 +1,84 @@
+@import url('variables.scss');
+@import url('fonts.scss');
+@import url('mixins.scss');
+
+@keyframes item-animation {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#roles{
+    margin-top: 300px;
+    color: var(--color-light);
+    position: relative;
+}
+
+.roles__header{
+    @include header();
+    text-align: center;
+}
+
+.roles__menu{
+    display: flex;
+    text-align: center;
+}
+
+.roles__label-player{
+    background-image: url("/static/images/roles/player.svg");
+    display: inline-block;
+    width: 120px;
+    aspect-ratio: 1;
+    transition-duration: var(--transition-duration);
+    padding-inline: 60px;
+    padding-block: 60px;
+    cursor: pointer;
+}
+
+#roles__input-player:checked ~ .roles__label-player{
+    background-image: url("/static/images/roles/player-red.svg");
+    display: inline-block;
+    width: 120px;
+    aspect-ratio: 1;
+    transition-duration: var(--transition-duration);
+}
+
+p[class^="roles__text"]{
+    visibility: hidden;
+    position: absolute;
+    top: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 70%;
+}
+
+[id^="roles__input"]:checked ~ p[class^="roles__text"]{
+    visibility: visible;
+    animation-name: item-animation;
+    animation-duration: var(--transition-duration);
+}
+
+.roles__label-coach{
+    background-image: url("/static/images/roles/coach.svg");
+    display: inline-block;
+    width: 120px;
+    aspect-ratio: 1;
+    transition-duration: var(--transition-duration);
+    padding-inline: 60px;
+    padding-block: 60px;
+    cursor: pointer;
+}
+
+#roles__input-coach:checked ~ .roles__label-coach{
+    background-image: url("/static/images/roles/coach-red.svg");
+    display: inline-block;
+    width: 120px;
+    aspect-ratio: 1;
+    transition-duration: var(--transition-duration);
+}
