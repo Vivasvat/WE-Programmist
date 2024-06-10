@@ -38,4 +38,15 @@
     margin-bottom: 50px;
 }
 
+@mixin label-checked($url:"/static/images/roles/player-red.svg"){
+    background-image: url($url);
+    display: inline-block;
+    width: 120px;
+    height: 130px;
+    transition-duration: var(--transition-duration);
+    border: solid 2px #fff;
+    border-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: var(--color-blue);
+}
 

@@ -12,9 +12,10 @@
 }
 
 #roles{
-    margin-top: 300px;
+    margin-top: 150px;
+    padding-top: 150px;
     color: var(--color-light);
-    position: relative;
+    padding-bottom: 1000px;
 }
 
 .roles__header{
@@ -24,61 +25,102 @@
 
 .roles__menu{
     display: flex;
-    text-align: center;
+    justify-content: center;
+    position: relative;
 }
 
-.roles__label-player{
-    background-image: url("/static/images/roles/player.svg");
+label[class^="roles__label"]{
     display: inline-block;
     width: 120px;
-    aspect-ratio: 1;
+    height: 130px;
     transition-duration: var(--transition-duration);
-    padding-inline: 60px;
-    padding-block: 60px;
     cursor: pointer;
 }
 
-#roles__input-player:checked ~ .roles__label-player{
-    background-image: url("/static/images/roles/player-red.svg");
-    display: inline-block;
-    width: 120px;
-    aspect-ratio: 1;
-    transition-duration: var(--transition-duration);
+[id^="roles__input"]{
+    visibility: hidden;
 }
 
 p[class^="roles__text"]{
     visibility: hidden;
     position: absolute;
-    top: 300px;
+    top: 180px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     width: 70%;
+    font-family: "Raleway-Regular";
+    font-size: 18px;
+    line-height: 150%;
+    padding-inline: 50px;
+    padding-block: 50px; 
 }
 
 [id^="roles__input"]:checked ~ p[class^="roles__text"]{
     visibility: visible;
     animation-name: item-animation;
-    animation-duration: var(--transition-duration);
+    animation-duration: 2s;
+    border: solid 2px #fff;
+    border-radius: 10px;
+    background-color: var(--color-blue);
+    z-index: 1;
+}
+
+.roles__label-player{
+    background-image: url("/static/images/roles/player.svg");
+}
+
+#roles__input-player:checked ~ .roles__label-player{
+    @include label-checked($url:"/static/images/roles/player-red.svg");
 }
 
 .roles__label-coach{
     background-image: url("/static/images/roles/coach.svg");
-    display: inline-block;
-    width: 120px;
-    aspect-ratio: 1;
-    transition-duration: var(--transition-duration);
-    padding-inline: 60px;
-    padding-block: 60px;
-    cursor: pointer;
 }
 
 #roles__input-coach:checked ~ .roles__label-coach{
-    background-image: url("/static/images/roles/coach-red.svg");
-    display: inline-block;
-    width: 120px;
-    aspect-ratio: 1;
-    transition-duration: var(--transition-duration);
+    @include label-checked($url:"/static/images/roles/coach-red.svg");
 }
+
+.roles__label-organizer{
+    background-image: url("/static/images/roles/organizer.svg");
+}
+
+#roles__input-organizer:checked ~ .roles__label-organizer{
+    @include label-checked($url:"/static/images/roles/organizer-red.svg");
+}
+
+.roles__label-referee{
+    background-image: url("/static/images/roles/referee.svg");
+}
+
+#roles__input-referee:checked ~ .roles__label-referee{
+    @include label-checked($url:"/static/images/roles/referee-red.svg");
+}
+
+.roles__label-analyst{
+    background-image: url("/static/images/roles/analyst.svg");
+}
+
+#roles__input-analyst:checked ~ .roles__label-analyst{
+    @include label-checked($url:"/static/images/roles/analyst-red.svg");
+}
+
+.roles__label-commentator{
+    background-image: url("/static/images/roles/commentator.svg");
+}
+
+#roles__input-commentator:checked ~ .roles__label-commentator{
+    @include label-checked($url:"/static/images/roles/commentator-red.svg");
+}
+
+.roles__label-scout{
+    background-image: url("/static/images/roles/scout.svg");
+}
+
+#roles__input-scout:checked ~ .roles__label-scout{
+    @include label-checked($url:"/static/images/roles/scout-red.svg");
+}
+
