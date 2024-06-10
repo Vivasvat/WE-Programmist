@@ -2011,9 +2011,13 @@ a[class^=play-with-us__link] {
 
 label[class^=roles__label] {
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
+  background-position: center;
   transition-duration: var(--transition-duration);
+}
+
+label[class^=roles__label]:hover {
   cursor: pointer;
 }
 
@@ -2054,13 +2058,13 @@ p[class^=roles__text] {
 
 #roles__input-player:checked ~ .roles__label-player {
   background-image: url("/static/images/roles/player-red.svg");
+  background-position: center;
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
   transition-duration: var(--transition-duration);
   border: solid 2px #fff;
   border-radius: 10px;
-  border-top-right-radius: 10px;
   background-color: var(--color-blue);
 }
 
@@ -2070,13 +2074,13 @@ p[class^=roles__text] {
 
 #roles__input-coach:checked ~ .roles__label-coach {
   background-image: url("/static/images/roles/coach-red.svg");
+  background-position: center;
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
   transition-duration: var(--transition-duration);
   border: solid 2px #fff;
   border-radius: 10px;
-  border-top-right-radius: 10px;
   background-color: var(--color-blue);
 }
 
@@ -2086,13 +2090,13 @@ p[class^=roles__text] {
 
 #roles__input-organizer:checked ~ .roles__label-organizer {
   background-image: url("/static/images/roles/organizer-red.svg");
+  background-position: center;
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
   transition-duration: var(--transition-duration);
   border: solid 2px #fff;
   border-radius: 10px;
-  border-top-right-radius: 10px;
   background-color: var(--color-blue);
 }
 
@@ -2102,13 +2106,13 @@ p[class^=roles__text] {
 
 #roles__input-referee:checked ~ .roles__label-referee {
   background-image: url("/static/images/roles/referee-red.svg");
+  background-position: center;
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
   transition-duration: var(--transition-duration);
   border: solid 2px #fff;
   border-radius: 10px;
-  border-top-right-radius: 10px;
   background-color: var(--color-blue);
 }
 
@@ -2118,13 +2122,13 @@ p[class^=roles__text] {
 
 #roles__input-analyst:checked ~ .roles__label-analyst {
   background-image: url("/static/images/roles/analyst-red.svg");
+  background-position: center;
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
   transition-duration: var(--transition-duration);
   border: solid 2px #fff;
   border-radius: 10px;
-  border-top-right-radius: 10px;
   background-color: var(--color-blue);
 }
 
@@ -2134,13 +2138,13 @@ p[class^=roles__text] {
 
 #roles__input-commentator:checked ~ .roles__label-commentator {
   background-image: url("/static/images/roles/commentator-red.svg");
+  background-position: center;
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
   transition-duration: var(--transition-duration);
   border: solid 2px #fff;
   border-radius: 10px;
-  border-top-right-radius: 10px;
   background-color: var(--color-blue);
 }
 
@@ -2150,13 +2154,13 @@ p[class^=roles__text] {
 
 #roles__input-scout:checked ~ .roles__label-scout {
   background-image: url("/static/images/roles/scout-red.svg");
+  background-position: center;
   display: inline-block;
-  width: 120px;
-  height: 130px;
+  width: 8vw;
+  height: 8.6666666667vw;
   transition-duration: var(--transition-duration);
   border: solid 2px #fff;
   border-radius: 10px;
-  border-top-right-radius: 10px;
   background-color: var(--color-blue);
 }
 

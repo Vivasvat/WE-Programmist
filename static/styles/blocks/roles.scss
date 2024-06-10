@@ -31,9 +31,13 @@
 
 label[class^="roles__label"]{
     display: inline-block;
-    width: 120px;
-    height: 130px;
+    width: calc(120 / 1500 * 100vw);
+    height: calc(130 / 1500 * 100vw);
+    background-position: center;
     transition-duration: var(--transition-duration);
+}
+
+label[class^="roles__label"]:hover{
     cursor: pointer;
 }
 
