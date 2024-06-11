@@ -38,11 +38,6 @@ $block-width: 1920;
 
 .about-platform__link{
     @include button(160px, 70px);
-    text-decoration: none;
-    font-family: "Raleway-Regular";
-    font-size: 18px;
-    line-height: 160%;
-    color: var(--color-light);
 }
 
 @media (hover:hover){

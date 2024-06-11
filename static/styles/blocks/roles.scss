@@ -24,17 +24,17 @@
 }
 
 .roles__menu{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(6, 10%);
+    place-content: center;
+    place-items: center;
     position: relative;
 }
 
 label[class^="roles__label"]{
     display: inline-block;
-    width: calc(120 / 1500 * 100vw);
-    height: calc(130 / 1500 * 100vw);
-    background-position: center;
-    transition-duration: var(--transition-duration);
+    width: 120px;
+    height: 130px;
 }
 
 label[class^="roles__label"]:hover{
@@ -120,11 +120,91 @@ p[class^="roles__text"]{
     @include label-checked($url:"/static/images/roles/commentator-red.svg");
 }
 
-.roles__label-scout{
-    background-image: url("/static/images/roles/scout.svg");
+.roles__link{
+    @include button(225px, 70px);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-top: 225px;
 }
 
-#roles__input-scout:checked ~ .roles__label-scout{
-    @include label-checked($url:"/static/images/roles/scout-red.svg");
+@media (hover:hover){
+    .roles__link:hover{
+        transform: scale(1.2);
+        transition-duration: var(--transition-duration);
+    }
 }
 
+@media screen and (max-width:1700px) {
+    .roles__menu{
+        grid-template-columns: repeat(3, 20%);
+    }
+
+    label[class^="roles__label"]{
+        margin-bottom: 30px;
+    }
+
+    p[class^="roles__text"]{
+        top: 330px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .roles__link{
+        margin-top: 270px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .roles__header{
+        font-size: 36px;
+    }
+
+    .roles__menu{
+        grid-template-columns: repeat(2, 30%);
+    }
+
+    p[class^="roles__text"]{
+        top: 480px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:640px) {
+    .roles__link{
+        margin-top: 280px;
+    }
+}
+
+@media screen and (max-width:510px) {
+    .roles__menu{
+        grid-template-columns: repeat(2, 40%);
+    }
+
+    p[class^="roles__text"]{
+        top: 480px;
+        font-size: 14px;
+    }
+
+    .roles__link{
+        margin-top: 310px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .roles__link{
+        margin-top: 320px;
+    }
+}
+
+@media screen and (max-width:360px) {
+    p[class^="roles__text"]{
+        top: 510px;
+    }
+
+    .roles__link{
+        margin-top: 370px;
+    }
+}
