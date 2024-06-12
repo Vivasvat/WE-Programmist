@@ -64,12 +64,12 @@ body{
 
 @media (hover:hover){
     .header__menu-login-item:hover, .header__menu-item:hover, .header__menu-burger-item:hover{
-    transform: scale(1.2);
-    transition-duration: var(--transition-duration);
+        transform: scale(1.2);
+        transition-duration: var(--transition-duration);
     }
 
     .header__menu-hover-color:hover{
-        color: #ffffff7d;
+        color: var(--color-grey);
         transition-duration: var(--transition-duration);
     }
 }
