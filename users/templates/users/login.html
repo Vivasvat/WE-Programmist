@@ -7,39 +7,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Вход</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Отправить</button>
-  </form>
-  <p>OR</p>
-  {% for provider in socialaccount_providers %}
-  <!-- {% if provider.id == "openid" %}
-  {% for brand in provider.get_brands %}
-  <li>
-    <a title="{{brand.name}}"
-   class="socialaccount_provider {{provider.id}} {{brand.id}}"
-   href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">{{brand.name}}</a>
-  </li>
-  {% endfor %}
-  {% endif %} -->
-  <!-- provider_login_url provider.id scope=scope process=process auth_params=auth_params -->
-  <form action="{% provider_login_url provider.id  %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">{{provider.id}}</button>
-  </form>
-  <!-- <li>
-    <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
-      href="{% provider_login_url provider.id  %}">
-      {{provider.name}}
-    </a>
-  </li> -->
-  {% endfor %}
-  <!-- <p>
-    <a href="{% url 'users:logout' %}">Выход</a>
-  </p> -->
+ 
+  <section class="login">
+
+    <form action="{% provider_login_url provider.id  %}" method="POST">
+      {% csrf_token %}
+      <div class="background-images">
+        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+        
+        <div class="background-images__circle1"></div>
+        <div class="background-images__circle2"></div>
+        <div class="background-images__circle3"></div>
+       </div>
+       
+       <div class="login__block">
+         <h1 class="login__header">Вход</h1>
+    
+         <fieldset class="login__fieldset">
+          <legend>Логин</legend>
+          <label for="login__label"></label>
+          <input id="login__input" type="text" name="name" placeholder="Ваш логин">  
+         </fieldset>
+         
+         <fieldset class="password__fieldset">
+          <legend>Пароль</legend>
+          <label for="password__label"></label>
+          <input id="password__input" type="text" name="name" placeholder="Ваш пароль">  
+         </fieldset>
+
+         <a href="#" class="login__forget">Восстановить пароль</a>
+         <a href="#" class="login__registration">Зарегистрироваться</a>
+
+         <div class="button">
+          <button type="submit" class="login__button">Войти</button>
+         </div>
+       </div>
+    </form>
+
+  </section>
 </body>
 </html>
