@@ -2,7 +2,7 @@
 @import url('fonts.scss');
 @import url('mixins.scss');
 
-body{
+.body__login{
     height: 100%;
     overflow: hidden;
 }
@@ -13,15 +13,16 @@ body{
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: calc(150 / 1920 * 100vw);
+    margin-top: 150px;
     width: 30%;
     height: 65%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 5px #191a23;
+    padding-top: 35px;
 }
 
-legend{
+.body__login legend{
     font-family: "Raleway-Regular";
     font-size: 18px;
     line-height: 110%;
@@ -36,13 +37,20 @@ legend{
     color: var(--color-red);
 }
 
-fieldset{
+.body__login fieldset{
     width: 50%;
     margin: auto;
     margin-bottom: 20px;
 }
-    
-input{
+ 
+.body__login input, .body__login input::placeholder{
+    font-family: "Raleway-Regular";
+    font-size: 14px;
+    line-height: 110%;
+    color: var(--color-grey);
+}
+   
+.body__login input{
     width: 100%;
     background-color: var(--color-dark-blue);
     color: var(--color-light);
@@ -50,20 +58,14 @@ input{
     margin-top: 10px;
     padding-block: 5px;
     box-shadow: -10px 10px 5px 0 #191a23;
-}
-
-input::placeholder{
-    font-family: "Raleway-Regular";
-    font-size: 14px;
-    line-height: 110%;
-    color: var(--color-grey);
+    color: var(--color-light);
 }
 
 .password__fieldset{
     padding-bottom: 10px;
 }
 
-a{
+.body__login a{
     display: flex;
     justify-content: center;
     font-family: "Raleway-Regular";
@@ -74,7 +76,7 @@ a{
     padding-bottom: 15px;
 }
 
-.login__registration{
+.body__login .login__registration{
     color: var(--color-red);
 }
 
@@ -92,5 +94,25 @@ a{
     a:hover, .login__button:hover{
         transform: scale(1.2);
         transition-duration: var(--transition-duration);
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .login__block{
+        width: 50%;
+    }
+
+    .body__login fieldset{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .login__block{
+        width: 70%;
+    }
+
+    .body__login fieldset{
+        width: 70%;
     }
 }
