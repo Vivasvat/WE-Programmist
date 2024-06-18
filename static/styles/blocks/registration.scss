@@ -2,34 +2,27 @@
 @import url('fonts.scss');
 @import url('mixins.scss');
 
-.body__login{
+.body__registration{
     height: 100%;
     overflow: hidden;
 }
 
-.login__block{
+.registration__block{
     position: absolute;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 150px;
+    margin-top: 100px;
     width: 30%;
-    height: 65%;
+    height: 70%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 5px #191a23;
     padding-top: 35px;
 }
 
-.body__login legend{
-    font-family: "Raleway-Regular";
-    font-size: 18px;
-    line-height: 110%;
-    color: var(--color-light);
-}
-
-.login__header{
+.registration__header{
     font-family: "Raleway-SemiBold";
     font-size: 36px;
     text-align: center;
@@ -37,46 +30,41 @@
     color: var(--color-red);
 }
 
-.body__login fieldset{
+.body__registration fieldset{
     width: 50%;
     margin: auto;
     margin-bottom: 20px;
 }
  
-.body__login input, .body__login input::placeholder{
+.body__registration input, .body__registration input::placeholder{
     font-family: "Raleway-Regular";
     font-size: 14px;
     line-height: 110%;
     color: var(--color-grey);
 }
    
-.body__login input{
+.body__registration input{
     width: 100%;
     background-color: var(--color-dark-blue);
     color: var(--color-light);
     padding-left: 10px;
-    margin-top: 10px;
     padding-block: 5px;
     box-shadow: -10px 10px 5px 0 #191a23;
     color: var(--color-light);
 }
 
-.password__fieldset{
-    padding-bottom: 10px;
-}
-
-.body__login a{
+.body__registration a{
     display: flex;
     justify-content: center;
     font-family: "Raleway-Regular";
-    font-size: 14px;
+    font-size: 18px;
     line-height: 110%;
     color: var(--color-light);
     text-decoration: none;
-    padding-bottom: 15px;
 }
 
-.body__login .login__registration{
+.body__registration .login__registration{
+    padding-top: 15px;
     color: var(--color-red);
 }
 
@@ -91,28 +79,28 @@
 }
 
 @media (hover:hover){
-    .body__login a:hover, .login__button:hover{
+    .body__registration a:hover, .login__button:hover{
         transform: scale(1.2);
         transition-duration: var(--transition-duration);
     }
 }
 
 @media screen and (max-width: 1300px){
-    .login__block{
+    .registration__block{
         width: 50%;
     }
 
-    .body__login fieldset{
+    .body__registration fieldset{
         width: 60%;
     }
 }
 
 @media screen and (max-width: 700px){
-    .login__block{
+    .registration__block{
         width: 70%;
     }
 
-    .body__login fieldset{
+    .body__registration fieldset{
         width: 70%;
     }
 }

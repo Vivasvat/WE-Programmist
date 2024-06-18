@@ -27,6 +27,9 @@
 @import url("variables.scss");
 @import url("fonts.scss");
 @import url("mixins.scss");
+@import url("variables.scss");
+@import url("fonts.scss");
+@import url("mixins.scss");
 html {
   -webkit-text-size-adjust: 100%;
 }
@@ -2422,7 +2425,7 @@ li[class^=footer__item]:first-child {
 }
 
 @media (hover: hover) {
-  a:hover, .login__button:hover {
+  .body__login a:hover, .login__button:hover {
     transform: scale(1.2);
     transition-duration: var(--transition-duration);
   }
@@ -2440,6 +2443,115 @@ li[class^=footer__item]:first-child {
     width: 70%;
   }
   .body__login fieldset {
+    width: 70%;
+  }
+}
+.body__registration {
+  height: 100%;
+  overflow: hidden;
+}
+
+.registration__block {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 30%;
+  height: 70%;
+  background-color: var(--color-blue);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 5px #191a23;
+  padding-top: 35px;
+}
+
+.registration__header {
+  font-family: "Raleway-SemiBold";
+  font-size: 36px;
+  text-align: center;
+  padding-bottom: 30px;
+  color: var(--color-red);
+}
+
+.body__registration fieldset {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.body__registration input, .body__registration input::placeholder {
+  font-family: "Raleway-Regular";
+  font-size: 14px;
+  line-height: 110%;
+  color: var(--color-grey);
+}
+
+.body__registration input {
+  width: 100%;
+  background-color: var(--color-dark-blue);
+  color: var(--color-light);
+  padding-left: 10px;
+  padding-block: 5px;
+  box-shadow: -10px 10px 5px 0 #191a23;
+  color: var(--color-light);
+}
+
+.body__registration a {
+  display: flex;
+  justify-content: center;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 110%;
+  color: var(--color-light);
+  text-decoration: none;
+}
+
+.body__registration .login__registration {
+  padding-top: 15px;
+  color: var(--color-red);
+}
+
+.login__button {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
+  margin-top: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+@media (hover: hover) {
+  .body__registration a:hover, .login__button:hover {
+    transform: scale(1.2);
+    transition-duration: var(--transition-duration);
+  }
+}
+@media screen and (max-width: 1300px) {
+  .registration__block {
+    width: 50%;
+  }
+  .body__registration fieldset {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .registration__block {
+    width: 70%;
+  }
+  .body__registration fieldset {
     width: 70%;
   }
 }
