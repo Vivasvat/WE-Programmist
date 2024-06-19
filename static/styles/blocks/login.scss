@@ -8,14 +8,13 @@
 }
 
 .login__block{
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 150px;
+    margin-top: 100px;
     width: 30%;
-    height: 65%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 5px #191a23;
@@ -85,13 +84,20 @@
     margin-top: 20px;   
 }
 
+.login__button-steam{
+    @include button (300px, 50px);
+    margin-top: 30px;  
+    margin-inline: 20px; 
+    margin-bottom: 35px;
+}
+
 .button{
     display: flex;
     justify-content: center;
 }
 
 @media (hover:hover){
-    .body__login a:hover, .login__button:hover{
+    .body__login a:hover, .login__button:hover, .login__button-steam:hover{
         transform: scale(1.2);
         transition-duration: var(--transition-duration);
     }
@@ -114,5 +120,11 @@
 
     .body__login fieldset{
         width: 70%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .login__block{
+        width: 90%;
     }
 }

@@ -14,7 +14,7 @@
  
   <section class="login">
 
-    <form action="{% provider_login_url provider.id  %}" method="POST">
+    <form action="{% provider_login_url provider.id  %}" method="POST" class="login__form">
       {% csrf_token %}
       <div class="background-images">
         <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
@@ -28,6 +28,7 @@
        </div>
        
        <div class="login__block">
+
          <h1 class="login__header">Вход</h1>
     
          <fieldset class="login__fieldset">
@@ -48,6 +49,11 @@
          <div class="button">
           <button type="submit" class="login__button">Войти</button>
          </div>
+
+         <div class="button">
+          <button type="submit" class="login__button-steam">Регистрация через Steam</button>
+         </div>
+         
        </div>
     </form>
 
