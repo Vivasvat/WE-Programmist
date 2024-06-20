@@ -39,7 +39,12 @@
           type="text" 
           name="username" 
           placeholder="Ваш логин"
-          value="{% if form.username_value %}{{ form.username_value }}{% endif %}"> 
+          value="{% if form.username_value %}{{ form.username_value }}{% endif %}">
+          {% if form.username.errors %}
+             <div class="alert alert-danger alert-dismissible fade show">
+                 {{ form.username.errors }}
+             </div>
+          {% endif %}
          </fieldset>
          
          <fieldset class="password__fieldset">
@@ -50,7 +55,12 @@
           type="text" 
           name="password" 
           placeholder="Ваш пароль"
-          value="{% if form.password_value %}{{ form.password_value }}{% endif %}">  
+          value="{% if form.password_value %}{{ form.password_value }}{% endif %}">
+          {% if form.password.errors %}
+             <div class="alert alert-danger alert-dismissible fade show">
+                 {{ form.password.errors }}
+             </div>
+          {% endif %}
          </fieldset>
 
          <a href="#" class="login__forget">Восстановить пароль</a>
