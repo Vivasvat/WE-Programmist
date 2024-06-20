@@ -2330,7 +2330,7 @@ li[class^=footer__item]:first-child {
   overflow: hidden;
 }
 
-.login__block {
+.login__main {
   position: relative;
   left: 0;
   right: 0;
@@ -2448,7 +2448,7 @@ li[class^=footer__item]:first-child {
   }
 }
 @media screen and (max-width: 1300px) {
-  .login__block {
+  .login__main {
     width: 50%;
   }
   .body__login fieldset {
@@ -2456,7 +2456,7 @@ li[class^=footer__item]:first-child {
   }
 }
 @media screen and (max-width: 700px) {
-  .login__block {
+  .login__main {
     width: 70%;
   }
   .body__login fieldset {
@@ -2464,7 +2464,7 @@ li[class^=footer__item]:first-child {
   }
 }
 @media screen and (max-width: 700px) {
-  .login__block {
+  .login__main {
     width: 90%;
   }
 }

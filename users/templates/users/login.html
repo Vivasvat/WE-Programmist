@@ -14,20 +14,20 @@
  
   <section class="login">
 
-    <form action="{% url 'users:login'  %}" method="POST" class="login__form">
+    <div class="background-images">
+      <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+      <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+      <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+      <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+      
+      <div class="background-images__circle1"></div>
+      <div class="background-images__circle2"></div>
+      <div class="background-images__circle3"></div>
+     </div>
+
+     <div class="login__main">
+      <form action="{% url 'users:login'  %}" method="POST" class="login__form">
       {% csrf_token %}
-      <div class="background-images">
-        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
-        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
-        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
-        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
-        
-        <div class="background-images__circle1"></div>
-        <div class="background-images__circle2"></div>
-        <div class="background-images__circle3"></div>
-       </div>
-       
-       <div class="login__block">
 
          <h1 class="login__header">Вход</h1>
     
@@ -59,15 +59,17 @@
          <div class="button">
           <button type="submit" class="login__button">Войти</button>
          </div>
-       </div>
-    </form>
+        
+        </form>
 
-    <form action="{% provider_login_url provider.id  %}" method="POST" class="login__form">
-      <div class="button">
-        <button type="submit" class="login__button-steam">Вход через Steam</button>
-       </div>
-    </form>
+      <form action="{% provider_login_url provider.id  %}" method="POST" class="regoster__form">
+        <div class="button">
+          <button type="submit" class="login__button-steam">Вход через Steam</button>
+        </div>
+      </form>
+     </div>
 
+      
   </section>
 </body>
 </html>
