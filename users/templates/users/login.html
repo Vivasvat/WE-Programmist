@@ -14,7 +14,7 @@
  
   <section class="login">
 
-    <form action="{% provider_login_url provider.id  %}" method="POST" class="login__form">
+    <form action="{% url 'users:login'  %}" method="POST" class="login__form">
       {% csrf_token %}
       <div class="background-images">
         <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
@@ -34,26 +34,37 @@
          <fieldset class="login__fieldset">
           <legend>Логин</legend>
           <label for="login__label"></label>
-          <input id="login__input" type="text" name="name" placeholder="Ваш логин">  
+          <input 
+          id="login__input" 
+          type="text" 
+          name="username" 
+          placeholder="Ваш логин"
+          value="{% if form.username_value %}{{ form.username_value }}{% endif %}"> 
          </fieldset>
          
          <fieldset class="password__fieldset">
           <legend>Пароль</legend>
           <label for="password__label"></label>
-          <input id="password__input" type="text" name="name" placeholder="Ваш пароль">  
+          <input 
+          id="password__input" 
+          type="text" 
+          name="password" 
+          placeholder="Ваш пароль"
+          value="{% if form.password_value %}{{ form.password_value }}{% endif %}">  
          </fieldset>
 
          <a href="#" class="login__forget">Восстановить пароль</a>
-         <a href="#" class="login__registration">Зарегистрироваться</a>
+         <a href="{% url 'users:registration' %}" class="login__registration">Зарегистрироваться</a>
 
          <div class="button">
           <button type="submit" class="login__button">Войти</button>
          </div>
+       </div>
+    </form>
 
-         <div class="button">
-          <button type="submit" class="login__button-steam">Регистрация через Steam</button>
-         </div>
-         
+    <form action="{% provider_login_url provider.id  %}" method="POST" class="login__form">
+      <div class="button">
+        <button type="submit" class="login__button-steam">Вход через Steam</button>
        </div>
     </form>
 

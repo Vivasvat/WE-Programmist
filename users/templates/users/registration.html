@@ -1,22 +1,24 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__registration">
  
   <section class="login">
 
-    <form action="" method="POST">
+    <form action="{% url "users:registration" %}" method="POST">
       {% csrf_token %}
       <div class="background-images">
-        <img class="background-images__Vec1" src="/static/images/404/Vector1.svg" alt="">
-        <img class="background-images__Vec2" src="/static/images/404/Vector2.svg" alt="">
-        <img class="background-images__Vec3" src="/static/images/404/Vector3.svg" alt="">
-        <img class="background-images__Vec4" src="/static/images/404/Vector4.svg" alt="">
+        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
         
         <div class="background-images__circle1"></div>
         <div class="background-images__circle2"></div>
@@ -25,33 +27,58 @@
        
        <div class="registration__block">
          <h1 class="registration__header">Регистрация</h1>
-    
+
          <fieldset class="registration__fieldset">
           <label for="registration__label"></label>
-          <input id="registration__input" type="text" name="name" placeholder="Имя">  
+          <input 
+          id="registration__input" 
+          type="text" 
+          name="username" 
+          placeholder="Логин"
+          value="{% if form.username_value %}{{ form.username_value }}{% endif %}">  
          </fieldset>
          
          <fieldset class="registration__fieldset">
           <label for="registration__label"></label>
-          <input id="registration__input" type="text" name="name" placeholder="Почта">  
+          <input 
+          id="registration__input" 
+          type="text" 
+          name="email" 
+          placeholder="Почта"
+          value="{% if form.email_value %}{{ form.email_value }}{% endif %}">  
          </fieldset>
 
          <fieldset class="registration__fieldset">
           <label for="registration__label"></label>
-          <input id="registration__input" type="text" name="name" placeholder="Логин">  
+          <input 
+          id="registration__input" 
+          type="text" 
+          name="phone_number" 
+          placeholder="Номер телефона"
+          value="{% if form.phone_number_value %}{{ form.phone_number_value }}{% endif %}">  
          </fieldset>
          
          <fieldset class="registration__fieldset">
           <label for="registration__label"></label>
-          <input id="registration__input" type="text" name="name" placeholder="Пароль">  
+          <input 
+          id="registration__input" 
+          type="text" 
+          name="password1" 
+          placeholder="Пароль"
+          value="{% if form.password1_value %}{{ form.password1_value }}{% endif %}">  
          </fieldset>
 
          <fieldset class="registration__fieldset">
           <label for="registration__label"></label>
-          <input id="registration__input" type="text" name="name" placeholder="Подтвердить пароль">  
+          <input 
+          id="registration__input" 
+          type="text" 
+          name="password2" 
+          placeholder="Подтвердить пароль"
+          value="{% if form.password2_value %}{{ form.password2_value }}{% endif %}">  
          </fieldset>
 
-         <a href="#" class="login__registration">Войти</a>
+         <!-- <a href="#" class="login__registration">Войти</a> -->
 
          <div class="button">
           <button type="submit" class="login__button">Зарегистрироваться</button>

@@ -7,7 +7,10 @@ from django.contrib import messages
 
 from users.forms import UserLoginForm, UserRegistrationForm
 # ProfileForm, UserLoginForm, 
-from users.models import Profile
+
+# from users.models import Profile
+
+# from acc.models import MyAccount
 
 def login(request):
     if request.method == 'POST':
@@ -36,7 +39,7 @@ def registration(request):
             user = form.save()
             # messages.success(self.request, 'Регистрация прошла успешно')
             # сохранение номера
-            Profile.objects.create(user=user, phone_number=form.cleaned_data.get('phone_number'))
+            # MyAccount.objects.create(user=user, phone_number=form.cleaned_data.get('phone_number'))
             raw_password = form.cleaned_data.get('password1')
             user = auth.authenticate(username=user.username, password=raw_password)
             auth.login(request, user)

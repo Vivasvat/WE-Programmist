@@ -1,38 +1,39 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
-from django.contrib.auth.models import User
+from .models import User
 
 class UserLoginForm(AuthenticationForm):
 
     username = forms.CharField()
     password = forms.CharField()
 
-    username = forms.CharField(
-        label = 'Имя', 
-        widget=forms.TextInput(attrs={"autofocus": True,
-                                      'class': 'form-control',
-                                      'placeholder': 'Введите ваше имя пользователя'})
-    )
-    password = forms.CharField(
-        label = 'Пароль', 
-        widget=forms.PasswordInput(attrs={"autocomplete": "current-password",
-                                          'class': 'form-control',
-                                          'placeholder': 'Введите ваш пароль'})
-    )
+    # username = forms.CharField(
+    #     label = 'Имя', 
+    #     widget=forms.TextInput(attrs={"autofocus": True,
+    #                                   'class': 'form-control',
+    #                                   'placeholder': 'Введите ваше имя пользователя'})
+    # )
+    # password = forms.CharField(
+    #     label = 'Пароль', 
+    #     widget=forms.PasswordInput(attrs={"autocomplete": "current-password",
+    #                                       'class': 'form-control',
+    #                                       'placeholder': 'Введите ваш пароль'})
+    # )
     class Meta:
         model=User
         fields = ['username', 'password']
 
 class UserRegistrationForm(UserCreationForm):
+    
     username = forms.CharField(
         max_length=15,
         # help_text='Используйте',
         label='Имя пользователя'
     )
 
-    email = forms.CharField(
+    email = forms.EmailField(
         max_length=25,
-        help_text='example@mail.ru' , label='Введите вашу електронную почту'
+        help_text='example@mail.ru' , label='Введите вашу электронную почту'
     )
 
     phone_number = forms.CharField(
@@ -51,6 +52,7 @@ class UserRegistrationForm(UserCreationForm):
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
         # help_text='Одна большая буква и т.д.',
     )
+
     class Meta:
         model = User
-        fields = ('username', 'email', 'phone_number', 'password1', 'password2', )
+        fields = ('username', 'email', 'phone_number', 'password1', 'password2')
