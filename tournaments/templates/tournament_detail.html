@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="{% static 'main.css' %}">
+     <link rel="stylesheet" href="{% static 'tournaments.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tournament.name}} </title>
+</head>
+
+<body>
+    <div class="background-images">
+        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+
+        <div class="background-images__circle1"></div>
+        <div class="background-images__circle2"></div>
+        <div class="background-images__circle3"></div>
+    </div>
+
+    <h1>{{ tournament.name }}</h1>
+    <div class="wrapper-tournament">
+        <p>Игра: {{ tournament.get_game_display}}</p>
+        <p>Организатор: {{ tournament.organizer}}</p>
+        <p>Регистрация:{{ tournament.registration_start_date|date:'d-m-Y в H:i' }} - {{ tournament.registration_end_date|date:'d-m-Y в H:i' }}</p>
+        <p>Проведение турнира:{{ tournament.tournament_start_date|date:'d-m-Y в H:i' }} - {{ tournament.tournament_end_date|date:'d-m-Y в H:i' }}</p>
+        <p>Статус: {{ tournament.get_status_display}}</p>
+        <p>Формат: {{ tournament.get_format_of_tournament_display}}, {{ tournament.get_format_of_participation_display }}</p>
+        <p>Тип: {{ tournament.type_of_tournament}}</p>
+        <p>Призовой фонд: {{ tournament.prize_fund|floatformat:"0"}} рублей</p>
+    </div>
+
+</body>

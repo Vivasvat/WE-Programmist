@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
     'acc.apps.AccountConfig',
+    'tournaments.apps.TournamentsConfig',
 
     'allauth',
 
@@ -87,6 +88,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.yandex',
     'allauth.socialaccount.providers.steam',
     'allauth.socialaccount.providers.openid',
+
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
