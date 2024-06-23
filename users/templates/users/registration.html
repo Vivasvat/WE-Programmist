@@ -10,7 +10,11 @@
 </head>
 <body class="body__registration">
  
-  <section class="login">
+  <section class="registration">
+
+    <header class="registration__header">
+      <h1>Registration</h1>
+    </header>
 
     <form action="{% url "users:registration" %}" method="POST">
       {% csrf_token %}

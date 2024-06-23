@@ -2330,6 +2330,19 @@ li[class^=footer__item]:first-child {
   overflow: hidden;
 }
 
+.login__header {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
 .login__main {
   position: relative;
   left: 0;
@@ -2506,6 +2519,19 @@ li[class^=footer__item]:first-child {
   overflow: hidden;
 }
 
+.registration__header {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
 .registration__block {
   position: absolute;
   left: 0;
@@ -2646,6 +2672,12 @@ li[class^=footer__item]:first-child {
   .body__registration fieldset {
     width: 60%;
   }
+  .registration__label1-eye, .registration__label2-eye {
+    right: 30px;
+  }
+  #registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye {
+    right: 30px;
+  }
 }
 @media screen and (max-width: 700px) {
   .registration__block {
@@ -2653,6 +2685,12 @@ li[class^=footer__item]:first-child {
   }
   .body__registration fieldset {
     width: 70%;
+  }
+  .registration__label1-eye, .registration__label2-eye {
+    right: 10px;
+  }
+  #registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye {
+    right: 10px;
   }
 }
 

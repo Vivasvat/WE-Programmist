@@ -7,6 +7,10 @@
     overflow: hidden;
 }
 
+.login__header{
+    @include visually-hidden();
+}
+
 .login__main{
     position: relative;
     left: 0;
