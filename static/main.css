@@ -2365,14 +2365,14 @@ li[class^=footer__item]:first-child {
   margin-bottom: 20px;
 }
 
-.body__login input, .body__login input::placeholder {
+.body__login input:not(#password__eye), .body__login input::placeholder {
   font-family: "Raleway-Regular";
   font-size: 14px;
   line-height: 110%;
   color: var(--color-grey);
 }
 
-.body__login input {
+.body__login input:not(#password__eye) {
   width: 100%;
   background-color: var(--color-dark-blue);
   color: var(--color-light);
@@ -2385,6 +2385,40 @@ li[class^=footer__item]:first-child {
 
 .password__fieldset {
   padding-bottom: 10px;
+  display: flex;
+}
+
+#password__eye {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+.password__label {
+  background-image: url(/static/images/login/eye.svg);
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 215px;
+  right: 50px;
+}
+
+#password__eye:checked ~ .password__label {
+  background-image: url(/static/images/login/blind.svg);
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 215px;
+  right: 50px;
 }
 
 .body__login a {
@@ -2431,7 +2465,6 @@ li[class^=footer__item]:first-child {
   font-size: 18px;
   line-height: 160%;
   color: var(--color-light);
-  margin-top: 30px;
   margin-inline: 20px;
   margin-bottom: 35px;
 }
@@ -2481,7 +2514,6 @@ li[class^=footer__item]:first-child {
   margin-right: auto;
   margin-top: 100px;
   width: 30%;
-  height: 70%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
   box-shadow: 0 10px 5px #191a23;
@@ -2519,6 +2551,47 @@ li[class^=footer__item]:first-child {
   color: var(--color-light);
 }
 
+#registration__password1-eye, #registration__password2-eye {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+.registration__label1-eye, .registration__label2-eye {
+  background-image: url(/static/images/login/eye.svg);
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 252px;
+  right: 50px;
+}
+
+.registration__label2-eye {
+  top: 302px;
+}
+
+#registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye {
+  background-image: url(/static/images/login/blind.svg);
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 252px;
+  right: 50px;
+}
+
+#registration__password2-eye:checked ~ .registration__label2-eye {
+  top: 302px;
+}
+
 .body__registration a {
   display: flex;
   justify-content: center;
@@ -2548,11 +2621,16 @@ li[class^=footer__item]:first-child {
   line-height: 160%;
   color: var(--color-light);
   margin-top: 20px;
+  margin-bottom: 35px;
 }
 
 .button {
   display: flex;
   justify-content: center;
+}
+
+.alert {
+  color: red;
 }
 
 @media (hover: hover) {

@@ -48,6 +48,10 @@
          </fieldset>
          
          <fieldset class="password__fieldset">
+
+          <input id="password__eye" type="checkbox" onclick="Toggle('password__eye', 'password__input')">
+          <label class="password__label"  for="password__eye"></label>
+          
           <legend>Пароль</legend>
           <label for="password__label"></label>
           <input 
@@ -61,6 +65,7 @@
                  {{ form.password.errors }}
              </div>
           {% endif %}
+
          </fieldset>
 
          <a href="#" class="login__forget">Восстановить пароль</a>
@@ -79,7 +84,8 @@
       </form>
      </div>
 
-      
   </section>
+
+  <script src="/static/scripts/main.js"></script>
 </body>
 </html>

@@ -15,7 +15,6 @@
     margin-right: auto;
     margin-top: 100px;
     width: 30%;
-    height: 70%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 5px #191a23;
@@ -53,6 +52,38 @@
     color: var(--color-light);
 }
 
+#registration__password1-eye, #registration__password2-eye{
+    @include visually-hidden();
+}
+
+.registration__label1-eye, .registration__label2-eye{
+    background-image: url(/static/images/login/eye.svg);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 252px;
+    right: 50px;
+}
+
+.registration__label2-eye{
+    top: 302px;
+}
+
+#registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye{
+    background-image: url(/static/images/login/blind.svg);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 252px;
+    right: 50px;
+}
+
+#registration__password2-eye:checked ~ .registration__label2-eye{
+    top: 302px;
+}
+
 .body__registration a{
     display: flex;
     justify-content: center;
@@ -70,12 +101,17 @@
 
 .login__button{
     @include button (200px, 50px);
-    margin-top: 20px;   
+    margin-top: 20px; 
+    margin-bottom: 35px;  
 }
 
 .button{
     display: flex;
     justify-content: center;
+}
+
+.alert{
+    color: red;
 }
 
 @media (hover:hover){

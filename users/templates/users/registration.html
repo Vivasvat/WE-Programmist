@@ -73,10 +73,14 @@
           {% endif %}
          </fieldset>
          
-         <fieldset class="registration__fieldset">
-          <label for="registration__label"></label>
+         <fieldset class="registration__fieldset1">
+          <input id="registration__password1-eye" type="checkbox" onclick="Toggle('registration__password1-eye', 'registration__input1')">
+          <label class="registration__label1-eye"  for="registration__password1-eye"></label>
+
+
+          <label for="registration__input1"></label>
           <input 
-          id="registration__input" 
+          id="registration__input1" 
           type="text" 
           name="password1" 
           placeholder="Пароль"
@@ -88,10 +92,13 @@
           {% endif %}
          </fieldset>
 
-         <fieldset class="registration__fieldset">
-          <label for="registration__label"></label>
+         <fieldset class="registration__fieldset2">
+          <input id="registration__password2-eye" type="checkbox" onclick="Toggle('registration__password2-eye', 'registration__input2')">
+          <label class="registration__label2-eye"  for="registration__password2-eye"></label>
+
+          <label for="registration__input2"></label>
           <input 
-          id="registration__input" 
+          id="registration__input2" 
           type="text" 
           name="password2" 
           placeholder="Подтвердить пароль"
@@ -103,7 +110,7 @@
           {% endif %}
          </fieldset>
 
-         <a href="#" class="login__registration">Войти</a>
+         <a href="{% url 'users:login' %}" class="login__registration">Войти</a>
 
          <div class="button">
           <button type="submit" class="login__button">Зарегистрироваться</button>
@@ -112,5 +119,7 @@
     </form>
 
   </section>
+
+  <script src="/static/scripts/main.js"></script>
 </body>
 </html>
