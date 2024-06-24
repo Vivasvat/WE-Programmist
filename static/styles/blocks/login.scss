@@ -7,6 +7,10 @@
     overflow: hidden;
 }
 
+.login__header{
+    @include visually-hidden();
+}
+
 .login__main{
     position: relative;
     left: 0;
@@ -42,14 +46,14 @@
     margin-bottom: 20px;
 }
  
-.body__login input, .body__login input::placeholder{
+.body__login input:not(#password__eye), .body__login input::placeholder{
     font-family: "Raleway-Regular";
     font-size: 14px;
     line-height: 110%;
     color: var(--color-grey);
 }
    
-.body__login input{
+.body__login input:not(#password__eye){
     width: 100%;
     background-color: var(--color-dark-blue);
     color: var(--color-light);
@@ -62,6 +66,31 @@
 
 .password__fieldset{
     padding-bottom: 10px;
+    display: flex;
+}
+
+#password__eye{
+    @include visually-hidden();
+}
+
+.password__label{
+    background-image: url(/static/images/login/eye.svg);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 215px;
+    right: 50px;
+}
+
+#password__eye:checked ~ .password__label{
+    background-image: url(/static/images/login/blind.svg);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 215px;
+    right: 50px;
 }
 
 .body__login a{
@@ -86,7 +115,6 @@
 
 .login__button-steam{
     @include button (300px, 50px);
-    margin-top: 30px;  
     margin-inline: 20px; 
     margin-bottom: 35px;
 }
