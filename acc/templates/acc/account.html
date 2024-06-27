@@ -4,100 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аккаунт</title>
+    <link rel="stylesheet" href="/static/main.css">
 </head>
-<body>
-    <form>
-        {% csrf_token %}
-        <div>
-            <p>Steam ID : {{ steamid }}</p>
-            <p>64-битный SteamID пользователя</p><br/>
+<body class="body__account">
+
+    <main>
+        <div class="background-images">
+            <img class="background-images__Vec1" src='/static/images/404/Vector1.svg' alt="">
+            <img class="background-images__Vec2" src='/static/images/404/Vector2.svg' alt="">
+            <img class="background-images__Vec3" src='/static/images/404/Vector3.svg' alt="">
+            <img class="background-images__Vec4" src='/static/images/404/Vector4.svg' alt="">
+            
+            <div class="background-images__circle1"></div>
+            <div class="background-images__circle2"></div>
+            <div class="background-images__circle3"></div>
         </div>
-        <div>
-            <p>Community visibility state : {{ communityvisibilitystate }}</p>
-            <p>Это показывает, виден ли профиль или нет, и если он виден, почему вам разрешено его видеть.</p><br/>
-            <p>1 — профиль вам не виден (частный, только для друзей и т. д.)</p><br/>
-            <p>3 — профиль является общедоступным, а данные видны.</p><br/>
+
+        <div class="account__main">
+            <form>
+                {% csrf_token %}
+                <div>
+                    <img src="/static/images/about-platfom/img.png" 
+                    alt="profile-photo"
+                    class="account__image"
+                    loading="lazy">
+                    <!-- {{ avatarfull }} -->
+                </div>
+                <div>
+                    <p>Никнейм</p>
+                    <p>{{ personaname }}</p>
+                </div>
+                <div>
+                    <a href="{{ profileurl }}" class="account__link">Ссылка</a>
+                </div>
+                <div>
+                    <p>{{ personastate }}</p>
+                </div>
+            </form>
+
+            <a href="#" class="account__link-events">Мои события</a>
+
+            <a href="#" class="account__link-main">На главную</a>
+                    
+            <form action="{% url 'users:logout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Выйти из аккаунта</button>
+            </form>
+            <form method="POST" action="{% url 'acc:del_acc' %}">
+                {% csrf_token %}
+                <button type="submit">Удалить Аккаунт</button>
+            </form>
         </div>
-        <div>
-            <p>Profile state : {{ profilestate }}</p>
-            <p>Если установлено, это означает, что у</p><br/>
-            <p>пользователя настроен профиль сообщества (будет установлено значение «1»).</p><br/>
-        </div>
-        <div>
-            <p> Persona name : {{ personaname }}</p>
-            <p>Личное имя игрока (отображаемое имя)</p><br/>
-        </div>
-        <div>
-            <p> Profile url : {{ profileurl }}</p>
-            <p>Полный URL-адрес профиля игрока в сообществе Steam.</p><br/>
-        </div>
-        <div>
-            <p>Avatar</p>
-            <img src="{{ avatar }}"
-            <p>Полный URL-адрес аватара игрока размером 32 x 32 пикселя. 
-                Если пользователь не настроил аватар, это будет аватар по умолчанию? аватар.</p><br/>
-        </div>
-        <div>
-            <p>Avatar medium</p>
-            <img src="{{ avatarmedium }}" alt="avatarmedium">
-            <p>Полный URL-адрес аватара игрока размером 64 x 64 пикселя. 
-                Если пользователь не настроил аватар, это будет аватар по умолчанию? аватар.</p><br/>
-        </div>
-        <div>
-            <p>Avatar medium</p>
-            <img src="{{ avatarfull }}" alt="avatarfull">
-            <p>Полный URL-адрес аватара игрока размером 184 x 184 пикселя. 
-                Если пользователь не настроил аватар, это будет аватар по умолчанию? аватар.</p><br/>
-        </div>
-        <div>
-            <p>Avatar medium</p>
-            <img src="{{ avatarfull }}" alt="avatarfull">
-            <p>Полный URL-адрес аватара игрока размером 184 x 184 пикселя. 
-                Если пользователь не настроил аватар, это будет аватар по умолчанию? аватар.</p><br/>
-        </div>
-        <div>
-            <p> Last log off : {{ lastlogoff }}</p>
-            <p>Последний раз, когда пользователь был онлайн, в unix-времени.</p><br/>
-        </div>
-        <div>
-            <p> Persona state : {{ personastate }}</p>
-            <p>Текущий статус пользователя. 
-                0 – не в сети, 
-                1 – в сети, 
-                2 – занят, 
-                3 – нет на месте, 
-                4 – отложить, 
-                5 – хочу торговать, 
-                6 – хочу поиграть. 
-                Если профиль игрока является частным, это всегда будет «0», за исключением случаев, 
-                когда пользователь установил свой статус «Желание торговать» или «Желание поиграть», 
-                поскольку из-за ошибки этот статус отображается, даже если профиль является частным..</p><br/>
-        </div>
-        <h2>Приватные данные профиля steam</h2>
-        <div>
-            <p> Real name : {{ realname }}</p>
-            <p>«Настоящее имя» игрока, если они его установили.</p><br/>
-        </div>
-        <div>
-            <p> Primary clan id: {{ primaryclanid }}</p>
-            <p>Основная группа игрока, настроенная в его профиле сообщества Steam.</p><br/>
-        </div>
-        <div>
-            <p> Time created : {{ timecreated }}</p>
-            <p>Время создания учетной записи игрока.</p><br/>
-        </div>
-        <div>
-            <p> Loc country code : {{ loccountrycode }}</p>
-            <p>Если указано в профиле пользователя в сообществе Steam, 
-                страна проживания пользователя, двухзначный код страны ISO.</p><br/>
-        </div>        
-    <form action="{% url 'users:logout' %}" method="POST">
-        {% csrf_token %}
-        <button type="submit">Выйти из аккаунта</button>
-    </form>
-    <form method="POST" action="{% url 'acc:del_acc' %}">
-        {% csrf_token %}
-        <button type="submit">Удалить Аккаунт</button>
-    </form>
+
+    </main>
+
 </body>
 </html>

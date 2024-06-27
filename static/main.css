@@ -30,6 +30,9 @@
 @import url("variables.scss");
 @import url("fonts.scss");
 @import url("mixins.scss");
+@import url("variables.scss");
+@import url("fonts.scss");
+@import url("mixins.scss");
 html {
   -webkit-text-size-adjust: 100%;
 }
@@ -2330,26 +2333,13 @@ li[class^=footer__item]:first-child {
   overflow: hidden;
 }
 
-.login__header {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px !important;
-  border: 0 !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  clip-path: inset(100%) !important;
-  clip: rect(0 0 0 0) !important;
-  overflow: hidden !important;
-}
-
 .login__main {
   position: relative;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 75px;
   width: 30%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
@@ -2396,11 +2386,6 @@ li[class^=footer__item]:first-child {
   color: var(--color-light);
 }
 
-.password__fieldset {
-  padding-bottom: 10px;
-  display: flex;
-}
-
 #password__eye {
   position: absolute !important;
   width: 1px !important;
@@ -2416,12 +2401,29 @@ li[class^=footer__item]:first-child {
 
 .password__label {
   background-image: url(/static/images/login/eye.svg);
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 215px;
-  right: 50px;
+  top: 9px;
+  right: 5px;
+}
+
+.error {
+  color: var(--color-red);
+  font-family: "Raleway-Regular";
+  font-size: 14px;
+  line-height: 110%;
+  padding-top: 10px;
+}
+
+.password__fieldset {
+  position: relative;
+}
+
+#login__input, #password__input {
+  padding-right: 40px;
 }
 
 #password__eye:checked ~ .password__label {
@@ -2430,8 +2432,8 @@ li[class^=footer__item]:first-child {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 215px;
-  right: 50px;
+  top: 9px;
+  right: 5px;
 }
 
 .body__login a {
@@ -2519,26 +2521,13 @@ li[class^=footer__item]:first-child {
   overflow: hidden;
 }
 
-.registration__header {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px !important;
-  border: 0 !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  clip-path: inset(100%) !important;
-  clip: rect(0 0 0 0) !important;
-  overflow: hidden !important;
-}
-
 .registration__block {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 30%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
@@ -2592,16 +2581,21 @@ li[class^=footer__item]:first-child {
 
 .registration__label1-eye, .registration__label2-eye {
   background-image: url(/static/images/login/eye.svg);
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 252px;
-  right: 50px;
+  top: 0px;
+  right: 5px;
 }
 
-.registration__label2-eye {
-  top: 302px;
+.registration__fieldset1, .registration__fieldset2 {
+  position: relative;
+}
+
+#registration__input1, #registration__input2 {
+  padding-right: 40px;
 }
 
 #registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye {
@@ -2610,12 +2604,8 @@ li[class^=footer__item]:first-child {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 252px;
-  right: 50px;
-}
-
-#registration__password2-eye:checked ~ .registration__label2-eye {
-  top: 302px;
+  top: 0px;
+  right: 5px;
 }
 
 .body__registration a {
@@ -2655,10 +2645,6 @@ li[class^=footer__item]:first-child {
   justify-content: center;
 }
 
-.alert {
-  color: red;
-}
-
 @media (hover: hover) {
   .body__registration a:hover, .login__button:hover {
     transform: scale(1.2);
@@ -2692,6 +2678,50 @@ li[class^=footer__item]:first-child {
   #registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye {
     right: 10px;
   }
+}
+.body__account {
+  height: 100%;
+  overflow: hidden;
+}
+
+.account__main {
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 30%;
+  background-color: var(--color-blue);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 5px #191a23;
+  padding-top: 35px;
+  text-align: center;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 110%;
+  color: var(--color-light);
+}
+
+.account__image {
+  width: 240px;
+  clip-path: circle(30%);
+  background-color: aliceblue;
+}
+
+.account__link-main, button {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
 }
 
 /*# sourceMappingURL=main.css.map */

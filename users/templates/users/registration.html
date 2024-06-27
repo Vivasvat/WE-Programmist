@@ -9,30 +9,29 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__registration">
- 
-  <section class="registration">
 
-    <header class="registration__header">
-      <h1>Registration</h1>
-    </header>
+  <main>
+    <section class="registration">
+        <div class="background-images">
+          <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+          <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+          <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+          <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+          
+          <div class="background-images__circle1"></div>
+          <div class="background-images__circle2"></div>
+          <div class="background-images__circle3"></div>
+        </div>
 
-    <form action="{% url "users:registration" %}" method="POST">
-      {% csrf_token %}
-      <div class="background-images">
-        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
-        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
-        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
-        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
-        
-        <div class="background-images__circle1"></div>
-        <div class="background-images__circle2"></div>
-        <div class="background-images__circle3"></div>
-       </div>
+      <div class="registration__block">
+        <form action="{% url "users:registration" %}" method="POST">
+        {% csrf_token %}
        
-       <div class="registration__block">
-         <h1 class="registration__header">Регистрация</h1>
+        <header>
+          <h1 class="registration__header">Регистрация</h1>
+        </header>
 
-         <fieldset class="registration__fieldset">
+         <fieldset class="registration__login">
           <label for="registration__label"></label>
           <input 
           id="registration__input" 
@@ -40,14 +39,18 @@
           name="username" 
           placeholder="Логин"
           value="{% if form.username_value %}{{ form.username_value }}{% endif %}">
-          {% if form.username.errors %}
-             <div class="alert alert-danger alert-dismissible fade show">
-                 {{ form.username.errors }}
-             </div>
-          {% endif %}
+          
+          <div class="error">
+            {% if form.username.errors %}
+              <div class="alert alert-danger alert-dismissible fade show">
+                  {{ form.username.errors }}
+              </div>
+            {% endif %}
+          </div>
+          
          </fieldset>
          
-         <fieldset class="registration__fieldset">
+         <fieldset class="registration__email">
           <label for="registration__label"></label>
           <input 
           id="registration__input" 
@@ -55,14 +58,18 @@
           name="email" 
           placeholder="Почта"
           value="{% if form.email_value %}{{ form.email_value }}{% endif %}">
-          {% if form.email.errors %}
-             <div class="alert alert-danger alert-dismissible fade show">
-                 {{ form.email.errors }}
-             </div>
-          {% endif %}
+          
+          <div class="error">
+            {% if form.email.errors %}
+              <div class="alert alert-danger alert-dismissible fade show">
+                  {{ form.email.errors }}
+              </div>
+            {% endif %}
+          </div>
+          
          </fieldset>
 
-         <fieldset class="registration__fieldset">
+         <fieldset class="registration__phone">
           <label for="registration__label"></label>
           <input 
           id="registration__input" 
@@ -70,18 +77,19 @@
           name="phone_number" 
           placeholder="Номер телефона"
           value="{% if form.phone_number_value %}{{ form.phone_number_value }}{% endif %}">
-          {% if form.phone_number.errors %}
-             <div class="alert alert-danger alert-dismissible fade show">
-                 {{ form.phone_number.errors }}
-             </div>
-          {% endif %}
-         </fieldset>
+          
+          <div class="error">
+            {% if form.phone_number.errors %}
+              <div class="alert alert-danger alert-dismissible fade show">
+                  {{ form.phone_number.errors }}
+              </div>
+            {% endif %}
+          </div>
+          
+        </fieldset>
          
-         <fieldset class="registration__fieldset1">
-          <input id="registration__password1-eye" type="checkbox" onclick="Toggle('registration__password1-eye', 'registration__input1')">
-          <label class="registration__label1-eye"  for="registration__password1-eye"></label>
-
-
+        <fieldset class="registration__fieldset1">
+          
           <label for="registration__input1"></label>
           <input 
           id="registration__input1" 
@@ -89,17 +97,22 @@
           name="password1" 
           placeholder="Пароль"
           value="{% if form.password1_value %}{{ form.password1_value }}{% endif %}">
-          {% if form.password1.errors %}
-             <div class="alert alert-danger alert-dismissible fade show">
-                 {{ form.password1.errors }}
-             </div>
-          {% endif %}
-         </fieldset>
+          
+          <input id="registration__password1-eye" type="checkbox" onclick="Toggle('registration__password1-eye', 'registration__input1')">
+          <label class="registration__label1-eye"  for="registration__password1-eye"></label>
+          
+          <div class="error">
+            {% if form.password1.errors %}
+              <div class="alert alert-danger alert-dismissible fade show">
+                  {{ form.password1.errors }}
+              </div>
+            {% endif %}
+          </div>
+        
+        </fieldset>
 
          <fieldset class="registration__fieldset2">
-          <input id="registration__password2-eye" type="checkbox" onclick="Toggle('registration__password2-eye', 'registration__input2')">
-          <label class="registration__label2-eye"  for="registration__password2-eye"></label>
-
+           
           <label for="registration__input2"></label>
           <input 
           id="registration__input2" 
@@ -107,11 +120,18 @@
           name="password2" 
           placeholder="Подтвердить пароль"
           value="{% if form.password2_value %}{{ form.password2_value }}{% endif %}">
-          {% if form.password2.errors %}
-             <div class="alert alert-danger alert-dismissible fade show">
-                 {{ form.password2.errors }}
-             </div>
-          {% endif %}
+          
+          <input id="registration__password2-eye" type="checkbox" onclick="Toggle('registration__password2-eye', 'registration__input2')">
+          <label class="registration__label2-eye"  for="registration__password2-eye"></label>
+
+          <div class="error">
+            {% if form.password2.errors %}
+              <div class="alert alert-danger alert-dismissible fade show">
+                  {{ form.password2.errors }}
+              </div>
+            {% endif %}
+          </div>
+          
          </fieldset>
 
          <a href="{% url 'users:login' %}" class="login__registration">Войти</a>
@@ -119,10 +139,11 @@
          <div class="button">
           <button type="submit" class="login__button">Зарегистрироваться</button>
          </div>
-       </div>
-    </form>
+        </form>
+      </div>
 
   </section>
+  </main>
 
   <script src="/static/scripts/main.js"></script>
 </body>

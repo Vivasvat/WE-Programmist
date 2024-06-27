@@ -11,29 +11,28 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__login">
- 
-  <section class="login">
 
-    <header class="login__header">
-      <h1>Login</h1>
-    </header>
+  <main>
+    <section class="login">
 
-    <div class="background-images">
-      <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
-      <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
-      <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
-      <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
-      
-      <div class="background-images__circle1"></div>
-      <div class="background-images__circle2"></div>
-      <div class="background-images__circle3"></div>
-     </div>
+      <div class="background-images">
+        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+        
+        <div class="background-images__circle1"></div>
+        <div class="background-images__circle2"></div>
+        <div class="background-images__circle3"></div>
+      </div>
 
      <div class="login__main">
       <form action="{% url 'users:login'  %}" method="POST" class="login__form">
       {% csrf_token %}
 
-         <h1 class="login__header">Вход</h1>
+        <header>
+          <h1 class="login__header">Вход</h1>
+        </header>
     
          <fieldset class="login__fieldset">
           <legend>Логин</legend>
@@ -44,17 +43,19 @@
           name="username" 
           placeholder="Ваш логин"
           value="{% if form.username_value %}{{ form.username_value }}{% endif %}">
-          {% if form.username.errors %}
-             <div class="alert alert-danger alert-dismissible fade show">
-                 {{ form.username.errors }}
-             </div>
-          {% endif %}
+          
+          <div class="error">
+            {% if form.username.errors %}
+              <div class="alert alert-danger alert-dismissible fade show">
+                  {{ form.username.errors }}
+              </div>
+            {% endif %}
+          </div>
+          
+
          </fieldset>
          
          <fieldset class="password__fieldset">
-
-          <input id="password__eye" type="checkbox" onclick="Toggle('password__eye', 'password__input')">
-          <label class="password__label"  for="password__eye"></label>
           
           <legend>Пароль</legend>
           <label for="password__label"></label>
@@ -64,12 +65,18 @@
           name="password" 
           placeholder="Ваш пароль"
           value="{% if form.password_value %}{{ form.password_value }}{% endif %}">
-          {% if form.password.errors %}
+
+          <input id="password__eye" type="checkbox" onclick="Toggle('password__eye', 'password__input')">
+          <label class="password__label"  for="password__eye"></label>
+          
+          <div class="error">
+            {% if form.password.errors %}
              <div class="alert alert-danger alert-dismissible fade show">
                  {{ form.password.errors }}
              </div>
-          {% endif %}
-
+            {% endif %}
+          </div>
+          
          </fieldset>
 
          <a href="#" class="login__forget">Восстановить пароль</a>
@@ -79,16 +86,18 @@
           <button type="submit" class="login__button">Войти</button>
          </div>
         
-        </form>
+      </form>
 
       <form action="{% provider_login_url provider.id  %}" method="POST" class="regoster__form">
+        {% csrf_token %} 
         <div class="button">
           <button type="submit" class="login__button-steam">Вход через Steam</button>
         </div>
       </form>
      </div>
 
-  </section>
+    </section>
+  </main>
 
   <script src="/static/scripts/main.js"></script>
 </body>
