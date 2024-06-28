@@ -7,17 +7,13 @@
     overflow: hidden;
 }
 
-.login__header{
-    @include visually-hidden();
-}
-
 .login__main{
     position: relative;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 75px;
     width: 30%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
@@ -64,23 +60,35 @@
     color: var(--color-light);
 }
 
-.password__fieldset{
-    padding-bottom: 10px;
-    display: flex;
-}
-
 #password__eye{
     @include visually-hidden();
 }
 
 .password__label{
     background-image: url(/static/images/login/eye.svg);
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 215px;
-    right: 50px;
+    top: 9px;
+    right: 5px;
+}
+
+.error{
+    color: var(--color-red);
+    font-family: "Raleway-Regular";
+    font-size: 14px;
+    line-height: 110%;
+    padding-top: 10px;
+}
+
+.password__fieldset{
+    position: relative;
+}
+
+#login__input, #password__input{
+    padding-right: 40px;
 }
 
 #password__eye:checked ~ .password__label{
@@ -89,8 +97,8 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 215px;
-    right: 50px;
+    top: 9px;
+    right: 5px;
 }
 
 .body__login a{

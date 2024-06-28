@@ -7,17 +7,13 @@
     overflow: hidden;
 }
 
-.registration__header{
-    @include visually-hidden();
-}
-
 .registration__block{
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     width: 30%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
@@ -62,16 +58,21 @@
 
 .registration__label1-eye, .registration__label2-eye{
     background-image: url(/static/images/login/eye.svg);
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 252px;
-    right: 50px;
+    top: 0px;
+    right: 5px;
 }
 
-.registration__label2-eye{
-    top: 302px;
+.registration__fieldset1, .registration__fieldset2{
+    position: relative;
+}
+
+#registration__input1, #registration__input2{
+    padding-right: 40px;
 }
 
 #registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye{
@@ -80,12 +81,8 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 252px;
-    right: 50px;
-}
-
-#registration__password2-eye:checked ~ .registration__label2-eye{
-    top: 302px;
+    top: 0px;
+    right: 5px;
 }
 
 .body__registration a{
@@ -112,10 +109,6 @@
 .button{
     display: flex;
     justify-content: center;
-}
-
-.alert{
-    color: red;
 }
 
 @media (hover:hover){

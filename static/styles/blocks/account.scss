@@ -1,0 +1,37 @@
+@import url('variables.scss');
+@import url('fonts.scss');
+@import url('mixins.scss');
+
+.body__account{
+    height: 100%;
+    overflow: hidden;
+}
+
+.account__main{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 30%;
+    background-color: var(--color-blue);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 5px #191a23;
+    padding-top: 35px;
+    text-align: center;
+    font-family: "Raleway-Regular";
+    font-size: 18px;
+    line-height: 110%;
+    color: var(--color-light);
+}
+
+.account__image{
+    width: 240px;
+    clip-path: circle(30%);
+    background-color: aliceblue;
+}
+
+.account__link-main, button{
+    @include button (200px, 50px);
+}
