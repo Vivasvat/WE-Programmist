@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
     'acc.apps.AccountConfig',
+    'teams.apps.TeamsConfig',
 
     'allauth',
 

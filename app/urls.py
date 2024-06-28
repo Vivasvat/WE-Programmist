@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('acc.urls')),
 
     path('accounts/', include('allauth.urls')),
+    path('', include('teams.urls')),
 ]
 
 #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
