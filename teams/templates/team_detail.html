@@ -13,10 +13,11 @@
             <li>{{ member.username }}</li>
         {% endfor %}
     </ul>
-    {% if team.can_add_member %}
-        {% if request.user in team.members.all %}
-            <a href="{% url 'teams:create_invitation' team.id %}">Ссылка на приглашение игрока в команду</a>
-        {% endif %}
+    {% if request.user == team.captain %}
+        <p> <a href="{% url 'teams:team_update' team.id %}">Редактировать команду</a> </p>
+        <p><a href="{% url 'teams:team_delete' team_id=team.id %}" onclick=
+            "return confirm('Вы уверены, что хотите удалить эту команду?')">
+          Удалить команду</a></p>
     {% endif %}
 </body>
 </html>

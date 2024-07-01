@@ -16,7 +16,8 @@ class Team(models.Model):
         related_name="teams")
     max_members = models.PositiveIntegerField(
         default=5,
-        validators=[MinValueValidator(1), MaxValueValidator(20)])
+        validators=[MinValueValidator(1), MaxValueValidator(20)],
+        verbose_name="Количество игроков")
     invitation_token = models.UUIDField(
         unique=True,
         blank=True,
