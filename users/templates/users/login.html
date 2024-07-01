@@ -42,6 +42,7 @@
           type="text" 
           name="username" 
           placeholder="Ваш логин"
+          autocomplete="off"
           value="{% if form.username_value %}{{ form.username_value }}{% endif %}">
           
           <div class="error">
@@ -64,6 +65,7 @@
           type="text" 
           name="password" 
           placeholder="Ваш пароль"
+          autocomplete="off"
           value="{% if form.password_value %}{{ form.password_value }}{% endif %}">
 
           <input id="password__eye" type="checkbox" onclick="Toggle('password__eye', 'password__input')">

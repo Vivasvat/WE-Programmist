@@ -23,19 +23,14 @@
         <div class="account__main">
             <form>
                 {% csrf_token %}
-                <div>
-                    <img src="/static/images/about-platfom/img.png" 
-                    alt="profile-photo"
-                    class="account__image"
-                    loading="lazy">
+                <div class="account__image">
                     <!-- {{ avatarfull }} -->
                 </div>
-                <div>
+                <div class="account__nickname">
                     <p>Никнейм</p>
-                    <p>{{ personaname }}</p>
                 </div>
                 <div>
-                    <a href="{{ profileurl }}" class="account__link">Ссылка</a>
+                    <a href="{{ profileurl }}" class="account__link">Ссылка на steam</a>
                 </div>
                 <div>
                     <p>{{ personastate }}</p>
@@ -44,19 +39,49 @@
 
             <a href="#" class="account__link-events">Мои события</a>
 
-            <a href="#" class="account__link-main">На главную</a>
+            <div class="account__menu-button">
+                <a href="#" class="account__link-main" title="На главную">
+                    <img class="account__button" src="/static/images/account/house.svg" alt="">
+                </a>
                     
-            <form action="{% url 'users:logout' %}" method="POST">
-                {% csrf_token %}
-                <button type="submit">Выйти из аккаунта</button>
-            </form>
-            <form method="POST" action="{% url 'acc:del_acc' %}">
-                {% csrf_token %}
-                <button type="submit">Удалить Аккаунт</button>
-            </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <button type="button" title="Редактировать профиль" onclick="Edit()">
+                        <img class="account__button" src="/static/images/account/edit.svg" alt="">
+                    </button>
+                </form>
+
+                <form method="POST" action="{% url 'acc:del_acc' %}">
+                    {% csrf_token %}
+                    <button type="submit" title="Удалить профиль">
+                        <img class="account__button" src="/static/images/account/delete.svg" alt="">
+                    </button>
+                </form>
+            </div>
+           
         </div>
+
+        <form action="">
+            <div id="account__change">
+                
+                <label for="account__change-input" class="account__change-label">Загрузите изображение</label>
+                <input id="account__change-input" type="file" accept=".jpg,.jpeg,.png">
+
+                <fieldset class="account__change-block">
+                    <legend class="account__change-legend">Измените никнейм</legend>
+                    <label for="account__change-name"></label>
+                    <input id="account__change-name" type="text">
+                </fieldset>
+                
+
+                <button type="submit" class="account__button-change">Сохранить изменения</button>
+                <button type="submit" class="account__button-back">Вернуться в профиль</button>
+
+            </div>
+        </form>
 
     </main>
 
+    <script src="/static/scripts/main.js"></script>
 </body>
 </html>

@@ -2620,6 +2620,7 @@ li[class^=footer__item]:first-child {
 
 .body__registration .login__registration {
   padding-top: 15px;
+  padding-bottom: 20px;
   color: var(--color-red);
 }
 
@@ -2682,6 +2683,10 @@ li[class^=footer__item]:first-child {
 .body__account {
   height: 100%;
   overflow: hidden;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 110%;
+  color: var(--color-light);
 }
 
 .account__main {
@@ -2697,21 +2702,95 @@ li[class^=footer__item]:first-child {
   box-shadow: 0 10px 5px #191a23;
   padding-top: 35px;
   text-align: center;
+}
+
+.account__image {
+  background-image: url("/static/images/about-platfom/img.png");
+  width: 180px;
+  height: 180px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  border-radius: 180px;
+}
+
+.account__nickname {
+  padding-block: 20px;
+}
+
+.account__link, .account__link-events {
+  display: block;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 110%;
+  color: var(--color-red);
+}
+
+.account__link {
+  margin-bottom: 20px;
+}
+
+.account__menu-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20%;
+}
+
+.account__menu-button button, .account__link-main {
+  background-color: var(--color-red);
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px #191a23;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.account__link-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account__button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+#account__change {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height: 70%;
+  background-color: var(--color-blue);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 5px #191a23;
+  text-align: center;
   font-family: "Raleway-Regular";
   font-size: 18px;
   line-height: 110%;
   color: var(--color-light);
 }
 
-.account__image {
-  width: 240px;
-  clip-path: circle(30%);
-  background-color: aliceblue;
+#account__change-input {
+  display: none;
 }
 
-.account__link-main, button {
+.account__change-label {
   display: flex;
-  width: 200px;
+  width: 300px;
   height: 50px;
   background-color: var(--color-red);
   border-radius: var(--border-radius);
@@ -2722,6 +2801,77 @@ li[class^=footer__item]:first-child {
   font-size: 18px;
   line-height: 160%;
   color: var(--color-light);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.account__change-block {
+  margin-block: 20px;
+  border: solid 2px var(--color-light);
+  width: 300px;
+  height: 70px;
+  border-radius: var(--border-radius);
+}
+
+.account__change-legend {
+  width: 200px;
+  padding-bottom: 10px;
+}
+
+#account__change-name {
+  width: 250px;
+  border: none;
+  background-color: transparent;
+  font-family: "Raleway-Regular";
+  font-size: 16px;
+  line-height: 110%;
+  color: var(--color-light);
+  padding-bottom: 10px;
+}
+
+button[class^=account__button] {
+  display: flex;
+  width: 300px;
+  height: 50px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
+  margin-block: 20px;
+}
+
+@media (hover: hover) {
+  .account__link:hover, .account__link-events:hover,
+  button:hover, .account__link-main:hover,
+  .account__change-label:hover {
+    transform: scale(1.2);
+    transition-duration: var(--transition-duration);
+  }
+}
+@media screen and (max-width: 1400px) {
+  .account__main {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .account__main {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .account__main {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .account__main {
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
