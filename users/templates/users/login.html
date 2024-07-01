@@ -52,7 +52,6 @@
             {% endif %}
           </div>
           
-
          </fieldset>
          
          <fieldset class="password__fieldset">
@@ -79,7 +78,7 @@
           
          </fieldset>
 
-         <a href="#" class="login__forget">Восстановить пароль</a>
+         <a href="{% url 'users:contact' %}" class="login__forget">Восстановить пароль</a>
          <a href="{% url 'users:registration' %}" class="login__registration">Зарегистрироваться</a>
 
          <div class="button">
