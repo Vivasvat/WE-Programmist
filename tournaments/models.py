@@ -47,6 +47,7 @@ class Tournaments(models.Model):
     organizer = models.CharField(
         max_length=150,
         verbose_name='Организатор',
+        blank=True,
         null=True
     )
 

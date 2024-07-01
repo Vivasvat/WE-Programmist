@@ -5,15 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-<h1>{{ team.name }}</h1>
     <h1>{{ team.name }}</h1>
-    <p>Captain: {{ team.captain.username }}</p>
-    <p>Members ({{ team.members.count }} / {{ team.max_members }}):</p>
+    <p>Капитан команды: {{ team.captain.username }}</p>
+    <p>Состав: ({{ team.members.count }} / {{ team.max_members }}):</p>
     <ul>
         {% for member in team.members.all %}
             <li>{{ member.username }}</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'teams:create_invitation' team.id %}">Generate Invitation Link</a>
+    {% if team.can_add_member %}
+        {% if request.user in team.members.all %}
+            <a href="{% url 'teams:create_invitation' team.id %}">Ссылка на приглашение игрока в команду</a>
+        {% endif %}
+    {% endif %}
 </body>
 </html>

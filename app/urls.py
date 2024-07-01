@@ -27,9 +27,9 @@ urlpatterns = [
     path('', include('users.urls')),
     path('', include('acc.urls')),
     path('', include('tournaments.urls')),
+    path('', include('teams.urls')),
 
     path('accounts/', include('allauth.urls')),
-    path('', include('teams.urls')),
 
 ]
 

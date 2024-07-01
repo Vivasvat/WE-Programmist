@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Team, Invitation
+from .models import Team
 from django.urls import reverse
 from django.conf import settings
 
 from teams.forms import TeamForm
-
+import uuid
 @login_required
 def create_team(request):
     if request.method == 'POST':
@@ -25,27 +25,26 @@ def create_team(request):
 def create_invitation(request, team_id):
     team = get_object_or_404(Team, id=team_id)
     if request.user in team.members.all():
-        if team.can_add_member():
-            active_invitation = Invitation.objects.filter(team=team, used=False)
-            invitation = Invitation.objects.create(team=team)
-            invite_url = request.build_absolute_uri(reverse('teams:accept_invitation', args=[invitation.token]))
-            return render(request, 'invitation_link.html', {'invite_url': invite_url})
-        else:
-            return render(request, 'error.html', {'message': 'Team has reached the maximum number of members.'})
+        if team.invitation_token is None:
+            team.invitation_token = uuid.uuid4()
+            team.save()
+        invite_url = request.build_absolute_uri(reverse('teams:accept_invitation', args=[team.invitation_token]))
+        return render(request, 'invitation_link.html', {'invite_url': invite_url, 'team': team})
     return redirect('teams:team_detail', team_id=team_id)
 
 
 def accept_invitation(request, token):
-    invitation = get_object_or_404(Invitation, token=token, used=False)
-    team = invitation.team
+    team = get_object_or_404(Team, invitation_token=token)
     if request.user.is_authenticated:
-        if team.can_add_member():
-            team.members.add(request.user)
-            invitation.used = True
-            invitation.save()
-            return redirect('teams:team_detail', team_id=team.id)
+        if request.user not in team.members.all():
+            if team.can_add_member():
+                team.members.add(request.user)
+                team.save()
+                return redirect('teams:team_detail', team_id=team.id)
+            else:
+                return render(request, 'error.html', {'message': 'В команде достигнуто максимальное число игроков'})
         else:
-            return render(request, 'error.html', {'message': 'Team has reached the maximum number of members.'})
+            return render(request, 'error.html', {'message': 'Игрок уже находится в команде.',  'team_id': team.id})
     else:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
 
@@ -54,6 +53,3 @@ def team_detail(request, team_id):
     team = get_object_or_404(Team, id=team_id)
     return render(request, 'team_detail.html', {'team': team})
 
-
-
-# Create your views here.

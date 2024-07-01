@@ -76,6 +76,9 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'acc.apps.AccountConfig',
     'teams.apps.TeamsConfig',
+    'tournaments.apps.TournamentsConfig',
+
+    'bootstrap5',
 
     'allauth',
 

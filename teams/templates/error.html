@@ -2,20 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
-<head>
     <title>Error</title>
 </head>
 <body>
+<!DOCTYPE html>
     <h1>Error</h1>
     <p>{{ message }}</p>
-    <a href="{% url 'home' %}">Back to Home</a>
-</body>
-</html>
-
+    <a href="{% url 'teams:team_detail' team_id %}">Вернуться к описанию команды</a>
 </body>
 </html>
