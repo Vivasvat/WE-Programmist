@@ -74,7 +74,7 @@ def profile(request):
         }
     return render(request, 'acc/account.html', context) 
 
-@login_required(login_url='users:login')
+# @login_required(login_url='users:login')
 # def edit_profile(request, username):
 #     try:
 #         # pro=MyAccount.objects.get(username=username)
@@ -89,7 +89,7 @@ def profile(request):
 #     except pro.DoesNotExist:
 #         return HttpResponseRedirect("<h2>Not found page :(</h2>")
     
-@login_required(login_url='users:login')
+# @login_required(login_url='users:login')
 def profile_delete_view(request):
     user = request.user
     if request.method == "POST":
