@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
-from django.views.generic import DetailView
-from django.views.generic import View
+from django.views.generic import View, ListView, DetailView, CreateView
 from django import forms
+from django.contrib import messages
+from .forms import TeamSelectionForm
+from django.urls import reverse, reverse_lazy
 
 from .models import Tournaments
 
@@ -77,4 +78,36 @@ class TournamentDetailView(DetailView):
     pk_url_kwarg = 'tournament_id'
     template_name = 'tournament_detail.html'
     context_object_name = 'tournament'
+
+class RegisterTeamForTournamentView(View):
+    def get(self, request, tournament_id):
+        tournament = get_object_or_404(Tournaments, id=tournament_id)
+        form = TeamSelectionForm(user=request.user)
+        return render(request, 'register_team.html', {'form': form, 'tournament': tournament})
+
+    def post(self, request, tournament_id):
+        tournament = get_object_or_404(Tournaments, id=tournament_id)
+        form = TeamSelectionForm(request.POST, user=request.user)
+
+        if form.is_valid():
+            team = form.cleaned_data['team']
+
+            if team.captain != request.user:
+                messages.error(request, 'Только капитан может зарегистрировать команду на турнир.')
+                return redirect('tournaments:register_team_for_tournament', tournament_id=tournament.id)
+
+            if tournament.registered_teams.count() >= tournament.max_teams:
+                messages.error(request, 'Турнир достиг максимального числа участников.')
+                return redirect('tournaments:register_team_for_tournament', tournament_id=tournament.id)
+
+            if team.max_members != int(tournament.format_of_participation):
+                messages.error(request, 'Размер команды не соответствует формату участия в турнире.')
+                return redirect('tournaments:register_team_for_tournament', tournament_id=tournament.id)
+
+            tournament.registered_teams.add(team)
+            messages.success(request, 'Ваша команда успешно зарегистрирована на турнир.')
+            return redirect('tournaments:tournament_detail', tournament_id=tournament.id)
+
+        return render(request, 'register_team.html', {'form': form, 'tournament': tournament})
+
 

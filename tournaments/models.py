@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator
+from teams.models import Team
 # Create your models here.
 class Tournaments(models.Model):
 
@@ -22,9 +23,9 @@ class Tournaments(models.Model):
     ]
 
     PARTICIPATION_CHOICES = [
-        ('1X1','1X1'),
-        ('2X2','2X2'),
-        ('5X5', '5X5'),
+        ('1','1X1'),
+        ('2','2X2'),
+        ('5', '5X5'),
     ]
 
     TYPE_CHOICES = [
@@ -104,3 +105,14 @@ class Tournaments(models.Model):
         verbose_name='Игра',
         choices=GAME_CHOICES
     )
+
+    max_teams = models.PositiveIntegerField(
+        default=64,
+        validators=[MinValueValidator(1)],
+        verbose_name="Количество команд"
+    )
+
+    registered_teams = models.ManyToManyField(
+        Team,
+        related_name='tournaments',
+        blank=True)

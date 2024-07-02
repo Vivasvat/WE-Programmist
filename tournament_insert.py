@@ -8,9 +8,9 @@ def insert_multiple_records(records):
 
         sqlite_insert_query = """INSERT INTO tournaments_tournaments
                                  ( name, picture, organizer, tournament_start_date, tournament_end_date, registration_start_date, registration_end_date,
-                                  status, format_of_tournament, type_of_tournament, format_of_participation, prize_fund, game)
+                                  status, format_of_tournament, type_of_tournament, format_of_participation, prize_fund, game, max_teams)
                                   VALUES ( ?, ?, ?, ?, ?, ?, ?, 
-                                          ?, 'Single Elimination', 'Online', '1X1', '0', ?);"""
+                                          ?, 'Single Elimination', 'Online', '5', '0', ?, ?);"""
 
         cursor.executemany(sqlite_insert_query, records)
         sqlite_connection.commit()
@@ -31,6 +31,6 @@ for i in range(10):
     name = 'Test ' + str(i)
     current_dateTime = datetime.now()
     records_to_insert.append((name, 'static/images/tournaments/Valorant.jpg', 'BMSTU', '2024-06-19 15:40', current_dateTime,
-                              current_dateTime, current_dateTime, 'Active', 'Valorant'))
+                              current_dateTime, current_dateTime, 'Active', 'Valorant', 250))
 
 insert_multiple_records(records_to_insert)
