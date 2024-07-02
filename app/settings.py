@@ -45,7 +45,6 @@ AUTHENTICATION_BACKENDS = [
 
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
-
     # 'social_core.backends.steam.SteamOpenId',
 ]
 # Steam login
@@ -124,35 +123,32 @@ TEMPLATES = [
             ],
         },
     },
-]# 
+]
 
-# Provider specific settings
-# SOCIALACCOUNT_PROVIDERS = {
-#     'github': {
-#         # For each OAuth based provider, either add a ``SocialApp``
-#         # (``socialaccount`` app) containing the required client
-#         # credentials, or list them here:
-#         'APP': {
-#             'client_id': 'Ov23ctC6p7mAJPLaSdVM',
-#             'secret': 'e40ca2a3ec3495a9fdf9250d418a32f78f8ddb22',
-#             'key': ''
-#         }
-#     },
-#     'vk': {
-#         'APP': {
-#             'client_id': '158255944209-7busq4pca3ibulnadc4q7udpobsokvgh.apps.googleusercontent.com',
-#             'secret': 'your-vk-client-secret',
-#             'key': ''
-#         }
-#     },
-#     'google': {
-#         'APP': {
-#             'client_id': '51929642',
-#             'secret': 'GXRCWyLuA6ni2MeL1qNR',
-#             'key': ''
-#         }
-#     }
-# }
+# app password от yandex: exbhvdmytgcxqcms
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# config/settings.py
+# почты для получения писем
+# RECIPIENTS_EMAIL = ['CyberChamp@yandex.ru']
+# почта отправителя по умолчанию, та что верифицирована
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'CyberChamp@yandex.ru'
+EMAIL_HOST_PASSWORD = 'exbhvdmytgcxqcms'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER 
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
+# RECIPIENTS_EMAIL = ['CyberChamp@yandex.ru'] 
+
+# DEFAULT_FROM_EMAIL = 'CyberChamp@yandex.ru'  
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # WSGI_APPLICATION = 'social_auth.wsgi.application'
 WSGI_APPLICATION = "app.wsgi.application"

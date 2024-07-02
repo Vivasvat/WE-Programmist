@@ -10,3 +10,10 @@ function Toggle(id_checkbox, id_password){
     }
 }
 
+function Edit(){
+    let acc = document.getElementById("account__change");
+
+    acc.style.visibility = "visible";
+}
+
+

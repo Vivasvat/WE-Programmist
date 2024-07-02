@@ -38,6 +38,7 @@
           type="text" 
           name="username" 
           placeholder="Логин"
+          autocomplete="off"
           value="{% if form.username_value %}{{ form.username_value }}{% endif %}">
           
           <div class="error">
@@ -57,6 +58,7 @@
           type="text" 
           name="email" 
           placeholder="Почта"
+          autocomplete="off"
           value="{% if form.email_value %}{{ form.email_value }}{% endif %}">
           
           <div class="error">
@@ -76,6 +78,7 @@
           type="text" 
           name="phone_number" 
           placeholder="Номер телефона"
+          autocomplete="off"
           value="{% if form.phone_number_value %}{{ form.phone_number_value }}{% endif %}">
           
           <div class="error">
@@ -96,6 +99,7 @@
           type="text" 
           name="password1" 
           placeholder="Пароль"
+          autocomplete="off"
           value="{% if form.password1_value %}{{ form.password1_value }}{% endif %}">
           
           <input id="registration__password1-eye" type="checkbox" onclick="Toggle('registration__password1-eye', 'registration__input1')">
@@ -119,6 +123,7 @@
           type="text" 
           name="password2" 
           placeholder="Подтвердить пароль"
+          autocomplete="off"
           value="{% if form.password2_value %}{{ form.password2_value }}{% endif %}">
           
           <input id="registration__password2-eye" type="checkbox" onclick="Toggle('registration__password2-eye', 'registration__input2')">

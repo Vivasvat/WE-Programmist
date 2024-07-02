@@ -42,6 +42,7 @@
           type="text" 
           name="username" 
           placeholder="Ваш логин"
+          autocomplete="off"
           value="{% if form.username_value %}{{ form.username_value }}{% endif %}">
           
           <div class="error">
@@ -52,7 +53,6 @@
             {% endif %}
           </div>
           
-
          </fieldset>
          
          <fieldset class="password__fieldset">
@@ -64,6 +64,7 @@
           type="text" 
           name="password" 
           placeholder="Ваш пароль"
+          autocomplete="off"
           value="{% if form.password_value %}{{ form.password_value }}{% endif %}">
 
           <input id="password__eye" type="checkbox" onclick="Toggle('password__eye', 'password__input')">
@@ -79,7 +80,7 @@
           
          </fieldset>
 
-         <a href="#" class="login__forget">Восстановить пароль</a>
+         <a href="{% url 'users:contact' %}" class="login__forget">Восстановить пароль</a>
          <a href="{% url 'users:registration' %}" class="login__registration">Зарегистрироваться</a>
 
          <div class="button">
