@@ -27,13 +27,10 @@
 }
 
 .account__image{
-    background-image: url("{{ avatarfull }}");
-    width: 180px;
+    width: auto;
     height: 180px;
-    display: inline-block;
-    background-size: cover;
-    background-position: center;
-    border-radius: 180px;
+    background-color: aliceblue;
+    border-radius: var(--border-radius);
 }
 
 .account__nickname{
@@ -81,7 +78,6 @@
     width: 30px;
     height: 30px;
 }
-
 
 #account__change{
     visibility: hidden;

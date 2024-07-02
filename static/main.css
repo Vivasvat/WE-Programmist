@@ -2705,13 +2705,10 @@ li[class^=footer__item]:first-child {
 }
 
 .account__image {
-  background-image: url("/static/images/about-platfom/img.png");
-  width: 180px;
+  width: auto;
   height: 180px;
-  display: inline-block;
-  background-size: cover;
-  background-position: center;
-  border-radius: 180px;
+  background-color: aliceblue;
+  border-radius: var(--border-radius);
 }
 
 .account__nickname {

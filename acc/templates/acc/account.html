@@ -23,18 +23,15 @@
         <div class="account__main">
             <form>
                 {% csrf_token %}
-                <div class="account__image">
-                    <!-- {{ avatarfull }} -->
-                </div>
+                <img src="{{ avatarfull }}" 
+                class="account__image"
+                alt="Фото профиля">
+                <!-- {{ avatarfull }} -->
                 <div class="account__nickname">
-                    <p>Никнейм</p>
+                    <p>{{ personaname }}</p>
+                    <!-- {{ personaname }} -->
                 </div>
-                <div>
-                    <a href="{{ profileurl }}" class="account__link">Ссылка на steam</a>
-                </div>
-                <div>
-                    <p>{{ personastate }}</p>
-                </div>
+                <a href="{{ profileurl }}" class="account__link">Ссылка на steam</a>
             </form>
 
             <a href="#" class="account__link-events">Мои события</a>
