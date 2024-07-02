@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, ListView, DetailView, CreateView
 from django import forms
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from .forms import TeamSelectionForm
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 
 from .models import Tournaments
 
@@ -79,7 +80,8 @@ class TournamentDetailView(DetailView):
     template_name = 'tournament_detail.html'
     context_object_name = 'tournament'
 
-class RegisterTeamForTournamentView(View):
+
+class RegisterTeamForTournamentView(LoginRequiredMixin, View):
     def get(self, request, tournament_id):
         tournament = get_object_or_404(Tournaments, id=tournament_id)
         form = TeamSelectionForm(user=request.user)

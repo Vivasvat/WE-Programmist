@@ -53,6 +53,7 @@ SOCIAL_AUTH_STEAM_EXTRA_DATA = ['player']
 # Steam web-key
 SOCIAL_AUTH_STEAM_API_KEY = '32F3511A43799D68278EE99A1F138508'
 
+LOGIN_URL='/login/'
 LOGIN_REDIRECT_URL= '/acc/'
 
 # Для "удаления" промежуточных страниц в django-allauth

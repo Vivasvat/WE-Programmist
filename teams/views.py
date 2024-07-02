@@ -3,10 +3,9 @@ from django.contrib.auth.decorators import login_required
 from .models import Team
 from users.models import User
 from django.urls import reverse
-from django.conf import settings
-
 from teams.forms import TeamForm
 import uuid
+
 @login_required
 def create_team(request):
     if request.method == 'POST':
@@ -37,24 +36,22 @@ def create_invitation(request, team_id):
     return redirect('teams:team_detail', team_id=team.id)
 
 
+@login_required
 def accept_invitation(request, token):
     team = get_object_or_404(Team, invitation_token=token)
-    if request.user.is_authenticated:
-        if request.user not in team.members.all():
-            if team.can_add_member():
-                team.members.add(request.user)
-                team.save()
-                return redirect('teams:team_detail', team_id=team.id)
-            else:
-                return render(request, 'error.html', {
-                    'message': 'В команде достигнуто максимальное число игроков',
-                    'team_id': team.id})
+    if request.user not in team.members.all():
+        if team.can_add_member():
+            team.members.add(request.user)
+            team.save()
+            return redirect('teams:team_detail', team_id=team.id)
         else:
-            return render(request, 'error.html',
-                          {'message': 'Игрок уже находится в команде.',
-                           'team_id': team.id})
+            return render(request, 'error.html', {
+                'message': 'В команде достигнуто максимальное число игроков',
+                'team_id': team.id})
     else:
-        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+        return render(request, 'error.html',
+                      {'message': 'Игрок уже находится в команде.',
+                       'team_id': team.id})
 
 
 def team_detail(request, team_id):
