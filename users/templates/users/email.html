@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    Введите вашу почту
+  </p>
+      <form method="post">
+        {% csrf_token %}
+        <!-- <input 
+          id="registration__input" 
+          type="text" 
+          name="email" 
+          placeholder="Почта"> -->
+        {{form.as_p}}
+        <button type="submit">Запросить ссылку на смену пароля</button>  
+      </form>
+</body>
+</html>

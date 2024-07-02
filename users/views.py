@@ -3,9 +3,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.core.mail import send_mail, BadHeaderError
 # from social_django.utils import load_social_backends
+from django.conf import settings
+from django.core import mail
 
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, ContactForm
 # ProfileForm, UserLoginForm, 
 
 # from users.models import Profile
@@ -55,5 +58,28 @@ def logout(request):
     auth.logout(request)
     return redirect(reverse('main:index'))
 
-#Create your views here.
+def contact_view(request):
+    # если метод GET, вернем форму
+    if request.method == 'GET':
+        form = ContactForm()
+    elif request.method == 'POST':
+        # если метод POST, проверим форму и отправим письмо
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # subject = form.cleaned_data['subject']
+            subject = 'Welcome!'
+            to_email = form.cleaned_data['from_email']
+            message = "12345"
+            
+            # `message = form.cleaned_data['message']
+            try:
+                send_mail( subject, message, settings.EMAIL_HOST_USER, [to_email])
+            except BadHeaderError:
+                return HttpResponse('Ошибка в теме письма.')
+            return redirect('/success/')
+    else:
+        return HttpResponse('Неверный запрос.')
+    return render(request, "users/email.html", {'form': form})
 
+def success_view(request):
+    return HttpResponse('Приняли! Спасибо за вашу заявку.')
