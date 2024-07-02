@@ -1,19 +1,14 @@
 from django.contrib import auth
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError
-# from social_django.utils import load_social_backends
 from django.conf import settings
-from django.core import mail
 
 from users.forms import UserLoginForm, UserRegistrationForm, ContactForm
-# ProfileForm, UserLoginForm, 
+from users.models import OneTimeLink
+from users.utils import generate_one_time_link
 
-# from users.models import Profile
-
-# from acc.models import MyAccount
 
 def login(request):
     if request.method == 'POST':
@@ -25,8 +20,6 @@ def login(request):
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect("/acc/")
-                # return render(request, 'acc/account.html')
-                # return HttpResponseRedirect(reverse('main:main'))
     else:
         form = UserLoginForm()
     context = {
@@ -40,9 +33,6 @@ def registration(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # messages.success(self.request, 'Регистрация прошла успешно')
-            # сохранение номера
-            # MyAccount.objects.create(user=user, phone_number=form.cleaned_data.get('phone_number'))
             raw_password = form.cleaned_data.get('password1')
             user = auth.authenticate(username=user.username, password=raw_password)
             auth.login(request, user)
@@ -66,14 +56,16 @@ def contact_view(request):
         # если метод POST, проверим форму и отправим письмо
         form = ContactForm(request.POST)
         if form.is_valid():
-            # subject = form.cleaned_data['subject']
+            user = request.user
+            link = generate_one_time_link(user)
+
             subject = 'Welcome!'
             to_email = form.cleaned_data['from_email']
-            message = "12345"
-            
+            full_link = request.build_absolute_uri(link)
+            message = f'Here is your one-time link: {full_link}'
             # `message = form.cleaned_data['message']
             try:
-                send_mail( subject, message, settings.EMAIL_HOST_USER, [to_email])
+                send_mail(subject, message, settings.EMAIL_HOST_USER, [to_email])
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
             return redirect('/success/')
@@ -83,3 +75,20 @@ def contact_view(request):
 
 def success_view(request):
     return HttpResponse('Приняли! Спасибо за вашу заявку.')
+
+def use_one_time_link(request, token):
+    one_time_link = get_object_or_404(OneTimeLink, token=token)
+
+    if one_time_link.is_used:
+        return HttpResponseForbidden("This link has already been used.")
+    
+    
+    # Дополнительная проверка срока действия токена
+    # if timezone.now() > one_time_link.created_at + timedelta(hours=1):
+    #     return HttpResponseForbidden("This link has expired.")
+
+    one_time_link.is_used = True
+    one_time_link.save()
+
+    # Выполните нужное действие, например, перенаправление на защищенную страницу
+    return redirect('/password_reset_confirm/')
