@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Редактировать команду</title>
+</head>
+<body>
+      <h1>Редактировать команду {{ team.name }}</h1>
+
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Сохранить изменения</button>
+      </form>
+
+      {% if team.can_add_member %}
+          <p> <a href="{% url 'teams:create_invitation' team.id %}">Ссылка на приглашение игрока в команду</a> </p>
+      {% endif %}
+
+     <h2>Текущие участники</h2>
+      <ul>
+        {% for member in team.members.all %}
+          <li>
+            {{ member.username }}
+            {% if member != team.captain %}
+              <form method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="remove_member" value="{{ member.id }}">
+                <button type="submit">Удалить</button>
+              </form>
+              <form method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="new_captain" value="{{ member.id }}">
+                <button type="submit">Назначить капитаном</button>
+              </form>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+</body>
+</html>

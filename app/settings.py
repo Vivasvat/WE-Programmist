@@ -52,6 +52,7 @@ SOCIAL_AUTH_STEAM_EXTRA_DATA = ['player']
 # Steam web-key
 SOCIAL_AUTH_STEAM_API_KEY = '32F3511A43799D68278EE99A1F138508'
 
+LOGIN_URL='/login/'
 LOGIN_REDIRECT_URL= '/acc/'
 
 # Для "удаления" промежуточных страниц в django-allauth
@@ -74,7 +75,10 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
     'acc.apps.AccountConfig',
+    'teams.apps.TeamsConfig',
     'tournaments.apps.TournamentsConfig',
+
+    'bootstrap5',
 
     'allauth',
 
@@ -87,8 +91,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.yandex',
     'allauth.socialaccount.providers.steam',
     'allauth.socialaccount.providers.openid',
-
-    'bootstrap5',
 ]
 
 MIDDLEWARE = [

@@ -32,6 +32,14 @@
         <p>Формат: {{ tournament.get_format_of_tournament_display}}, {{ tournament.get_format_of_participation_display }}</p>
         <p>Тип: {{ tournament.type_of_tournament}}</p>
         <p>Призовой фонд: {{ tournament.prize_fund|floatformat:"0"}} рублей</p>
+        <p>Участники: {{ tournament.registered_teams.count}} из {{ tournament.max_teams}} команд </p>
+
     </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
 
 </body>

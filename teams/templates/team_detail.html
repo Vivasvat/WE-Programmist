@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>{{ team.name }}</h1>
+    <p>Капитан команды: {{ team.captain.username }}</p>
+    <p>Состав: ({{ team.members.count }} / {{ team.max_members }}):</p>
+    <ul>
+        {% for member in team.members.all %}
+            <li>{{ member.username }}</li>
+        {% endfor %}
+    </ul>
+    {% if request.user == team.captain %}
+        <p> <a href="{% url 'teams:team_update' team.id %}">Редактировать команду</a> </p>
+        <p><a href="{% url 'teams:team_delete' team_id=team.id %}" onclick=
+            "return confirm('Вы уверены, что хотите удалить эту команду?')">
+          Удалить команду</a></p>
+    {% endif %}
+</body>
+</html>
