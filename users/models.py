@@ -10,6 +10,7 @@ class User(AbstractUser):
 
 class OneTimeLink(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.EmailField(blank=True, null=True,)
     token = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     is_used = models.BooleanField(default=False)
