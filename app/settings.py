@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-eq&h!wvvc9+d#f8+05u3k5vuuxmq*s8$q+)fc-h1$0$8=^8x&*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'mysite.com',
@@ -32,10 +32,11 @@ ALLOWED_HOSTS = [
     "enjoyed-maggot-moral.ngrok-free.app",
     "localhost",
     "127.0.0.1",
+    'windows-nginx'
 ]  # '*',
 
 # Для того, чтобы работала админка на удаленном сервере
-CSRF_TRUSTED_ORIGINS = ["https://enjoyed-maggot-moral.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["https://enjoyed-maggot-moral.ngrok-free.app", "http://localhost:8080"]
 
 SITE_ID = 1
 
@@ -71,7 +72,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django.contrib.sites',
-
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
     'acc.apps.AccountConfig',
@@ -198,9 +198,12 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static')
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
