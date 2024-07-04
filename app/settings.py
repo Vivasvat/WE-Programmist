@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
 ]  # '*',
 
 # Для того, чтобы работала админка на удаленном сервере
-CSRF_TRUSTED_ORIGINS = ["https://enjoyed-maggot-moral.ngrok-free.app", "http://localhost:8080"]
+CSRF_TRUSTED_ORIGINS = ["https://enjoyed-maggot-moral.ngrok-free.app", "http://127.0.0.1:8080"]
 
 SITE_ID = 1
 
