@@ -25,13 +25,19 @@
         <div class="account__main">
             <form>
                 {% csrf_token %}
-                <img src="{{ avatarfull }}"
-                class="account__image"
-                alt="Фото профиля">
-                <!-- {{ avatarfull }} -->
+                {% if avatar or user.image.url %}
+                    <img src="{% if avatar %}{{ avatar }}{% else %}{{ user.image.url }}{% endif %}"
+                    class="account__image"
+                    alt="Фото профиля">
+                {% else %}
+                    <img src="{% static 'images/account/defolt_avatar.png' %}"
+                    class="account__image"
+                    alt="Фото профиля">
+                {% endif %}
                 <div class="account__nickname">
                     <p>{{ personaname }}</p>
-                    <!-- {{ personaname }} -->
+                    <p>{{ form.username }}</p>
+                    <p>{{ first_name }}</p>
                 </div>
                 <a href="{{ profileurl }}" class="account__link">Ссылка на steam</a>
             </form>
@@ -60,19 +66,26 @@
            
         </div>
 
-        <form action="">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div id="account__change">
                 
-                <label for="account__change-input" class="account__change-label">Загрузите изображение</label>
-                <input id="account__change-input" type="file" accept=".jpg,.jpeg,.png">
+                <label for="account__change-input" class="account__change-label">
+                    Загрузите изображение</label>
+                <input 
+                id="account__change-input" 
+                name="image"
+                type="file" 
+                accept=".jpg,.jpeg,.png">
 
                 <fieldset class="account__change-block">
                     <legend class="account__change-legend">Измените никнейм</legend>
                     <label for="account__change-name"></label>
-                    <input id="account__change-name" type="text">
+                    <input 
+                    id="account__change-name" 
+                    name="username"
+                    type="text">
                 </fieldset>
-                
-
                 <button type="submit" class="account__button-change">Сохранить изменения</button>
                 <button type="submit" class="account__button-back">Вернуться в профиль</button>
 

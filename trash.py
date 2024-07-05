@@ -1,3 +1,18 @@
+
+                # <!-- {% if avatar or user.image.url %}
+                #     <img src="{% if avatar %}{{ avatar }}{% else %}{{ user.image.url }}{% endif %}"
+                #     class="account__image"
+                #     alt="Фото профиля"> -->
+
+
+
+                # {% else %}
+                #     <img src="{% static 'images/account/defolt_avatar.png' %}"
+                #     class="account__image"
+                #     alt="Фото профиля">
+                # {% endif %}
+
+
 # django-allauth
 SITE_ID=1
 

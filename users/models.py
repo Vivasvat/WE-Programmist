@@ -5,6 +5,13 @@ from django.contrib.auth.models import AbstractUser
 import uuid
 
 class User(AbstractUser):
+    image = models.ImageField(
+        upload_to="media/", 
+        blank=True, 
+        # default="images/account/defolt_avatar.png", 
+        null=True, 
+        verbose_name='Аватар'
+        )
     phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name="Телефон")
     # birth_date = models.DateField(null=True, blank=True)
 

@@ -4,17 +4,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from main.models import Categories, Products
 
-# def index(request):
-# person=Person.objects.all()
-# next_page_url=reverse("main:next_page")
-# context={
-# 'Login': 'Таблица',
-# 'description': 'Список пользователей',
-# 'person': person,
-# 'next_page_url' : next_page_url,
-# }
-# return render(request, "main/main.html", context)
-
 def index(request):
     return render(request, "main/index.html", {'None' : None})
 
@@ -57,13 +46,3 @@ def delete(request, id):
         return HttpResponseRedirect("/main/")
     except cate.DoesNotExist:
         return HttpResponseRedirect("<h2>Not found page 😦 </h2>")
-
-# def next_page(request):
-# index_url=reverse("main:index")
-# context={
-# 'index_url' : index_url,
-# }
-# return render(request, "main/next.html", context)
-
-# Create your views here.
-
