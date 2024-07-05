@@ -17,7 +17,6 @@ from django.http import HttpResponseRedirect
 from users.models import User
 from acc.forms import ProfileForm
 
-email_current = ""
 
 @login_required(login_url='users:login')
 def profile(request):
@@ -118,3 +117,6 @@ def get_listfriends(steam_id):
     friendlist = tmp['friends']
 
     return friendlist
+
+def my_events(request):
+    pass
