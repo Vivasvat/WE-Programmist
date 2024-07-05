@@ -2949,8 +2949,8 @@ html {
 }
 
 .main__tournaments {
-  padding-top: 250px;
-  padding-bottom: 250px;
+  padding-top: 200px;
+  padding-bottom: 350px;
 }
 
 .footer__tournament-header {
@@ -2963,6 +2963,8 @@ html {
 }
 
 .footer__tournament-text {
+  display: flex;
+  flex-direction: row;
   padding: 0;
   margin: 0;
 }
