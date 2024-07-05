@@ -15,9 +15,13 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 
 from users.models import User
+from acc.forms import ProfileForm
+
+email_current = ""
 
 @login_required(login_url='users:login')
 def profile(request):
+    global email_current
     if SocialAccount.objects.filter(user=request.user, provider="steam").exists():
         social_account = SocialAccount.objects.get(user=request.user, provider="steam")
         user_steam = social_account.extra_data
@@ -66,30 +70,19 @@ def profile(request):
             'title': 'Home - Кабинет',
         }
     else:
-        user = request.user
+        if request.method == 'POST':
+            form = ProfileForm(data=request.POST, instance=request.user, files = request.FILES)
+            if form.is_valid():
+                form.save()
+                # return HttpResponseRedirect(reverse('acc:acc'))
+        else:
+            form = ProfileForm(instance=request.user)
         context = {
-            'email' : user.email,
-            'username' : user.username,
-            'phone_number' : user.phone_number,
+            'form': form
         }
     return render(request, 'acc/account.html', context) 
-
-# @login_required(login_url='users:login')
-# def edit_profile(request, username):
-#     try:
-#         # pro=MyAccount.objects.get(username=username)
-#         if request.method=="POST":
-#             pro.name=request.POST.get("name")
-#             pro.name_two=request.POST.get("name_two")
-#             pro.save()
-#             return HttpResponseRedirect("/main/")
-#         else:
-#             return render(request, "main/next.html", {"pro" : pro})
-
-#     except pro.DoesNotExist:
-#         return HttpResponseRedirect("<h2>Not found page :(</h2>")
     
-# @login_required(login_url='users:login')
+@login_required(login_url='users:login')
 def profile_delete_view(request):
     user = request.user
     if request.method == "POST":
@@ -125,24 +118,3 @@ def get_listfriends(steam_id):
     friendlist = tmp['friends']
 
     return friendlist
-
-
-# def GetUserStatsForGame():
-
-    
-
-# string = f'https://steamcommunity.com/openid/login'
-#          f'?openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select'
-#          f'&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select'
-#          f'&openid.mode=checkid_setup'
-#          f'&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0'
-#          f'&openid.realm=http%3A%2F%2F127.0.0.1%3A8000%2F'
-#          f'&openid.return_to=http%3A%2F%2F127.0.0.1%3A8000%2Faccounts%2F'
-#          f'steam%2Fcallback%2F%3Fjanrain_nonce%3D2024-06-05T16%253A06%253A06ZB6d89f'
-    
-
-    
-    
-# http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=222880&key=32F3511A43799D68278EE99A1F138508&steamid=76561198386267617
-
-# http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=222880&key=32F3511A43799D68278EE99A1F138508&steamid=76561198386267617

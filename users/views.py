@@ -63,7 +63,6 @@ def contact_view(request):
             try:
                 user = User.objects.get(email=to_email)
                 email_current = to_email
-                # OneTimeLink.objects.create(user = user, email=to_email)
             except Exception:
                 user = False
                 return HttpResponse(f'Не существует пользователя с такой почтой: {to_email}')
@@ -85,7 +84,6 @@ def success_view(request):
 
 def use_one_time_link(request, token):
     one_time_link = get_object_or_404(OneTimeLink, token=token)
-    # form = UserPasswordResent(request.POST)
 
     if one_time_link.is_used:
         return HttpResponseForbidden("This link has already been used.")
@@ -123,20 +121,3 @@ def password_reset_confirm(request):
     
 def complete_reset_password(request):
     return render(request, 'users/password_reset_complete.html')
-    
-# def password_resent_request(request):
-#     if request.method = POST:
-#         print('post')
-#         password_reset_form = PasswordResentForm(request.POST)
-#         if password_reset_form.is_valid():
-#             mail = password_reset_form.cleaned_data['email']
-#             try:
-#                 user = User.objects.get('mail')
-#             except Exception:
-#                 user = False
-#             if user:
-#                 subject = "Сброс пароля"
-#                 email_template_mail = "/users/reset_password.html"
-#                 cont = {
-
-#                 }
