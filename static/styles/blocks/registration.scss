@@ -13,7 +13,7 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 5%;
     width: 30%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
@@ -134,6 +134,12 @@
     
     #registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye{
         right: 30px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .registration__block{
+        margin-top: 15%;
     }
 }
 

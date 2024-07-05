@@ -17,7 +17,7 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 8%;
     width: 30%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
@@ -151,26 +151,42 @@ button[class^="account__button"]{
     }
 }
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1300px){
     .account__main{
-        width: 40%;
+        width: 50%;
+    }
+
+    .body__account fieldset{
+        width: 60%;
+    }
+
+    #account__change{
+        width: 50%;
     }
 }
 
 @media screen and (max-width: 900px){
     .account__main{
-        width: 50%;
+        width: 70%;
+        margin-top: 15%;
     }
-}
 
-@media screen and (max-width: 600px){
-    .account__main{
+    .body__account fieldset{
         width: 70%;
     }
+
+    #account__change{
+        width: 70%;
+        margin-top: 15%;
+    }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 700px){
     .account__main{
+        width: 90%;
+    }
+
+    #account__change{
         width: 90%;
     }
 }

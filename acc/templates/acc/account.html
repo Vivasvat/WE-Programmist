@@ -44,7 +44,7 @@
                 <form action="" method="POST">
                     {% csrf_token %}
                     <button type="button" title="Редактировать профиль" onclick="Edit()">
-                        <img class="account__button" src="/static/images/account/edit.svg" alt="">
+                        <img class="account__button"  src="/static/images/account/edit.svg" alt="">
                     </button>
                 </form>
 
@@ -58,9 +58,8 @@
            
         </div>
 
-        <form action="">
-            <div id="account__change">
-                
+        <div id="account__change">
+            <form action="">
                 <label for="account__change-input" class="account__change-label">Загрузите изображение</label>
                 <input id="account__change-input" type="file" accept=".jpg,.jpeg,.png">
 
@@ -73,9 +72,9 @@
 
                 <button type="submit" class="account__button-change">Сохранить изменения</button>
                 <button type="submit" class="account__button-back">Вернуться в профиль</button>
-
-            </div>
-        </form>
+            </form>
+        </div>
+        
 
     </main>
 

@@ -11,20 +11,71 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body {
+.body__tournaments {
     text-size-adjust: 100%;
-  position: relative;
-  width: 100%;
-  margin: 0;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
     min-width: 992px !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.header__tournaments-menu{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: var(--color-blue);
+}
+
+.header__logo-tounament{
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.header__account-tounament{
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+@media (hover:hover){
+  .header__logo-tounament:hover, .header__account-tounament:hover{
+      transform: scale(1.2);
+      transition-duration: var(--transition-duration);
+  }
+}
+
+.footer__tournament{
+  background-color: var(--color-blue);
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.main__tournaments{
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+.footer__tournament-header{
+  text-align: center;
+  font-family: "Raleway-SemiBold";
+  font-size: 36px;
+  line-height: 110%;
+  color: var(--color-light);
+  padding-block: 30px;
+}
+
+.footer__tournament-text{
+  padding: 0;
+  margin: 0;
 }
 
 .pagination {
@@ -33,29 +84,17 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
-    color: var(--color-red);
-}
-
-:root {
-  --color-light: #fff;
-  --color-blue: #272937;
-  --color-dark-blue: #343849;
-  --color-red: #f14451;
-  --color-grey: #ffffff7d;
-  --border-radius: 15px;
-  --border-white: solid 1px var(--color-light);
-  --transition-duration: 0s;
-  --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+  color: var(--color-red);
 }
 
 .container {
   width: 100%;
-    padding-top: 0.75rem;
+  padding-top: 0.75rem;
   padding-right: 5px;
   padding-left: 5px;
   margin-right: auto;
   margin-left: auto;
-    min-width: 1250px !important;
+  min-width: 1250px !important;
 }
 
 @media (min-width: 576px) {
@@ -261,19 +300,19 @@ h1, h2, h3, h4, h5, h6 {
   border-top-left-radius: 0;
 }
 
-p {
+.body__tournaments p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-img {
+.body__tournaments img {
   vertical-align: middle;
   border-style: none;
     page-break-inside: avoid;
 }
 
 
-h1 {
+.body__tournaments h1 {
     text-align: center;
     font-family: "Raleway-SemiBold";
     font-size: 48px;
