@@ -13,7 +13,7 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 75px;
+    margin-top: 5%;
     width: 30%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
@@ -149,9 +149,10 @@
     }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 900px){
     .login__main{
         width: 70%;
+        margin-top: 15%;
     }
 
     .body__login fieldset{

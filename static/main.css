@@ -2339,7 +2339,7 @@ li[class^=footer__item]:first-child {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 75px;
+  margin-top: 5%;
   width: 30%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
@@ -2503,9 +2503,10 @@ li[class^=footer__item]:first-child {
     width: 60%;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .login__main {
     width: 70%;
+    margin-top: 15%;
   }
   .body__login fieldset {
     width: 70%;
@@ -2527,7 +2528,7 @@ li[class^=footer__item]:first-child {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 5%;
   width: 30%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
@@ -2666,6 +2667,11 @@ li[class^=footer__item]:first-child {
     right: 30px;
   }
 }
+@media screen and (max-width: 900px) {
+  .registration__block {
+    margin-top: 15%;
+  }
+}
 @media screen and (max-width: 700px) {
   .registration__block {
     width: 70%;
@@ -2695,7 +2701,7 @@ li[class^=footer__item]:first-child {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 8%;
   width: 30%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
@@ -2850,25 +2856,471 @@ button[class^=account__button] {
     transition-duration: var(--transition-duration);
   }
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1300px) {
   .account__main {
-    width: 40%;
+    width: 50%;
+  }
+  .body__account fieldset {
+    width: 60%;
+  }
+  #account__change {
+    width: 50%;
   }
 }
 @media screen and (max-width: 900px) {
   .account__main {
-    width: 50%;
+    width: 70%;
+    margin-top: 15%;
   }
-}
-@media screen and (max-width: 600px) {
-  .account__main {
+  .body__account fieldset {
     width: 70%;
   }
+  #account__change {
+    width: 70%;
+    margin-top: 15%;
+  }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 700px) {
   .account__main {
     width: 90%;
   }
+  #account__change {
+    width: 90%;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Raleway-SemiBold";
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.body__tournaments {
+  text-size-adjust: 100%;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  min-width: 992px !important;
+}
+
+.header__tournaments-menu {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: var(--color-blue);
+}
+
+.header__logo-tounament {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.header__account-tounament {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+@media (hover: hover) {
+  .header__logo-tounament:hover, .header__account-tounament:hover {
+    transform: scale(1.2);
+    transition-duration: var(--transition-duration);
+  }
+}
+.footer__tournament {
+  background-color: var(--color-blue);
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.main__tournaments {
+  padding-top: 200px;
+  padding-bottom: 350px;
+}
+
+.footer__tournament-header {
+  text-align: center;
+  font-family: "Raleway-SemiBold";
+  font-size: 36px;
+  line-height: 110%;
+  color: var(--color-light);
+  padding-block: 30px;
+}
+
+.footer__tournament-text {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination {
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+  color: var(--color-red);
+}
+
+.container {
+  width: 100%;
+  padding-top: 0.75rem;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 1250px !important;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 576px) {
+  .container, .container-sm {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container, .container-sm, .container-md {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container, .container-sm, .container-md, .container-lg {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1140px;
+  }
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.col-md-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+.col-xl-auto {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .col-md-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+}
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card > hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.card > .list-group:first-child .list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.card > .list-group:last-child .list-group-item:last-child {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-family: "Raleway-SemiBold";
+  color: black;
+  font-size: 25px;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+}
+
+.card-title:hover {
+  color: var(--color-red);
+}
+
+.card-deck .card {
+  -ms-flex: 1 0 0%;
+  flex: 1 0 0%;
+  margin-right: 15px;
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+  }
+  .card-columns .card {
+    display: inline-block;
+    width: 100%;
+  }
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.card-img,
+.card-img-top {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-group > .card:not(:last-child) .card-img-top,
+.card-group > .card:not(:last-child) .card-header {
+  border-top-right-radius: 0;
+}
+
+.card-group > .card:not(:first-child) .card-img-top,
+.card-group > .card:not(:first-child) .card-header {
+  border-top-left-radius: 0;
+}
+
+.body__tournaments p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.body__tournaments img {
+  vertical-align: middle;
+  border-style: none;
+  page-break-inside: avoid;
+}
+
+.body__tournaments h1 {
+  text-align: center;
+  font-family: "Raleway-SemiBold";
+  font-size: 48px;
+  line-height: 110%;
+  color: #fff;
+  padding-top: 15px;
+}
+
+.card {
+  border: 2px solid rgba(250, 250, 250, 0.8) !important;
+  color: var(--color-dark-blue);
+  margin-bottom: 2rem;
+}
+
+.btn {
+  border: 1px solid var(--color-red) !important;
+  border-image-slice: 1 !important;
+  background: var(--color-red) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  border-image-source: var(--color-red) !important;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--color-red) !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 1px solid #fff !important;
+  box-shadow: #222 1px 0 10px;
+}
+
+@media (hover: hover) {
+  a:hover, .login__button:hover {
+    transform: scale(1);
+    transition-duration: var(--transition-duration);
+  }
+}
+.tournament-status {
+  text-align: center;
+  color: #fff;
+  font-family: "Raleway-SemiBold";
+  font-size: 24px;
+  line-height: 110%;
+}
+
+.filter-checkbox {
+  cursor: pointer;
+  color: #fff;
+  margin: 10px;
+}
+
+.filter-checkbox.selected {
+  font-weight: bold;
+  color: var(--color-red);
+}
+
+.empty-tournaments {
+  font-weight: bold;
+  color: var(--color-light);
+  text-align: center;
+  font-size: 30px;
+}
+
+.game-selector {
+  text-align: center;
+  color: #fff;
+  font-family: "Raleway-SemiBold";
+  font-size: 20px;
+  line-height: 110%;
+}
+
+.wrapper-tournament {
+  display: inline-block;
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-inline: 20px;
+  padding-block: 30px;
+  top: 100px;
+  left: 0;
+  right: 0;
+  width: 80%;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 130%;
+  border: solid 2px #fff;
+  border-radius: 10px;
+  background: var(--color-dark-blue);
+}
+
+.pagination > li > a {
+  background-color: var(--color-light);
+  border-color: var(--color-light);
+  color: var(--color-blue);
+}
+
+/* (2) Change disabled buttons*/
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  background-color: var(--color-light);
+  border-color: var(--color-light);
+  color: grey;
+}
+
+.pagination > .active > a:focus,
+.pagination > li > a:hover,
+.pagination > li > a:focus {
+  background-color: var(--color-light);
+  border-color: #F0F8FF;
+  color: var(--color-red);
+}
+
+.page-item.active .page-link,
+.pagination > li.active > a {
+  color: var(--color-light) !important;
+  border-color: #F0F8FF;
+  background: var(--color-red) !important;
+}
+
+.page-link:focus {
+  border-color: var(--color-red);
+}
+
+.page-link:focus {
+  box-shadow: var(--color-red);
 }
 
 /*# sourceMappingURL=main.css.map */
