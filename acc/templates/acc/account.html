@@ -25,8 +25,8 @@
         <div class="account__main">
             <form>
                 {% csrf_token %}
-                {% if avatar or user.image.url %}
-                    <img src="{% if avatar %}{{ avatar }}{% else %}{{ user.image.url }}{% endif %}"
+                {% if avatarfull or user.image.url %}
+                    <img src="{% if avatarfull %}{{ avatarfull }}{% else %}{{ user.image.url }}{% endif %}"
                     class="account__image"
                     alt="Фото профиля">
                 {% else %}
@@ -36,7 +36,7 @@
                 {% endif %}
                 <div class="account__nickname">
                     <p>{{ personaname }}</p>
-                    <p>{{ form.username }}</p>
+                    <p>{{ form.username.value }}</p>
                     <p>{{ first_name }}</p>
                 </div>
                 <a href="{{ profileurl }}" class="account__link">Ссылка на steam</a>
