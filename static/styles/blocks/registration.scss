@@ -57,7 +57,7 @@
 }
 
 .registration__label1-eye, .registration__label2-eye{
-    background-image: url(/static/images/login/eye.svg);
+    background-image: url(/static/images/login/blind.svg);
     display: inline-flex;
     justify-content: center;
     width: 30px;
@@ -76,7 +76,7 @@
 }
 
 #registration__password1-eye:checked ~ .registration__label1-eye, #registration__password2-eye:checked ~ .registration__label2-eye{
-    background-image: url(/static/images/login/blind.svg);
+    background-image: url(/static/images/login/eye.svg);
     display: inline-block;
     width: 30px;
     height: 30px;

@@ -3,10 +3,10 @@ function Toggle(id_checkbox, id_password){
     let password = document.getElementById(id_password);
 
     if (temp.checked){
-        password.type = 'password';
+        password.type = 'text';
     }
     else{
-        password.type = 'text';
+        password.type = 'password';
     }
 }
 
