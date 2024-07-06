@@ -7,5 +7,5 @@ urlpatterns = [
     # path('', views.index_auth, name = 'index_auth'),
     path('acc/', views.profile, name = 'acc'),
     path('del_acc/', views.profile_delete_view, name='del_acc'),
-    path('my_events/', views.my_events, name='my_events')
+    path('my_events/', views.UserTournamentsListView.as_view(), name='my_events')
 ]
