@@ -4,11 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
-<body>
-  <p>
-    Введите вашу почту
-  </p>
+<body class="body__password">
+
+  <main>
+    <div class="background-images">
+      <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+      <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+      <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+      <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+      
+      <div class="background-images__circle1"></div>
+      <div class="background-images__circle2"></div>
+      <div class="background-images__circle3"></div>
+    </div>
+ 
+    <div class="password__container">
+      <p>
+        Введите вашу почту
+      </p>
       <form method="post">
         {% csrf_token %}
         <!-- <input 
@@ -18,6 +33,9 @@
           placeholder="Почта"> -->
         {{form.as_p}}
         <button type="submit">Запросить ссылку на смену пароля</button>  
-      </form>
+      </form> 
+    </div>
+    
+  </main>
 </body>
 </html>

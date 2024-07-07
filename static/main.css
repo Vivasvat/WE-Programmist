@@ -33,6 +33,12 @@
 @import url("variables.scss");
 @import url("fonts.scss");
 @import url("mixins.scss");
+@import url("variables.scss");
+@import url("fonts.scss");
+@import url("mixins.scss");
+@import url("variables.scss");
+@import url("fonts.scss");
+@import url("mixins.scss");
 html {
   -webkit-text-size-adjust: 100%;
 }
@@ -2909,11 +2915,12 @@ html {
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
-  min-width: 992px !important;
+  min-width: 992px;
 }
 
 .header__tournaments-menu {
   position: relative;
+  z-index: 10;
   display: flex;
   justify-content: space-around;
   position: fixed;
@@ -3179,6 +3186,16 @@ html {
   border-top-left-radius: 0;
 }
 
+.tournament__card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-img-top {
+  height: 250px;
+  width: auto;
+}
+
 .body__tournaments p {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -3196,33 +3213,36 @@ html {
   font-size: 48px;
   line-height: 110%;
   color: #fff;
-  padding-top: 15px;
+  padding-block: 15px;
 }
 
 .card {
-  border: 2px solid rgba(250, 250, 250, 0.8) !important;
+  border: 2px solid rgba(250, 250, 250, 0.8);
   color: var(--color-dark-blue);
   margin-bottom: 2rem;
 }
 
 .btn {
-  border: 1px solid var(--color-red) !important;
-  border-image-slice: 1 !important;
-  background: var(--color-red) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  border-image-source: var(--color-red) !important;
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  transition: all 0.4s ease;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
 }
 
-.btn:hover, .btn:focus {
-  background: var(--color-red) !important;
-  -webkit-text-fill-color: #fff !important;
-  border: 1px solid #fff !important;
-  box-shadow: #222 1px 0 10px;
+@media (hover: hover) {
+  .btn:hover {
+    transform: scale(1.2);
+    transition-duration: var(--transition-duration);
+  }
 }
-
 @media (hover: hover) {
   a:hover, .login__button:hover {
     transform: scale(1);
@@ -3230,19 +3250,20 @@ html {
   }
 }
 .tournament-status {
-  text-align: center;
   color: #fff;
   font-family: "Raleway-SemiBold";
   font-size: 24px;
   line-height: 110%;
-  padding-block: 20px;
+  padding-block: 30px;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .filter-checkbox {
+  width: 250px;
   cursor: pointer;
   color: #fff;
-  margin: 10px;
-  padding-inline: 50px;
 }
 
 .filter-checkbox.selected {
@@ -3258,6 +3279,7 @@ html {
 }
 
 .game-selector {
+  position: relative;
   text-align: center;
   color: #fff;
   font-family: "Raleway-SemiBold";
@@ -3314,9 +3336,9 @@ html {
 
 .page-item.active .page-link,
 .pagination > li.active > a {
-  color: var(--color-light) !important;
+  color: var(--color-light);
   border-color: #F0F8FF;
-  background: var(--color-red) !important;
+  background: var(--color-red);
 }
 
 .page-link:focus {
@@ -3325,6 +3347,31 @@ html {
 
 .page-link:focus {
   box-shadow: var(--color-red);
+}
+
+.body__password {
+  height: 100%;
+  overflow: hidden;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.password__container {
+  text-align: center;
+  background-color: black;
+  padding: 50px;
+  border-radius: var(--border-radius);
+}
+
+.body__password a {
+  text-decoration: none;
+  color: var(--color-red);
 }
 
 /*# sourceMappingURL=main.css.map */
