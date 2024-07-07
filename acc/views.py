@@ -17,6 +17,9 @@ from django.http import HttpResponseRedirect
 from users.models import User
 from acc.forms import ProfileForm
 
+from tournaments.views import TournamentsListView
+from teams.models import Team
+
 
 @login_required(login_url='users:login')
 def profile(request):
@@ -120,3 +123,13 @@ def get_listfriends(steam_id):
 
 def my_events(request):
     pass
+
+
+class UserTournamentsListView(TournamentsListView):
+    template_name = 'acc/my_events.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        user_teams = Team.objects.filter(members=user)
+        queryset = super().get_queryset().filter(registered_teams__in=user_teams).distinct()
+        return queryset

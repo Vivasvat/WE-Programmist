@@ -1,11 +1,197 @@
+{% load static %}
+{% load bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% bootstrap_css %}
+     <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'tournaments.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Турниры пользователя</title>
 </head>
-<body>
+
+
+<body class="body__tournaments">
+
+    <header class="header__tournaments">
+        <nav class="header__tournaments-nav">
+            <ul class="header__tournaments-menu">
+                <li class="header__tournaments-item">
+                    <a href="#" class="header__logo-tounament">
+                        <img src="{% static 'images/header/Logo.svg' %}" alt="" 
+                        loading="lazy">
+                    </a>
+                </li>
+                <li class="header__tournaments-item">
+                    <a href="#" class="header__account-tounament">
+                        <img src="/static/images/tournaments/account.svg" alt="" 
+                        loading="lazy">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     
+    <div class="background-images">
+        <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+        <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+        <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+        <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
+
+        <div class="background-images__circle1"></div>
+        <div class="background-images__circle2"></div>
+        <div class="background-images__circle3"></div>
+    </div>
+
+    <main class="main__tournaments">
+        <h1> Турниры пользователя </h1>
+    
+        {#Filters #}
+        <form id="filter-form" method="get">
+            <nav class = 'tournament-status'>
+                {% for category in filter_form.fields.area.choices %}
+                    <label class="filter-checkbox" data-value="{{ category.0 }}">
+                        {{ category.1 }}    
+                    </label>
+                {% endfor %}
+            </nav>
+            <div class="game-selector">
+                <label > Игры </label>
+                <select name="game" id="game-filter">
+                    {% for game in filter_form.fields.game.choices %}
+                        <option value="{{ game.0 }}" {% if request.GET.game == game.0 %}selected{% endif %}>{{ game.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input type="hidden" id="area-input" name="area" value="{% if request.GET.area %}{{ request.GET.area }}{% else %}Active{% endif %}">
+        </form>
+    
+        {#Cards with tournaments#}
+        {% if area == 'Active' %}
+        <div class="container">
+        <div class="row">
+            {% for tournament in tournaments %}
+                <div class="col-md-4">
+                    <div class="card" >
+                        <a href="{% url 'tournaments:tournament_detail' tournament.id %}">
+                            <img class="card-img-top" src="{{ tournament.picture.url }}" alt= {{tournament.name}} > </a>
+                        <div class="card-body">
+                            <h3> <a class="card-title" href="{% url 'tournaments:tournament_detail' tournament.id %}">
+                                {{tournament.name}}</a></h3>
+                            <p>Игра: {{ tournament.get_game_display }}</p>
+                            <p>Статус: {{ tournament.get_status_display }}</p>
+                            <p>Дата проведения: {{ tournament.tournament_start_date|date:'d-m-Y, H:i' }}</p>
+                            <p>Организатор: {{ tournament.organizer }}</p>
+                            <p>Призовой фонд: {{ tournament.prize_fund|floatformat:"0" }} рублей</p>
+                            <p>Регистрация: с {{ tournament.registration_start_date|date:'d-m-Y, H:i' }} по {{ tournament.registration_end_date|date:'d-m-Y, H:i' }}</p>
+                            <p>Участники: {{ tournament.registered_teams.count}} из {{ tournament.max_teams}} команд </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% elif area == 'Archive'%}
+            <div class="container">
+            <div class="row">
+            {% for tournament in tournaments %}
+                <div class="col-md-4">
+                    <div class="card" >
+                        <a href="{% url 'tournaments:tournament_detail' tournament.id %}">
+                            <img class="card-img-top" src="{{ tournament.picture }}" alt= {{tournament.name}} > </a>
+                        <div class="card-body">
+                            <h3 class="card-title"> <a href="{% url 'tournaments:tournament_detail' tournament.id %}">
+                                {{tournament.name}}</a></h3>
+                            <p>Игра: {{ tournament.get_game_display }}</p>
+                            <p>Статус: {{ tournament.get_status_display }}</p>
+                            <p>Дата проведения: {{ tournament.tournament_start_date|date:'d-m-Y, H:i' }}</p>
+                            <p>Организатор: {{ tournament.organizer }}</p>
+                            <p>Призовой фонд: {{ tournament.prize_fund|floatformat:"0" }} рублей</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    
+        {% if not tournaments%}
+            <h3 class="empty-tournaments"> По установленным фильтрам пока нет турниров </h3>
+        {% endif %}
+        </div>
+        </div>
+    
+        {# Pagination #}
+        <div class="container">
+            {% if is_paginated %}
+            {% if page_obj.has_other_pages %}
+            <ul class="pagination justify-content-center" style="margin:20px 0">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}&amp;{{ querystring }}">Previous</a></li>
+                {% else %}
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                {% endif %}
+    
+                {% for i in page_obj.paginator.page_range %}
+                    {% if i == page_obj.number %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ i }}&amp;{{ querystring }}">{{ i }}</a></li>
+                    {% elif i >= page_obj.number|add:'-2' and i <= page_obj.number|add:'2' %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}&amp;{{ querystring }}">{{ i }}</a></li>
+                    {% elif i == 1 %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}&amp;{{ querystring }}">{{ i }}</a></li>
+                        {% if page_obj.number > 4 %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'-2' }}&amp;{{ querystring }}">...</a></li>
+                        {% endif %}
+                    {% elif i == page_obj.paginator.num_pages %}
+                        {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'2' }}&amp;{{ querystring }}">...</a></li>
+                        {% endif %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}&amp;{{ querystring }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+    
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}&amp;{{ querystring }}">Next</a></li>
+                {% else %}
+                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                {% endif %}
+            </ul>
+            {% endif %}
+            {% endif %}
+        </div>
+    </main>
+
+    <footer class="footer__tournament">
+        <header class="footer__tournament-header">
+            <h2>Поддержка</h2>
+        </header>
+        <nav class="footer__nav">
+            <ul class="footer__menu-nav">
+                <li class="footer__tournament-text">
+                    <p class="footer__menu-header">Телефон</p>
+                </li>
+                <li class="footer__item">
+                    <a href="tel:89853889477" class="footer__menu-link footer__menu-help-color">8 (985) 388 94 77</a>
+                </li>
+            </ul>   
+            <ul class="footer__menu-help">
+                <li class="footer__tournament-text">
+                    <p class="footer__menu-header">Email</p>
+                </li>
+                <li class="footer__item">
+                    <a href="mailto:ivan.elistratov.2001@mail.ru
+                    ?body=Добрый день, хотим сообщить Вам о возникшей проблеме&subject=Возникшая проблема" 
+                    class="footer__menu-link footer__menu-help-color">Напишите нам</a>
+                </li>
+            </ul>
+        </nav>
+        <img src="/static/images/footer/Frame 685.svg" alt="" 
+        class="footer__image"
+        loading="lazy">
+    </footer>
+
+    <script src="/static/scripts/main.js"></script>
 </body>
 </html>
+
+
+
+
