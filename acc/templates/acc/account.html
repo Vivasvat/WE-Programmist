@@ -1,19 +1,21 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аккаунт</title>
-    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__account">
 
     <main>
         <div class="background-images">
-            <img class="background-images__Vec1" src='/static/images/404/Vector1.svg' alt="">
-            <img class="background-images__Vec2" src='/static/images/404/Vector2.svg' alt="">
-            <img class="background-images__Vec3" src='/static/images/404/Vector3.svg' alt="">
-            <img class="background-images__Vec4" src='/static/images/404/Vector4.svg' alt="">
+            <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
+            <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
+            <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
+            <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
             
             <div class="background-images__circle1"></div>
             <div class="background-images__circle2"></div>
@@ -23,62 +25,76 @@
         <div class="account__main">
             <form>
                 {% csrf_token %}
-                <img src="{{ avatarfull }}" 
-                class="account__image"
-                alt="Фото профиля">
-                <!-- {{ avatarfull }} -->
+                {% if avatarfull or user.image.url %}
+                    <img src="{% if avatarfull %}{{ avatarfull }}{% else %}{{ user.image.url }}{% endif %}"
+                    class="account__image"
+                    alt="Фото профиля">
+                {% else %}
+                    <img src="{% static 'images/account/defolt_avatar.png' %}"
+                    class="account__image"
+                    alt="Фото профиля">
+                {% endif %}
                 <div class="account__nickname">
                     <p>{{ personaname }}</p>
-                    <!-- {{ personaname }} -->
+                    <p>{{ form.username.value }}</p>
+                    <p>{{ first_name }}</p>
                 </div>
                 <a href="{{ profileurl }}" class="account__link">Ссылка на steam</a>
             </form>
 
-            <a href="#" class="account__link-events">Мои события</a>
+            <a href="{% url 'acc:my_events' %}" class="account__link-events">Мои события</a>
 
             <div class="account__menu-button">
                 <a href="#" class="account__link-main" title="На главную">
-                    <img class="account__button" src="/static/images/account/house.svg" alt="">
+                    <img class="account__button" src="{% static 'images/account/house.svg' %}" alt="">
                 </a>
                     
                 <form action="" method="POST">
                     {% csrf_token %}
                     <button type="button" title="Редактировать профиль" onclick="Edit()">
-                        <img class="account__button" src="/static/images/account/edit.svg" alt="">
+                        <img class="account__button" src="{% static 'images/account/edit.svg' %}" alt="">
                     </button>
                 </form>
 
                 <form method="POST" action="{% url 'acc:del_acc' %}">
                     {% csrf_token %}
                     <button type="submit" title="Удалить профиль">
-                        <img class="account__button" src="/static/images/account/delete.svg" alt="">
+                        <img class="account__button" src="{% static 'images/account/delete.svg' %}" alt="">
                     </button>
                 </form>
             </div>
            
         </div>
 
-        <form action="">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div id="account__change">
                 
-                <label for="account__change-input" class="account__change-label">Загрузите изображение</label>
-                <input id="account__change-input" type="file" accept=".jpg,.jpeg,.png">
+                <label for="account__change-input" class="account__change-label">
+                    Загрузите изображение</label>
+                <input 
+                id="account__change-input" 
+                name="image"
+                type="file" 
+                accept=".jpg,.jpeg,.png">
 
                 <fieldset class="account__change-block">
                     <legend class="account__change-legend">Измените никнейм</legend>
                     <label for="account__change-name"></label>
-                    <input id="account__change-name" type="text">
+                    <input 
+                    id="account__change-name" 
+                    name="username"
+                    autocomplete="off"
+                    type="text">
                 </fieldset>
-                
-
                 <button type="submit" class="account__button-change">Сохранить изменения</button>
                 <button type="submit" class="account__button-back">Вернуться в профиль</button>
-
-            </div>
-        </form>
+            </form>
+        </div>
+        
 
     </main>
 
-    <script src="/static/scripts/main.js"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
 </body>
 </html>

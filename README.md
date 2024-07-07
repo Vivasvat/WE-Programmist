@@ -3,6 +3,7 @@
 pip freeze > requirements.txt
 
 ****Установка пакетов:****
+
 pip install -r requirements.txt
 
 ****Запуск сервера:****

@@ -13,7 +13,7 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 75px;
+    margin-top: 5%;
     width: 30%;
     background-color: var(--color-blue);
     border-radius: var(--border-radius);
@@ -65,7 +65,7 @@
 }
 
 .password__label{
-    background-image: url(/static/images/login/eye.svg);
+    background-image: url(/static/images/login/blind.svg);
     display: inline-flex;
     justify-content: center;
     width: 30px;
@@ -92,7 +92,7 @@
 }
 
 #password__eye:checked ~ .password__label{
-    background-image: url(/static/images/login/blind.svg);
+    background-image: url(/static/images/login/eye.svg);
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -149,9 +149,10 @@
     }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 900px){
     .login__main{
         width: 70%;
+        margin-top: 15%;
     }
 
     .body__login fieldset{

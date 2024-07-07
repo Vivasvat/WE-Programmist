@@ -125,14 +125,6 @@ TEMPLATES = [
     },
 ]
 
-# app password от yandex: exbhvdmytgcxqcms
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# config/settings.py
-# почты для получения писем
-# RECIPIENTS_EMAIL = ['CyberChamp@yandex.ru']
-# почта отправителя по умолчанию, та что верифицирована
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.yandex.ru'
@@ -145,13 +137,12 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER 
 SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
-# RECIPIENTS_EMAIL = ['CyberChamp@yandex.ru'] 
-
-# DEFAULT_FROM_EMAIL = 'CyberChamp@yandex.ru'  
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # WSGI_APPLICATION = 'social_auth.wsgi.application'
 WSGI_APPLICATION = "app.wsgi.application"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
