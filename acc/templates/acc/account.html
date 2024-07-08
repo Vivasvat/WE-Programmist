@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__account">
-
     <main>
         <div class="background-images">
             <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
@@ -37,7 +36,6 @@
                 <div class="account__nickname">
                     <p>{{ personaname }}</p>
                     <p>{{ form.username.value }}</p>
-                    <p>{{ first_name }}</p>
                 </div>
                 <a href="{{ profileurl }}" class="account__link">Ссылка на steam</a>
             </form>
@@ -47,7 +45,7 @@
             <a href="{% url 'teams:create_team' %}" class="account__link-events">Создать команду</a>
 
             <div class="account__menu-button">
-                <a href="{% url 'users:logout' %}" class="account__link-main" title="Выйти и перейти на главную страницу">
+                <a href="{% url 'tournaments:list_tournament' %}" class="account__link-main" title="Выйти и перейти на главную страницу">
                     <img class="account__button" src="{% static 'images/account/house.svg' %}" alt="">
                 </a>
                     
@@ -65,7 +63,6 @@
                     </button>
                 </form>
             </div>
-           
         </div>
 
         <form method="POST" enctype="multipart/form-data">
@@ -89,6 +86,13 @@
                     autocomplete="off"
                     type="text">
                 </fieldset>
+                <div class="error">
+                    {% if form.password.errors %}
+                     <div class="alert alert-danger alert-dismissible fade show">
+                         {{ form.password.errors }}
+                     </div>
+                    {% endif %}
+                  </div>
                 <button type="submit" class="account__button-change">Сохранить изменения</button>
                 <button type="submit" class="account__button-back">Вернуться в профиль</button>
             </form>
