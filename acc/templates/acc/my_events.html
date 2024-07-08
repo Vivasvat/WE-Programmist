@@ -75,8 +75,10 @@
             {% for tournament in tournaments %}
                 <div class="col-md-4">
                     <div class="card" >
-                        <a href="{% url 'tournaments:tournament_detail' tournament.id %}">
+                        <div class="tournament__card-container">
+                            <a href="{% url 'tournaments:tournament_detail' tournament.id %}">
                             <img class="card-img-top" src="{{ tournament.picture.url }}" alt= {{tournament.name}} > </a>
+                        </div>
                         <div class="card-body">
                             <h3> <a class="card-title" href="{% url 'tournaments:tournament_detail' tournament.id %}">
                                 {{tournament.name}}</a></h3>
