@@ -3438,4 +3438,25 @@ html {
   z-index: -1;
 }
 
+.users__teams-item, .account__link-events {
+  padding-bottom: 15px;
+}
+
+.body__password .account__link-events {
+  color: var(--color-light);
+  padding: 0;
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
+}
+
 /*# sourceMappingURL=main.css.map */

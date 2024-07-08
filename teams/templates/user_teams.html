@@ -22,9 +22,9 @@
 
         <div class="password__container">
         <h2>Мои команды</h2>
-          <ul>
+          <ul class="users__teams">
             {% for team in teams %}
-              <li>
+              <li class="users__teams-item">
                 <a href="{% url 'teams:team_detail' team.id %}">{{ team.name }}</a>
               </li>
             {% endfor %}
