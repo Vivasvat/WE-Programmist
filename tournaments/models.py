@@ -42,7 +42,7 @@ class Tournaments(models.Model):
         blank=True,
         null=True,
         verbose_name='Изображение',
-        upload_to="images/tournaments/"
+        upload_to="static/images/tournaments/"
     )
 
     organizer = models.CharField(
