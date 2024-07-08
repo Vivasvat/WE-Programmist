@@ -1281,6 +1281,14 @@ a[class^=play-with-us__link] {
     height: 52.8125vw;
   }
 }
+@media screen and (max-width: 670px) {
+  .play-with-us__picture {
+    top: 18%;
+    left: 50%;
+    width: 54.7945205479vw;
+    height: 54.7945205479vw;
+  }
+}
 @media screen and (max-width: 640px) {
   #play-with-us {
     padding-top: 150px;
