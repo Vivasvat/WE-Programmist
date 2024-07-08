@@ -44,10 +44,10 @@
 
             <a href="{% url 'acc:my_events' %}" class="account__link-events">Мои события</a>
 
-            <a href="#" class="account__link-events">Создать команду</a>
+            <a href="{% url 'teams:create_team' %}" class="account__link-events">Создать команду</a>
 
             <div class="account__menu-button">
-                <a href="#" class="account__link-main" title="На главную">
+                <a href="{% url 'users:logout' %}" class="account__link-main" title="Выйти и перейти на главную страницу">
                     <img class="account__button" src="{% static 'images/account/house.svg' %}" alt="">
                 </a>
                     

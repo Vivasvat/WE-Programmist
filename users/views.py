@@ -21,7 +21,7 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                return HttpResponseRedirect("/acc/")
+                return HttpResponseRedirect("/tournaments/")
     else:
         form = UserLoginForm()
     context = {
@@ -38,7 +38,7 @@ def registration(request):
             raw_password = form.cleaned_data.get('password1')
             user = auth.authenticate(username=user.username, password=raw_password)
             auth.login(request, user)
-            return redirect('/acc/')
+            return redirect('/tournaments/')
 
         else:
             return render(request, 'users/registration.html', {'form': form})
@@ -67,7 +67,7 @@ def contact_view(request):
                 user = False
                 # return HttpResponse(f'Не существует пользователя с такой почтой: {to_email}')
                 context = f'Не существует пользователя с такой почтой: {to_email}'
-                return render(request, "users/errors.html", context)
+                return render(request, "users/errors.html", { 'context' : context })
             if user:
                 link = generate_one_time_link(user)
                 full_link = request.build_absolute_uri(link)
@@ -78,19 +78,23 @@ def contact_view(request):
 
                 return redirect('/success/')
     else:
-        return HttpResponse('Неверный запрос.')
+        # return HttpResponse('Неверный запрос.')
+        context = 'Неверный запрос'
+        return render(request, "users/errors.html", { 'context' : context })
     return render(request, "users/email.html", {'form': form})
 
 def success_view(request):
     # return HttpResponse(f'Приняли! Спасибо за вашу заявку: {email_current}')
     context = f'Приняли! Спасибо за вашу заявку: {email_current}'
-    return render(request, "users/errors.html", context)
+    return render(request, "users/errors.html", { 'context' : context })
 
 def use_one_time_link(request, token):
     one_time_link = get_object_or_404(OneTimeLink, token=token)
 
     if one_time_link.is_used:
-        return HttpResponseForbidden("This link has already been used.")
+        context = f'Ваша ссылка, отрпвленная на почту: {email_current} уже использована'
+        return render(request, "users/errors.html", { 'context' : context })
+        # return HttpResponseForbidden("This link has already been used.")
 
     one_time_link.is_used = True
     one_time_link.save()

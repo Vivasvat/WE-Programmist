@@ -18,13 +18,13 @@
         <nav class="header__tournaments-nav">
             <ul class="header__tournaments-menu">
                 <li class="header__tournaments-item">
-                    <a href="#" class="header__logo-tounament">
+                    <a href="{% url 'main:index' %}" class="header__logo-tounament">
                         <img src="{% static 'images/header/Logo.svg' %}" alt="" 
                         loading="lazy">
                     </a>
                 </li>
                 <li class="header__tournaments-item">
-                    <a href="#" class="header__account-tounament">
+                    <a href="{% url 'acc:acc' %}" class="header__account-tounament">
                         <img src="{% static 'images/tournaments/account.svg' %}" alt="" 
                         loading="lazy">
                     </a>
@@ -187,7 +187,7 @@
                 </li>
             </ul>
         </nav>
-        <img src="/static/images/footer/Frame 685.svg" alt="" 
+        <img src="{% static 'images/footer/Frame 685.svg' %}" alt="" 
         class="footer__image"
         loading="lazy">
     </footer>

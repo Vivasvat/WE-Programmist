@@ -17,3 +17,17 @@ pip install -r requirements.txt
 - Запустить nginx, для этого зайти в cmd в папке nginx и ввести команду nginx.exe
 - Перезапустить nginx можно в отдельном cmd командой nginx.exe -s reload, завершить - nginx.exe -s quit
 - Заходить на сайт нужно по ссылке 127.0.0.1:8080
+
+****Создание фикстур:****
+- Создать папку с названием fixtures
+- создать в ней вложенную папку с название приложения, миграции которого хотим сохранить
+- Применить следующую команду:
+- python manage.py dumpdata "название приложения"."название модели" > /
+- fixtures/"название приложения"/"название приложения".json
+- Например:
+- python manage.py dumpdata tournaments.Tournaments > fixtures/tournaments/tournaments.json
+
+****Применение фикстур:****
+- применить команды makemigrations, а затем migrate
+- применить команду (например): /
+- python manage.py loaddata fixtures/tournaments/tournaments.json
