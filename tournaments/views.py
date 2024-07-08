@@ -107,8 +107,7 @@ class RegisterTeamForTournamentView(LoginRequiredMixin, View):
                 return redirect('tournaments:register_team_for_tournament', tournament_id=tournament.id)
 
             tournament.registered_teams.add(team)
-            messages.success(request, 'Ваша команда успешно зарегистрирована на турнир.')
-            return redirect('tournaments:tournament_detail', tournament_id=tournament.id)
+            return redirect('acc:my_events', tournament_id=tournament.id)
 
         return render(request, 'register_team.html', {'form': form, 'tournament': tournament})
 
