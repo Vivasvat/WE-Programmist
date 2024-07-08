@@ -45,12 +45,16 @@
               <form method="post" style="display: inline;">
                 {% csrf_token %}
                 <input type="hidden" name="remove_member" value="{{ member.id }}">
-                <button type="submit">Удалить</button>
+                <button class="team_update-button" type="submit" title="Удалить участника">
+                  <img src="{% static 'images/team/delete.svg' %}" alt="">
+                </button>
               </form>
               <form method="post" style="display: inline;">
                 {% csrf_token %}
                 <input type="hidden" name="new_captain" value="{{ member.id }}">
-                <button type="submit">Назначить капитаном</button>
+                <button class="team_update-button" type="submit" title="Назначить капитаном">
+                  <img src="{% static 'images/team/crown.svg' %}" alt="">
+                </button>
               </form>
             {% endif %}
           </li>

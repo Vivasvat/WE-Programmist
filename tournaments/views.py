@@ -107,7 +107,7 @@ class RegisterTeamForTournamentView(LoginRequiredMixin, View):
                 return redirect('tournaments:register_team_for_tournament', tournament_id=tournament.id)
 
             tournament.registered_teams.add(team)
-            return redirect('acc:my_events', tournament_id=tournament.id)
+            return redirect('acc:my_events')
 
         return render(request, 'register_team.html', {'form': form, 'tournament': tournament})
 
