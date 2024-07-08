@@ -27,10 +27,10 @@ def insert_multiple_records(records):
 
 records_to_insert = []
 
-for i in range(10):
+for i in range(50):
     name = 'Test ' + str(i)
     current_dateTime = datetime.now()
-    records_to_insert.append((name, 'static/images/tournaments/Valorant.jpg', 'BMSTU', '2024-06-19 15:40', current_dateTime,
-                              current_dateTime, current_dateTime, 'Active', 'Valorant', 250))
+    records_to_insert.append((name, 'images/tournaments/HS.jpg', 'BMSTU', '2024-06-19 15:40', current_dateTime,
+                              current_dateTime, current_dateTime, 'Active', 'HS', 250))
 
 insert_multiple_records(records_to_insert)

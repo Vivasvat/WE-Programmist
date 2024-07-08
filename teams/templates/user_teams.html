@@ -4,40 +4,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация команды на турнир</title>
+    <title>Title</title>
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__password">
-
     <main>
-
         <div class="background-images">
           <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
           <img class="background-images__Vec2" src="{% static 'images/404/Vector2.svg' %}" alt="">
           <img class="background-images__Vec3" src="{% static 'images/404/Vector3.svg' %}" alt="">
           <img class="background-images__Vec4" src="{% static 'images/404/Vector4.svg' %}" alt="">
-          
+
           <div class="background-images__circle1"></div>
           <div class="background-images__circle2"></div>
           <div class="background-images__circle3"></div>
         </div>
-     
-        <div class="password__container">
-            <h2>Регистрация команды на турнир {{ tournament.name }}</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Зарегистрироваться</button>
-            </form>
 
-            {%if messages%}
-                {% for message in messages%}
-                    <div class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
-                {%endfor%}
-            {%endif%}
+        <div class="password__container">
+        <h2>Мои команды</h2>
+          <ul class="users__teams">
+            {% for team in teams %}
+              <li class="users__teams-item">
+                <a href="{% url 'teams:team_detail' team.id %}">{{ team.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+            {% if not teams%}
+                <h2> У пользователя нет команд </h2>
+            {% endif %}
+
+            <a href="{% url 'teams:create_team' %}" class="account__link-events">Создать команду</a>
         </div>
-        
-      </main>
-    <script src="{% static 'scripts/main.js' %}"></script>
+    </main>
 </body>
 </html>

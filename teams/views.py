@@ -108,3 +108,9 @@ def team_delete(request, team_id):
         return render(request, 'error.html', {
             'message': 'Только капитан команды может удалить команду',
             'team_id': team_id})
+
+@login_required
+def user_teams_view(request):
+    user = request.user
+    teams = user.teams.all()
+    return render(request, 'user_teams.html', {'teams': teams})

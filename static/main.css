@@ -1281,6 +1281,14 @@ a[class^=play-with-us__link] {
     height: 52.8125vw;
   }
 }
+@media screen and (max-width: 670px) {
+  .play-with-us__picture {
+    top: 18%;
+    left: 50%;
+    width: 54.7945205479vw;
+    height: 54.7945205479vw;
+  }
+}
 @media screen and (max-width: 640px) {
   #play-with-us {
     padding-top: 150px;
@@ -3349,7 +3357,7 @@ html {
 
 .body__password {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   font-family: "Raleway-Regular";
   font-size: 18px;
   line-height: 140%;
@@ -3393,6 +3401,31 @@ html {
   margin-top: 30px;
 }
 
+.body__password .team_update-button {
+  margin-inline: auto;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.team_update-button img {
+  width: 30px;
+  aspect-ratio: 1;
+}
+
 .body__password input {
   font-family: "Raleway-Regular";
   font-size: 14px;
@@ -3411,6 +3444,27 @@ html {
 
 .body__password .background-images__circle2 {
   z-index: -1;
+}
+
+.users__teams-item, .account__link-events {
+  padding-bottom: 15px;
+}
+
+.body__password .account__link-events {
+  color: var(--color-light);
+  padding: 0;
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
 }
 
 /*# sourceMappingURL=main.css.map */

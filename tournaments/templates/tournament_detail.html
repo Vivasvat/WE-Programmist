@@ -21,8 +21,8 @@
         <div class="background-images__circle3"></div>
     </div>
 
-    <h1>{{ tournament.name }}</h1>
     <div class="wrapper-tournament">
+        <h1>{{ tournament.name }}</h1>
         <p>Игра: {{ tournament.get_game_display}}</p>
         <p>Организатор: {{ tournament.organizer}}</p>
         <p>Регистрация:{{ tournament.registration_start_date|date:'d-m-Y в H:i' }} - {{ tournament.registration_end_date|date:'d-m-Y в H:i' }}</p>
