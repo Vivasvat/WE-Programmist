@@ -1806,6 +1806,7 @@ li[class^=footer__item]:first-child {
 .body-404 {
   background-color: var(--color-blue);
   color: var(--color-light);
+  overflow-x: hidden;
 }
 
 .header-404__circle1 {
@@ -2707,7 +2708,7 @@ li[class^=footer__item]:first-child {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 8%;
+  margin-top: 7%;
   width: 30%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
@@ -2734,10 +2735,7 @@ li[class^=footer__item]:first-child {
   font-size: 18px;
   line-height: 110%;
   color: var(--color-red);
-}
-
-.account__link {
-  margin-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 .account__menu-button {
@@ -2782,7 +2780,7 @@ li[class^=footer__item]:first-child {
   margin-left: auto;
   margin-right: auto;
   width: 30%;
-  height: 70%;
+  height: 80%;
   background-color: var(--color-blue);
   border-radius: var(--border-radius);
   box-shadow: 0 10px 5px #191a23;
@@ -3071,11 +3069,10 @@ html {
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
 .col-xl-auto {
-  position: relative;
+  position: static;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  z-index: -1;
 }
 
 @media (min-width: 768px) {
@@ -3239,12 +3236,13 @@ html {
 
 @media (hover: hover) {
   .btn:hover {
-    transform: scale(1.2);
-    transition-duration: var(--transition-duration);
+    transform: scale(1.1);
+    transition-duration: 2s;
+    color: var(--color-light);
   }
 }
 @media (hover: hover) {
-  a:hover, .login__button:hover {
+  .login__button:hover {
     transform: scale(1);
     transition-duration: var(--transition-duration);
   }
@@ -3364,7 +3362,7 @@ html {
 
 .password__container {
   text-align: center;
-  background-color: black;
+  background-color: var(--color-blue);
   padding: 50px;
   border-radius: var(--border-radius);
 }
@@ -3372,6 +3370,47 @@ html {
 .body__password a {
   text-decoration: none;
   color: var(--color-red);
+}
+
+.body__password p, .body__password h1, .body__password h2 {
+  padding-block: 30px;
+}
+
+.body__password button {
+  margin-inline: auto;
+  display: flex;
+  width: 300px;
+  height: 70px;
+  background-color: var(--color-red);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Raleway-Regular";
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-light);
+  margin-top: 30px;
+}
+
+.body__password input {
+  font-family: "Raleway-Regular";
+  font-size: 14px;
+  line-height: 110%;
+  color: var(--color-grey);
+  width: 100%;
+  background-color: var(--color-dark-blue);
+  color: var(--color-light);
+  padding-left: 10px;
+  padding-block: 5px;
+  box-shadow: -10px 10px 5px 0 #191a23;
+  color: var(--color-light);
+  padding-block: 15px;
+  margin-block: 30px;
+}
+
+.body__password .background-images__circle2 {
+  z-index: -1;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -65,7 +65,9 @@ def contact_view(request):
                 email_current = to_email
             except Exception:
                 user = False
-                return HttpResponse(f'Не существует пользователя с такой почтой: {to_email}')
+                # return HttpResponse(f'Не существует пользователя с такой почтой: {to_email}')
+                context = f'Не существует пользователя с такой почтой: {to_email}'
+                return render(request, "users/errors.html", context)
             if user:
                 link = generate_one_time_link(user)
                 full_link = request.build_absolute_uri(link)
@@ -80,7 +82,9 @@ def contact_view(request):
     return render(request, "users/email.html", {'form': form})
 
 def success_view(request):
-    return HttpResponse(f'Приняли! Спасибо за вашу заявку: {email_current}')
+    # return HttpResponse(f'Приняли! Спасибо за вашу заявку: {email_current}')
+    context = f'Приняли! Спасибо за вашу заявку: {email_current}'
+    return render(request, "users/errors.html", context)
 
 def use_one_time_link(request, token):
     one_time_link = get_object_or_404(OneTimeLink, token=token)

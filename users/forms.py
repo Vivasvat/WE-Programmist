@@ -22,7 +22,7 @@ class UserRegistrationForm(UserCreationForm):
         )
 
     email = forms.EmailField(
-        max_length=25,
+        max_length=75,
         help_text='example@mail.ru' , label='Введите вашу электронную почту'
         )
 

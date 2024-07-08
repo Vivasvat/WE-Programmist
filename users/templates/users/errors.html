@@ -24,18 +24,8 @@
  
     <div class="password__container">
       <p>
-        Введите вашу почту
+        {{ context }}
       </p>
-      <form method="post">
-        {% csrf_token %}
-        <!-- <input 
-          id="registration__input" 
-          type="text" 
-          name="email" 
-          placeholder="Почта"> -->
-        {{form.as_p}}
-        <button type="submit">Запросить ссылку на смену пароля</button>  
-      </form> 
     </div>
     
   </main>
