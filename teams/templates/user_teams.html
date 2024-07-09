@@ -34,9 +34,8 @@
                 <h2> У пользователя нет команд </h2>
             {% endif %}
 
-            <a href="{% url 'teams:create_team' %}" class="account__link-events">Создать команду</a>
-
-            <a href="{% url 'acc:acc' %}" class="account__link-events"> Вернуться в профиль </a>
+           <button> <a href="{% url 'teams:create_team' %}" class="account__link-events">Создать команду</a> </button>
+           <button> <a href="{% url 'acc:acc' %}" class="account__link-events"> Вернуться в профиль </a> </button>
 
         </div>
     </main>

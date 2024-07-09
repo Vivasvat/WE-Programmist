@@ -30,9 +30,11 @@
                 <button type="submit">Создать команду</button>
             </form>
 
-            <a href="{% url 'acc:user_teams' %}" class="account__link-events"> Вернуться к списку команд </a>
+            <button>
+                <a href="{% url 'acc:user_teams' %}"> Вернуться к списку команд </a>
+            </button>
         </div>
-      </main>
-      <script src="{% static 'scripts/main.js' %}"></script>
+    </main>
+    <script src="{% static 'scripts/main.js' %}"></script>
 </body>
 </html>

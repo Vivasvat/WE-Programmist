@@ -33,7 +33,7 @@
       </form>
 
       {% if team.can_add_member %}
-          <p> <a href="{% url 'teams:create_invitation' team.id %}">Ссылка на приглашение игрока в команду</a> </p>
+          <button> <a href="{% url 'teams:create_invitation' team.id %}">Ссылка на приглашение игрока в команду</a> </button>
       {% endif %}
 
      <h2>Текущие участники</h2>
@@ -60,7 +60,7 @@
           </li>
         {% endfor %}
       </ul>
-           <a href="{% url 'acc:user_teams' %}"> Перейти к списку команд </a>
+          <button> <a href="{% url 'acc:user_teams' %}"> Перейти к списку команд </a> </button>
     </div>
   </main>
   <script src="{% static 'scripts/main.js' %}"></script>    

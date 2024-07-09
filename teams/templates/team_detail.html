@@ -32,13 +32,14 @@
             {% endfor %}
         </ul>
         {% if request.user == team.captain %}
-            <p> <a href="{% url 'teams:team_update' team.id %}">Редактировать команду</a> </p>
-            <p><a href="{% url 'teams:team_delete' team_id=team.id %}" onclick=
+            <button> <a href="{% url 'teams:team_update' team.id %}">Редактировать команду</a> </button>
+            <button> <a href="{% url 'teams:team_delete' team_id=team.id %}" onclick=
                 "return confirm('Вы уверены, что хотите удалить эту команду?')">
-            Удалить команду</a></p>
+                Удалить команду</a>
+            </button>
         {% endif %}
 
-            <a href="{% url 'acc:user_teams' %}"> Перейти к списку команд </a>
+            <button> <a href="{% url 'acc:user_teams' %}"> Перейти к списку команд </a> </button>
       </div>
     </main>
     <script src="{% static 'scripts/main.js' %}"></script> 
