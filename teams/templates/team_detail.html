@@ -37,8 +37,9 @@
                 "return confirm('Вы уверены, что хотите удалить эту команду?')">
             Удалить команду</a></p>
         {% endif %}
+
+            <a href="{% url 'acc:user_teams' %}"> Перейти к списку команд </a>
       </div>
-      
     </main>
     <script src="{% static 'scripts/main.js' %}"></script> 
 </body>

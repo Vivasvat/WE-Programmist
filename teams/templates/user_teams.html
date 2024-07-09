@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__password">
+
     <main>
         <div class="background-images">
           <img class="background-images__Vec1" src="{% static 'images/404/Vector1.svg' %}" alt="">
@@ -34,6 +35,9 @@
             {% endif %}
 
             <a href="{% url 'teams:create_team' %}" class="account__link-events">Создать команду</a>
+
+            <a href="{% url 'acc:acc' %}" class="account__link-events"> Вернуться в профиль </a>
+
         </div>
     </main>
 </body>

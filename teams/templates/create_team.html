@@ -29,8 +29,9 @@
                 {{ form.as_p }}
                 <button type="submit">Создать команду</button>
             </form>
+
+            <a href="{% url 'acc:user_teams' %}" class="account__link-events"> Вернуться к списку команд </a>
         </div>
-        
       </main>
       <script src="{% static 'scripts/main.js' %}"></script>
 </body>

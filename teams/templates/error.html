@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
+    <title>Ошибка</title>
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body class="body__password">
@@ -23,8 +23,8 @@
       </div>
    
       <div class="password__container">
-        <h1>Error</h1>
-        <p>{{ context }}</p>
+        <h1>Ошибка</h1>
+        <p>{{ message }}</p>
         <a href="{% url 'teams:team_detail' team_id %}">Вернуться к описанию команды</a>
       </div>
       
